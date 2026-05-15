@@ -1350,6 +1350,7 @@ ul   { list-style: none; }
     border-top: 1px solid rgba(196,145,28,0.3);
     border-bottom: 1px solid rgba(196,145,28,0.3);
     padding: 52px 0;
+    scroll-margin-top: 80px;
 }
 .referral-inner {
     display: flex;
