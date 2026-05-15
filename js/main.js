@@ -220,31 +220,53 @@ if (areaBtn && areaPopup) {
 }
 
 /* ============================================================
-   CONTACT FORM — local preview confirmation
-   (Netlify handles the real POST when deployed)
+   CONTACT FORM — AJAX submit + success popup
+   Submits to Netlify without a page redirect, then shows popup.
 ============================================================ */
-const contactForm = document.getElementById('contactForm');
+const contactForm    = document.getElementById('contactForm');
+const successOverlay = document.getElementById('successOverlay');
+const successClose   = document.getElementById('successClose');
+
+function showSuccess() {
+    if (!successOverlay) return;
+    successOverlay.classList.add('open');
+    successOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideSuccess() {
+    if (!successOverlay) return;
+    successOverlay.classList.remove('open');
+    successOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+
+if (successClose)   successClose.addEventListener('click', hideSuccess);
+if (successOverlay) successOverlay.addEventListener('click', (e) => {
+    if (e.target === successOverlay) hideSuccess();
+});
+
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        if (
-            window.location.hostname === '127.0.0.1' ||
-            window.location.hostname === 'localhost' ||
-            window.location.protocol === 'file:'
-        ) {
-            e.preventDefault();
-            const btn = contactForm.querySelector('button[type="submit"]');
-            const original = btn.textContent;
-            btn.textContent = 'Request Sent! ✓';
-            btn.style.background   = '#2a7a55';
-            btn.style.borderColor  = '#2a7a55';
-            btn.disabled = true;
-            setTimeout(() => {
-                btn.textContent      = original;
-                btn.style.background  = '';
-                btn.style.borderColor = '';
-                btn.disabled = false;
-                contactForm.reset();
-            }, 4000);
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = contactForm.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+
+        try {
+            const formData = new FormData(contactForm);
+            await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            });
+            contactForm.reset();
+            showSuccess();
+        } catch (err) {
+            alert('Something went wrong. Please try again or call us directly.');
+        } finally {
+            btn.disabled = false;
+            btn.textContent = 'Send Request';
         }
     });
 }

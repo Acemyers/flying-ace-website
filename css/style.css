@@ -1518,6 +1518,67 @@ ul   { list-style: none; }
 }
 
 /* ============================================================
+   SUCCESS POPUP
+============================================================ */
+.success-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.success-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+.success-modal {
+    background: var(--navy-light);
+    border: 1px solid rgba(196,145,28,0.3);
+    border-radius: var(--radius-lg);
+    padding: 48px 40px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+.success-overlay.open .success-modal {
+    transform: translateY(0);
+}
+.success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 1.8rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+.success-modal h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 12px;
+}
+.success-modal p {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+/* ============================================================
    FOOTER — Enhanced
 ============================================================ */
 .footer {
