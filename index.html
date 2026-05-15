@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flying Ace's Photography & Drone Services — Premium real estate media, drone photography, and aerial videography serving Lake City, Gainesville, Jacksonville, Ormond Beach, Daytona, and North Florida. FAA Certified. Retired Military Veteran.">
+    <title>Flying Ace's Photography & Drone Services</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ============================================================
+         NAVIGATION
+    ============================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-credentials">
+            <span>🎖️ FAA Certified Commercial Drone Pilot</span>
+            <span class="nav-cred-divider">·</span>
+            <span>⭐ Retired Military Veteran</span>
+        </div>
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img">
+                <div>
+                    <span class="logo-text">Flying <span class="gold">Ace's</span></span>
+                    <span class="logo-sub">Photography &amp; Drone Services</span>
+                </div>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#addons">Add-Ons</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#contact" class="nav-cta">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+         HERO — Video Background
+         HOW TO ADD YOUR VIDEO:
+           Option A (recommended): Copy your .mp4 file into the
+           "videos/" folder inside flying-ace-website and name it hero.mp4
+           Option B: Paste your YouTube video ID into the iframe src below
+           (replace YOUR_VIDEO_ID in both places and uncomment the iframe block)
+    ============================================================ -->
+    <section class="hero" id="home">
+        <div class="hero-video-container">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="videos/hero.mp4" type="video/mp4">
+            </video>
+            <!--
+            YOUTUBE ALTERNATIVE — uncomment this block and fill in YOUR_VIDEO_ID:
+            <iframe class="hero-video-yt"
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&controls=0&playlist=YOUR_VIDEO_ID&vq=hd720"
+                frameborder="0"
+                allow="autoplay; fullscreen"
+                allowfullscreen></iframe>
+            -->
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-animate hero-headline">
+                Real Estate Media<br>
+                <span class="gold">&amp; Drone Services</span>
+            </h1>
+            <p class="hero-animate hero-sub">
+                Premium photography, cinematic drone footage, immersive 3D walkthroughs,<br>
+                live drone streaming, aerial event coverage, drone photogrammetry &amp; more.
+            </p>
+
+            <div class="hero-animate hero-buttons">
+                <a href="#packages" class="btn btn-gold">View Packages</a>
+                <a href="#contact" class="btn btn-outline">Book a Shoot</a>
+            </div>
+        </div>
+
+        <div class="hero-scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         TAGLINE BAR — Built for Realtors + Service Area
+    ============================================================ -->
+    <section class="tagline-bar">
+        <div class="container">
+            <div class="tagline-bar-inner">
+                <div class="tagline-text">
+                    <p class="tagline-eyebrow">Built for Realtors Who Want Listings to Stand Out</p>
+                    <p class="tagline-desc">Fast turnaround, polished edits, aerial coverage, Zillow 3D walkthroughs, floor plans, social media reels, and marketing content — all in one place.</p>
+                    <div class="area-popup-wrap">
+                        <button class="area-btn" id="areaBtn" aria-expanded="false">📍 View Service Areas</button>
+                        <div class="area-popup" id="areaPopup" aria-hidden="true">
+                            <div class="area-popup-grid">
+                                <span>Lake City</span><span>O'Brien</span><span>Lake Butler</span>
+                                <span>Alachua</span><span>Gainesville</span><span>Glen Saint Mary</span>
+                                <span>Starke</span><span>Mayo</span><span>Branford</span>
+                                <span>Live Oak</span><span>Perry</span><span>Valdosta</span>
+                                <span>Jacksonville</span><span>St. Augustine</span><span>Palm Coast</span>
+                                <span>Ormond Beach</span><span>Daytona</span>
+                                <span class="area-popup-note">North Florida &amp; Surrounding Areas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES — Light theme, image-driven cards
+         Stock photos shown as examples — replace with your own work.
+         Video service cards have a ▶ button that opens a video modal.
+         Set data-video-id to your YouTube video ID on each video card.
+    ============================================================ -->
+    <section class="section services light-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">What We Offer</p>
+                <h2 class="section-title dark-title">Our <span class="gold">Services</span></h2>
+                <p class="section-desc dark-desc">Photo, video, drone, and media services for real estate, businesses, events, construction, land and more — captured with purpose, delivered with impact.</p>
+            </div>
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <div class="service-card-img" style="background-image:url('images/service-interior.png')"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">📸</div>
+                        <h3>Real Estate Photography</h3>
+                        <p>Interior and exterior listing photos with professional lighting, sky &amp; lawn enhancement, and expert composition.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-img" style="background-image:url('images/service-drone-photography.png')"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">🚁</div>
+                        <h3>Drone Photography</h3>
+                        <p>Stunning aerial photos that showcase property size, location, and surrounding features from above.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-img" style="background-image:url('images/service-dronevideo.png')"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">🎬</div>
+                        <h3>Drone Video</h3>
+                        <p>Cinematic aerial video with custom branding, available in horizontal and vertical formats for any platform.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-img" style="background-image:url('images/service-zillow3d.png')"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">🏠</div>
+                        <h3>Zillow 3D Walkthroughs</h3>
+                        <p>Interactive 3D virtual tours that let buyers explore a home from anywhere in the world.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-img" style="background-image:url('images/service.interactivefloor.png')"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">📐</div>
+                        <h3>Interactive Floor Plans</h3>
+                        <p>Accurate, visually polished floor plans that give buyers a clear picture of every space.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-img" style="background-image:url('images/service-listingvideo.png')"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">🎥</div>
+                        <h3>Listing Videos</h3>
+                        <p>Professionally edited listing videos combining interior and aerial footage for social media and MLS.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-img" style="background-image:url('images/service-dronelivestreaming.png')"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">📡</div>
+                        <h3>Live Drone Streaming</h3>
+                        <p>Real-time aerial live streams for remote buyers, open houses, and special events.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-img" style="background-image:url('images/service-aerialevent.png')"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">🎪</div>
+                        <h3>Aerial Event Coverage</h3>
+                        <p>Aerial photo and video coverage for events, ceremonies, and public gatherings — shot entirely from above for a unique perspective.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-img" style="background-image:url('images/service-construction.png')"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">🏗️</div>
+                        <h3>Construction Documentation</h3>
+                        <p>Scheduled aerial and ground progress photos to document every phase of a build.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-img" style="background-image:url('images/service-marketing.png')"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">📣</div>
+                        <h3>Marketing &amp; Promo Videos</h3>
+                        <p>High-impact branded videos for businesses, developers, and commercial properties.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-img" style="background-image:url('images/service-vacantland.png')"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">🌾</div>
+                        <h3>Vacant Land Coverage</h3>
+                        <p>Drone surveys and photography for vacant lots, farms, and large tracts of land.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-img" style="background-image:url('images/service-photogrammetry.png')"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">🗺️</div>
+                        <h3>Photogrammetry &amp; Mapping</h3>
+                        <p>Precision drone mapping and 3D modeling for inventory, site surveys, and land analysis.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO MODAL — opens when play button is clicked -->
+    <div class="video-modal" id="videoModal" aria-hidden="true">
+        <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+        <div class="video-modal-content" role="dialog" aria-modal="true">
+            <button class="video-modal-close" id="videoModalClose" aria-label="Close video">&times;</button>
+            <div class="video-modal-player">
+                <iframe id="videoModalFrame" src="" frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p class="video-modal-hint">Replace <code>YOUR_VIDEO_ID</code> on each video card with your YouTube video ID to make this work.</p>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         PACKAGES — Dark, premium feel with "Best For" lines
+    ============================================================ -->
+    <section class="section packages" id="packages">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">Pricing</p>
+                <h2 class="section-title">Real Estate <span class="gold">Packages</span></h2>
+                <p class="section-desc">Straightforward packages built for agents and sellers who want their listings to stand out.</p>
+                <p class="packages-included">&#10003; Unlimited photos and drone included with all packages</p>
+                <p class="packages-addon-link">See enhancement add-ons and pricing below &darr;</p>
+            </div>
+            <div class="packages-grid">
+
+                <div class="package-card">
+                    <div class="package-img" style="background-image:url('images/packages-photo.png')"></div>
+                    <div class="package-body">
+                        <div class="package-header">
+                            <h3>Photography Package</h3>
+                            <p class="package-tagline">Complete listing photos with drone</p>
+                            <div class="package-price">
+                                <span class="price-from">Starting at</span>
+                                <span class="price-amount">$175</span>
+                            </div>
+                        </div>
+                        <p class="package-best-for">&#10024; <strong>Best for</strong> standard listings that need clean, professional MLS-ready photos.</p>
+                        <ul class="package-features">
+                            <li>&#10003; Interior + exterior photos</li>
+                            <li>&#10003; Drone photos included</li>
+                            <li>&#10003; Unlimited photos</li>
+                            <li>&#10003; Fast turnaround</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-gold">Book This Package</a>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-img" style="background-image:url('images/packages-video.png')"></div>
+                    <div class="package-body">
+                        <div class="package-header">
+                            <h3>Videography Package</h3>
+                            <p class="package-tagline">Cinematic listing video with aerial</p>
+                            <div class="package-price">
+                                <span class="price-from">Starting at</span>
+                                <span class="price-amount">$175</span>
+                            </div>
+                        </div>
+                        <p class="package-best-for">&#10024; <strong>Best for</strong> agents who want to add a social media-ready listing video.</p>
+                        <ul class="package-features">
+                            <li>&#10003; Interior/exterior video</li>
+                            <li>&#10003; Aerial coverage</li>
+                            <li>&#10003; 30 sec – 2 min runtime</li>
+                            <li>&#10003; Custom branding (name, company &amp; logo)</li>
+                            <li>&#10003; Horizontal or Vertical</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-gold">Book This Package</a>
+                    </div>
+                </div>
+
+                <div class="package-card package-featured">
+                    <div class="package-badge">Ultimate Package</div>
+                    <div class="package-img" style="background-image:url('images/packages-ultimate.png')"></div>
+                    <div class="package-body">
+                        <div class="package-header">
+                            <h3>Ultimate Showcase</h3>
+                            <p class="package-tagline">The complete listing media experience</p>
+                            <div class="package-price">
+                                <span class="price-from">Starting at</span>
+                                <span class="price-amount">$450</span>
+                            </div>
+                        </div>
+                        <p class="package-best-for">&#10024; <strong>Best for</strong> premium listings, out-of-town buyers, and homes that need maximum online impact.</p>
+                        <ul class="package-features">
+                            <li>&#10003; Full photo + video package</li>
+                            <li>&#10003; Zillow 3D interactive walkthrough</li>
+                            <li>&#10003; Interactive floor plan</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-gold">Book This Package</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="packages-size-note">
+                <span class="gold">&#9650;</span>&nbsp; +$25 per 1,000 sq ft over 3,000 sq ft &nbsp;|&nbsp; Properties over 5,000 sq ft — <a href="#contact">Call for pricing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ADD-ONS — Before/After sliders + specialty services
+         Each slider shows a "before" and "after" of a photo editing
+         enhancement. Drag the handle left and right to compare.
+         Stock photos used as examples — replace with your own work.
+    ============================================================ -->
+    <section class="section addons light-section" id="addons">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">Customize Your Order</p>
+                <h2 class="section-title dark-title">Add-Ons &amp; <span class="gold">Specialty Services</span></h2>
+                <p class="section-desc dark-desc">Mix and match to build the perfect media package for any listing. See our photo enhancement examples below.</p>
+            </div>
+
+            <!-- Before / After Sliders -->
+            <div class="slider-section-label">Photo Enhancement Examples</div>
+            <div class="ba-sliders-grid">
+
+                <!-- Twilight Conversion -->
+                <div class="ba-slider-card">
+                    <h4 class="ba-slider-title">Magazine Quality Twilight Conversion</h4>
+                    <p class="ba-slider-desc">We digitally convert a daytime exterior into a stunning twilight/dusk shot.</p>
+                    <p class="ba-slider-price">$10 per</p>
+                    <div class="ba-slider" data-slider>
+                        <div class="ba-before" style="background-image:url('images/enhancement-twilight-before.jpg')">
+                            <span class="ba-pill ba-pill-left">Before</span>
+                        </div>
+                        <div class="ba-after" style="background-image:url('images/enhancement-twilight-after.png')">
+                            <span class="ba-pill ba-pill-right">After</span>
+                        </div>
+                        <div class="ba-handle">
+                            <div class="ba-line"></div>
+                            <div class="ba-circle">
+                                <span class="ba-chev">&#10094;</span>
+                                <span class="ba-chev">&#10095;</span>
+                            </div>
+                            <div class="ba-drag-hint">Drag</div>
+                            <div class="ba-line"></div>
+                        </div>
+                        <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Slide to compare before and after">
+                    </div>
+                </div>
+
+                <!-- Sky Replacement -->
+                <div class="ba-slider-card">
+                    <h4 class="ba-slider-title">Sky Replacement</h4>
+                    <p class="ba-slider-desc">Overcast or dull skies replaced with bright, vivid blue — every time.</p>
+                    <p class="ba-slider-price">Included with all packages</p>
+                    <div class="ba-slider" data-slider>
+                        <div class="ba-before" style="background-image:url('images/enhancement-sky-before.png')">
+                            <span class="ba-pill ba-pill-left">Before</span>
+                        </div>
+                        <div class="ba-after" style="background-image:url('images/enhancement-sky-after.png')">
+                            <span class="ba-pill ba-pill-right">After</span>
+                        </div>
+                        <div class="ba-handle">
+                            <div class="ba-line"></div>
+                            <div class="ba-circle">
+                                <span class="ba-chev">&#10094;</span>
+                                <span class="ba-chev">&#10095;</span>
+                            </div>
+                            <div class="ba-drag-hint">Drag</div>
+                            <div class="ba-line"></div>
+                        </div>
+                        <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Slide to compare before and after">
+                    </div>
+                </div>
+
+                <!-- Lawn / Grass Enhancement -->
+                <div class="ba-slider-card">
+                    <h4 class="ba-slider-title">Lawn Enhancement</h4>
+                    <p class="ba-slider-desc">Dry or patchy grass transformed into lush, green curb appeal.</p>
+                    <p class="ba-slider-price">$5 per</p>
+                    <div class="ba-slider" data-slider>
+                        <div class="ba-before" style="background-image:url('images/enhancement-lawn-before.png')">
+                            <span class="ba-pill ba-pill-left">Before</span>
+                        </div>
+                        <div class="ba-after" style="background-image:url('images/enhancement-lawn-after.png')">
+                            <span class="ba-pill ba-pill-right">After</span>
+                        </div>
+                        <div class="ba-handle">
+                            <div class="ba-line"></div>
+                            <div class="ba-circle">
+                                <span class="ba-chev">&#10094;</span>
+                                <span class="ba-chev">&#10095;</span>
+                            </div>
+                            <div class="ba-drag-hint">Drag</div>
+                            <div class="ba-line"></div>
+                        </div>
+                        <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Slide to compare before and after">
+                    </div>
+                </div>
+
+                <!-- Pool Water Enhancement -->
+                <div class="ba-slider-card">
+                    <h4 class="ba-slider-title">Pool Water Enhancement</h4>
+                    <p class="ba-slider-desc">Pool water color corrected and clarified for a sparkling, inviting look.</p>
+                    <p class="ba-slider-price">$5 per</p>
+                    <div class="ba-slider" data-slider>
+                        <div class="ba-before" style="background-image:url('images/enhancement-pool-before.png')">
+                            <span class="ba-pill ba-pill-left">Before</span>
+                        </div>
+                        <div class="ba-after" style="background-image:url('images/enhancement-pool-after.png')">
+                            <span class="ba-pill ba-pill-right">After</span>
+                        </div>
+                        <div class="ba-handle">
+                            <div class="ba-line"></div>
+                            <div class="ba-circle">
+                                <span class="ba-chev">&#10094;</span>
+                                <span class="ba-chev">&#10095;</span>
+                            </div>
+                            <div class="ba-drag-hint">Drag</div>
+                            <div class="ba-line"></div>
+                        </div>
+                        <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Slide to compare before and after">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Specialty Add-On Items -->
+            <div class="slider-section-label" style="margin-top: 64px;">Specialty Add-Ons &amp; Pricing</div>
+            <div class="addons-grid">
+
+                <div class="addon-item">
+                    <span class="addon-icon">🏠</span>
+                    <div>
+                        <h4>Zillow 3D Walkthrough + Floor Plan ★</h4>
+                        <p class="addon-price">$125</p>
+                    </div>
+                </div>
+                <div class="addon-item">
+                    <span class="addon-icon">📐</span>
+                    <div>
+                        <h4>Floor Plan Only ★</h4>
+                        <p class="addon-price">$50</p>
+                    </div>
+                </div>
+                <div class="addon-item">
+                    <span class="addon-icon">🌾</span>
+                    <div>
+                        <h4>Drone Vacant Land</h4>
+                        <p class="addon-price">$89</p>
+                    </div>
+                </div>
+                <div class="addon-item">
+                    <span class="addon-icon">📣</span>
+                    <div>
+                        <h4>Marketing / Promo Video</h4>
+                        <p class="addon-price">Starting $250</p>
+                    </div>
+                </div>
+                <div class="addon-item">
+                    <span class="addon-icon">📡</span>
+                    <div>
+                        <h4>Live Aerial Stream</h4>
+                        <p class="addon-price">Call for Pricing</p>
+                    </div>
+                </div>
+                <div class="addon-item">
+                    <span class="addon-icon">🏗️</span>
+                    <div>
+                        <h4>Construction Documentation</h4>
+                        <p class="addon-price">Call for Pricing</p>
+                    </div>
+                </div>
+                <div class="addon-item">
+                    <span class="addon-icon">🗺️</span>
+                    <div>
+                        <h4>Drone Photogrammetry / Mapping</h4>
+                        <p class="addon-price">Call for Pricing</p>
+                    </div>
+                </div>
+                <div class="addon-sqft-note">
+                    <span class="addon-sqft-star">★</span>
+                    <div>
+                        <strong>Square Footage Surcharge</strong>
+                        <p>A surcharge of +$25 per 1,000 sq ft applies to properties over 3,000 sq ft. This applies to all services marked with ★ above.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PORTFOLIO — Category cards with folder-open hover transition
+         Each card links to its own full portfolio page.
+         Replace the background-image URLs with your own photos.
+    ============================================================ -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">Our Work</p>
+                <h2 class="section-title">The <span class="gold">Portfolio</span></h2>
+                <p class="section-desc">Click any category to browse that collection.</p>
+            </div>
+            <div class="portfolio-cats">
+
+                <a href="portfolio-interior.html" class="portfolio-cat">
+                    <div class="portfolio-cat-bg" style="background-image:url('images/portfolio-interior.jpg')"></div>
+                    <div class="portfolio-cat-overlay"></div>
+                    <div class="portfolio-cat-content">
+                        <h3>Interior</h3>
+                        <p>Living rooms, kitchens, master suites &amp; more</p>
+                        <span class="portfolio-cat-arrow">View All &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="portfolio-exterior.html" class="portfolio-cat">
+                    <div class="portfolio-cat-bg" style="background-image:url('images/portfolio-exterior.jpg')"></div>
+                    <div class="portfolio-cat-overlay"></div>
+                    <div class="portfolio-cat-content">
+                        <h3>Exterior</h3>
+                        <p>Curb appeal, twilight shots &amp; front elevations</p>
+                        <span class="portfolio-cat-arrow">View All &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="portfolio-drone.html" class="portfolio-cat">
+                    <div class="portfolio-cat-bg" style="background-image:url('images/portfolio-drone.jpg')"></div>
+                    <div class="portfolio-cat-overlay"></div>
+                    <div class="portfolio-cat-content">
+                        <h3>Drone &amp; Aerial</h3>
+                        <p>Overhead photos &amp; cinematic aerial footage</p>
+                        <span class="portfolio-cat-arrow">View All &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="portfolio-video.html" class="portfolio-cat">
+                    <div class="portfolio-cat-bg" style="background-image:url('images/portfolio-video.png')"></div>
+                    <div class="portfolio-cat-overlay"></div>
+                    <div class="portfolio-cat-content">
+                        <h3>Video</h3>
+                        <p>Listing videos, reels &amp; 3D walkthroughs</p>
+                        <span class="portfolio-cat-arrow">View All &rarr;</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         WHY CHOOSE US
+    ============================================================ -->
+    <section class="section why-us" id="why-us">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">The Flying Ace Difference</p>
+                <h2 class="section-title">Why Choose <span class="gold">Us</span></h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-card-bg" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&h=400&q=80')"></div>
+                    <div class="why-icon">🎖️</div>
+                    <h3>FAA Certified &amp; Insured</h3>
+                    <p>Every flight is conducted by a certified Part 107 commercial drone pilot, fully licensed and insured for professional operations.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-card-bg" style="background-image:url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=600&h=400&q=80')"></div>
+                    <div class="why-icon">⭐</div>
+                    <h3>Retired Military Veteran</h3>
+                    <p>Discipline, precision, and attention to detail aren't just buzzwords — they're values built over years of military service brought to every shoot.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-card-bg" style="background-image:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&h=400&q=80')"></div>
+                    <div class="why-icon">⚡</div>
+                    <h3>Fast Turnaround</h3>
+                    <p>Edited photos and media are typically delivered within <strong>24–48 hours</strong> so your listings go live without delay. Turnaround times may vary for larger or more complex projects — you will always be notified ahead of time.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-card-bg" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&h=400&q=80')"></div>
+                    <div class="why-icon">🎯</div>
+                    <h3>Real Estate Focused</h3>
+                    <p>We know what agents, sellers, and buyers need to see to make a listing stand out. We treat every shoot as if it were our own home.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-card-bg" style="background-image:url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=600&h=400&q=80')"></div>
+                    <div class="why-icon">📱</div>
+                    <h3>MLS &amp; Social Ready</h3>
+                    <p>All deliverables are formatted for MLS uploads, Zillow, Realtor.com, Instagram, and Facebook — ready to post immediately.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-card-bg" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&h=400&q=80')"></div>
+                    <div class="why-icon">🤝</div>
+                    <h3>Professional &amp; Reliable</h3>
+                    <p>Detail-oriented and customer-focused. We work around your schedule with flexible booking and professional communication every time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         REFERRAL SECTION
+    ============================================================ -->
+    <section class="referral-section">
+        <div class="container">
+            <div class="referral-inner">
+                <div class="referral-icon-wrap">🤝</div>
+                <div class="referral-text">
+                    <h3>Refer a Friend — Receive $25 Off Your Next Service</h3>
+                    <p>Know an agent or homeowner who could use great listing photos? Send them our way and we'll take $25 off your next booking. No limit on referrals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PHOTO / VIDEO STRIP
+         Replace these Unsplash stock photos with your own work.
+         On strip items with data-video-id, set that to your YouTube
+         video ID — clicking the play button will open the video modal.
+    ============================================================ -->
+    <section class="photo-strip">
+        <div class="photo-strip-track">
+
+            <div class="strip-item">
+                <div class="strip-img" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=500&h=240&q=80')"></div>
+            </div>
+
+            <div class="strip-item strip-has-play" data-video-id="YOUR_VIDEO_ID">
+                <div class="strip-img" style="background-image:url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=500&h=240&q=80')">
+                    <button class="strip-play" aria-label="Play video">&#9654;</button>
+                </div>
+            </div>
+
+            <div class="strip-item">
+                <div class="strip-img" style="background-image:url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=500&h=240&q=80')"></div>
+            </div>
+
+            <div class="strip-item strip-has-play" data-video-id="YOUR_VIDEO_ID">
+                <div class="strip-img" style="background-image:url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&h=240&q=80')">
+                    <button class="strip-play" aria-label="Play video">&#9654;</button>
+                </div>
+            </div>
+
+            <div class="strip-item">
+                <div class="strip-img" style="background-image:url('https://images.unsplash.com/photo-1473163428515-4d9d31ab38c2?auto=format&fit=crop&w=500&h=240&q=80')"></div>
+            </div>
+
+            <div class="strip-item strip-has-play" data-video-id="YOUR_VIDEO_ID">
+                <div class="strip-img" style="background-image:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=500&h=240&q=80')">
+                    <button class="strip-play" aria-label="Play video">&#9654;</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+    ============================================================ -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">Get in Touch</p>
+                <h2 class="section-title">Book a <span class="gold">Shoot</span></h2>
+                <p class="section-desc">Ready to elevate your listing? Fill out the form and we'll get back to you within 24 hours.</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>(386) 292-4315</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <strong>Email</strong>
+                            <p>pilot@acesdroneservice.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>Service Area</strong>
+                            <div class="contact-cities">
+                                <span>Lake City</span><span>O'Brien</span><span>Lake Butler</span><span>Alachua</span>
+                                <span>Gainesville</span><span>Glen Saint Mary</span><span>Starke</span><span>Mayo</span>
+                                <span>Branford</span><span>Live Oak</span><span>Perry</span><span>Valdosta</span>
+                                <span>Jacksonville</span><span>St. Augustine</span><span>Palm Coast</span>
+                                <span>Ormond Beach</span><span>Daytona</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="contact">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service...</option>
+                                <option>Photography Package ($175)</option>
+                                <option>Videography Package ($175)</option>
+                                <option>Ultimate Showcase ($450)</option>
+                                <option>Zillow 3D + Floor Plan Add-on (Starting at $125)</option>
+                                <option>Floor Plan Only ($50)</option>
+                                <option>Drone Vacant Land (from $89)</option>
+                                <option>Live Aerial Stream</option>
+                                <option>Construction Documentation</option>
+                                <option>Marketing / Promo Video</option>
+                                <option>Drone Photogrammetry / Mapping</option>
+                                <option>Other / Multiple Services</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Property Address</label>
+                        <input type="text" id="address" name="address" placeholder="123 Main St, City, State">
+                    </div>
+                    <div class="form-group">
+                        <label for="sqft">Approx. Square Footage</label>
+                        <input type="text" id="sqft" name="sqft" placeholder="e.g. 2,500 sq ft">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Details</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Preferred date/time, special requests, notes..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gold btn-full">Send Request</button>
+                    <p class="form-note">We'll respond within 24 hours. No spam, ever.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <img src="images/logo.png" alt="" aria-hidden="true" class="footer-watermark">
+        <div class="container">
+            <div class="footer-top">
+
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img">
+                    <span class="logo-text">Flying <span class="gold">Ace's</span></span>
+                    <p class="footer-biz-name">Photography &amp; Drone Services</p>
+                    <div class="footer-contact-list">
+                        <p>📞 <a href="tel:3862924315">(386) 292-4315</a></p>
+                        <p>📧 <a href="mailto:pilot@acesdroneservice.com">pilot@acesdroneservice.com</a></p>
+                        <p>📍 Lake City · O'Brien · Lake Butler · Alachua<br>Gainesville · Glen Saint Mary · Starke · Mayo<br>Branford · Live Oak · Perry · Valdosta<br>Jacksonville · St. Augustine · Palm Coast<br>Ormond Beach · Daytona · North FL</p>
+                    </div>
+                    <p class="footer-tagline">🎖️ FAA Part 107 Certified &nbsp;·&nbsp; Licensed &amp; Insured &nbsp;·&nbsp; Retired Military Veteran</p>
+                </div>
+
+                <div class="footer-nav-col">
+                    <p class="footer-col-heading">Quick Links</p>
+                    <nav class="footer-links">
+                        <a href="#services">Services</a>
+                        <a href="#packages">Packages</a>
+                        <a href="#portfolio">Portfolio</a>
+                        <a href="#addons">Add-Ons</a>
+                        <a href="#why-us">Why Us</a>
+                        <a href="#contact">Contact</a>
+                    </nav>
+                </div>
+
+                <div class="footer-social-col">
+                    <p class="footer-col-heading">Follow Us</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/profile.php?id=61566472164500" class="social-link" target="_blank" rel="noopener noreferrer">
+                            <span class="social-icon">&#x1F4D8;</span> Facebook
+                        </a>
+                        <!-- Replace # with your YouTube URL when ready -->
+                        <a href="#" class="social-link">
+                            <span class="social-icon">&#x1F3A5;</span> YouTube
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Flying Ace's Photography &amp; Drone Services. All rights reserved. &nbsp;·&nbsp; Lake City, FL</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
