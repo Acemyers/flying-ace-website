@@ -458,6 +458,12 @@ ul   { list-style: none; }
     display: block;
 }
 
+.btn-hero-equal {
+    min-width: 200px;
+    text-align: center;
+    justify-content: center;
+}
+
 .hero-buttons {
     display: flex;
     gap: 16px;
@@ -909,6 +915,175 @@ ul   { list-style: none; }
     transform: translateX(-50%);
 }
 .packages-size-note a { color: var(--gold); border-bottom: 1px solid rgba(196,145,28,0.35); }
+
+/* ============================================================
+   COMPACT PACKAGE CARDS (homepage preview)
+============================================================ */
+.packages-compact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+}
+.package-compact-card {
+    background: var(--navy-light);
+    border: 1px solid rgba(196,145,28,0.22);
+    border-radius: var(--radius-lg);
+    padding: 22px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+}
+.package-compact-card.featured {
+    border-color: rgba(196,145,28,0.65);
+    border-width: 2px;
+}
+.pkg-compact-badge {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--dark);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+.pkg-compact-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+}
+.pkg-compact-top h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0;
+}
+.pkg-compact-price {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+    white-space: nowrap;
+}
+.pkg-compact-price strong {
+    color: var(--gold);
+    font-size: 1rem;
+    font-weight: 700;
+}
+.pkg-compact-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+.pkg-compact-features li {
+    font-size: 0.76rem;
+    color: rgba(255,255,255,0.62);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.4;
+}
+.pkg-compact-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.7rem;
+    top: 1px;
+}
+.pkg-compact-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+}
+.btn-sm {
+    padding: 8px 16px !important;
+    font-size: 0.78rem !important;
+}
+.pkg-details-link {
+    font-size: 0.78rem;
+    color: var(--gold);
+    opacity: 0.85;
+}
+.pkg-details-link:hover { opacity: 1; text-decoration: underline; }
+@media (max-width: 640px) {
+    .packages-compact-grid { grid-template-columns: 1fr; gap: 14px; }
+    .pkg-compact-top { flex-wrap: wrap; gap: 4px; }
+}
+
+/* ============================================================
+   CONTACT REFERRAL BLURB
+============================================================ */
+.contact-referral-blurb {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 32px;
+    padding: 14px 18px;
+    background: rgba(196,145,28,0.07);
+    border: 1px solid rgba(196,145,28,0.2);
+    border-radius: var(--radius);
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.contact-referral-blurb > span { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.contact-referral-blurb strong { color: var(--white); }
+
+/* ============================================================
+   SQUARE FOOTAGE DETAIL BOX (packages.html)
+============================================================ */
+.sqft-detail-box {
+    background: var(--navy-light);
+    border: 1px solid rgba(196,145,28,0.2);
+    border-radius: var(--radius-lg);
+    padding: 22px 26px;
+    margin: 24px auto 0;
+    max-width: 580px;
+}
+.sqft-detail-box h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+.sqft-tiers { display: flex; flex-direction: column; gap: 0; }
+.sqft-tier {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.84rem;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.sqft-tier:last-child { border-bottom: none; }
+.sqft-range { color: rgba(255,255,255,0.65); }
+.sqft-note { color: var(--white); font-weight: 600; }
+.sqft-tier-callout .sqft-note a { color: var(--gold); }
+.sqft-applies {
+    font-size: 0.74rem;
+    color: rgba(255,255,255,0.38);
+    margin-top: 12px;
+}
 
 /* ============================================================
    ADD-ONS — Light section with sliders
