@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Real Estate & Drone Photography | Flying Ace's</title>
+    <meta name="description" content="Browse Flying Ace's Photography & Drone Services portfolio — interior and exterior real estate photos, aerial drone imagery, and listing videos serving Lake City, Gainesville, Jacksonville & North Florida.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://flyingacesmedia.com/portfolio.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flyingacesmedia.com/portfolio.html">
+    <meta property="og:title" content="Portfolio | Real Estate & Drone Photography | Flying Ace's">
+    <meta property="og:description" content="Browse our portfolio of interior photography, exterior photography, drone & aerial imagery, and listing videos.">
+    <meta property="og:image" content="https://flyingacesmedia.com/images/portfolio-exterior.jpg">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://flyingacesmedia.com/"},{"@type":"ListItem","position":2,"name":"Portfolio","item":"https://flyingacesmedia.com/portfolio.html"}]}
+    </script>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .portfolio-hub-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .portfolio-hub-card {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+        .portfolio-hub-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.45s ease;
+        }
+        .portfolio-hub-card:hover img {
+            transform: scale(1.05);
+        }
+        .portfolio-hub-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px 20px;
+            transition: background 0.3s ease;
+        }
+        .portfolio-hub-card:hover .portfolio-hub-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.28) 60%, transparent 100%);
+        }
+        .portfolio-hub-overlay h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 4px;
+        }
+        .portfolio-hub-overlay p {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.75);
+            margin: 0 0 10px;
+        }
+        .portfolio-hub-arrow {
+            font-size: 0.82rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+        @media (max-width: 600px) {
+            .portfolio-hub-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .portfolio-hub-overlay h3 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img">
+                <div>
+                    <span class="logo-text">Flying <span class="gold">Ace's</span></span>
+                    <span class="logo-sub">Photography &amp; Drone Services</span>
+                </div>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="index.html#packages">Packages/Pricing</a></li>
+                <li><a href="index.html#addons">Add-Ons</a></li>
+                <li><a href="index.html#why-us">Why Us</a></li>
+                <li><a href="index.html#referral">Refer a Friend</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="portfolio-page-hero">
+        <div class="container">
+            <p class="eyebrow">Our Work</p>
+            <h1>Portfolio</h1>
+            <p>Real estate photography, aerial drone imagery, and listing videos &mdash; browse by category below.</p>
+            <a href="index.html" class="back-link">&larr; Back to Home</a>
+        </div>
+    </section>
+
+    <section class="portfolio-page-grid">
+        <div class="container">
+            <div class="portfolio-hub-grid">
+
+                <a href="portfolio-interior.html" class="portfolio-hub-card">
+                    <img src="images/portfolio-interior.jpg" alt="Interior real estate photography portfolio" loading="lazy">
+                    <div class="portfolio-hub-overlay">
+                        <h3>Interior Photography</h3>
+                        <p>Living rooms, kitchens, master suites &amp; more</p>
+                        <span class="portfolio-hub-arrow">View Gallery &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="portfolio-exterior.html" class="portfolio-hub-card">
+                    <img src="images/portfolio-exterior.jpg" alt="Exterior real estate photography portfolio" loading="lazy">
+                    <div class="portfolio-hub-overlay">
+                        <h3>Exterior Photography</h3>
+                        <p>Curb appeal, grounds, and property surroundings</p>
+                        <span class="portfolio-hub-arrow">View Gallery &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="portfolio-drone.html" class="portfolio-hub-card">
+                    <img src="images/portfolio-drone.jpg" alt="Drone and aerial photography portfolio" loading="lazy">
+                    <div class="portfolio-hub-overlay">
+                        <h3>Drone &amp; Aerial</h3>
+                        <p>FAA-certified aerial photography &amp; cinematic video</p>
+                        <span class="portfolio-hub-arrow">View Gallery &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="portfolio-video.html" class="portfolio-hub-card">
+                    <img src="images/portfolio-video.jpg" alt="Listing video and marketing video portfolio" loading="lazy">
+                    <div class="portfolio-hub-overlay">
+                        <h3>Listing Videos</h3>
+                        <p>Professionally edited listing &amp; marketing videos</p>
+                        <span class="portfolio-hub-arrow">View Gallery &rarr;</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Flying Ace's Photography &amp; Drone Services. All rights reserved. &nbsp;&middot;&nbsp; <a href="index.html" style="color:var(--gold)">Back to Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -564,16 +564,18 @@ ul   { list-style: none; }
 }
 .area-popup {
     display: none;
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
-    z-index: 200;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
     background: var(--navy-light);
     border: 1.5px solid rgba(196,145,28,0.35);
     border-radius: var(--radius-lg);
     padding: 20px 22px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
-    min-width: 340px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+    min-width: 320px;
+    max-width: 90vw;
 }
 .area-popup.open { display: block; }
 .area-popup-grid {
