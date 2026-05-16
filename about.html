@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Flying Ace's Photography & Drone Services | Lake City, FL</title>
+    <meta name="description" content="Meet the pilot behind Flying Ace's Photography & Drone Services — FAA Certified, military veteran, real estate media specialist serving Lake City, Gainesville, Jacksonville & North Florida.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://flyingacesmedia.com/about.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flyingacesmedia.com/about.html">
+    <meta property="og:title" content="About Us | Flying Ace's Photography & Drone Services">
+    <meta property="og:description" content="FAA Certified drone pilot, retired military veteran, and real estate media specialist. Built around one belief: the way a property is presented matters.">
+    <meta property="og:image" content="https://flyingacesmedia.com/images/portfolio-exterior.jpg">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://flyingacesmedia.com/"},{"@type":"ListItem","position":2,"name":"About Us","item":"https://flyingacesmedia.com/about.html"}]}
+    </script>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+        /* ---- About intro: photo + text side by side ---- */
+        .about-intro {
+            padding: 72px 0 64px;
+            background: var(--navy-mid);
+        }
+        .about-intro-inner {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 56px;
+            align-items: start;
+        }
+        .about-photo-wrap {
+            position: sticky;
+            top: 88px;
+        }
+        .about-photo-placeholder {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: var(--navy-light);
+            border: 2px dashed rgba(196,145,28,0.35);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.35);
+            text-align: center;
+            padding: 24px;
+        }
+        .about-photo-placeholder .photo-icon { font-size: 2.8rem; }
+        .about-photo-placeholder p {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            max-width: 220px;
+        }
+        .about-photo-placeholder strong {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: rgba(196,145,28,0.55);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+        .about-intro-text .section-eyebrow { margin-bottom: 10px; }
+        .about-intro-text h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .about-subtitle {
+            font-size: 1.05rem;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+        .about-body p {
+            font-size: 0.97rem;
+            color: rgba(255,255,255,0.72);
+            line-height: 1.85;
+            margin-bottom: 18px;
+        }
+        .about-body p:last-child { margin-bottom: 0; }
+        .about-body strong { color: var(--white); }
+
+        @media (max-width: 860px) {
+            .about-intro-inner {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+            .about-photo-wrap { position: static; }
+            .about-photo-placeholder { aspect-ratio: 4/3; max-width: 480px; margin: 0 auto; }
+        }
+
+        /* ---- Content sections ---- */
+        .about-section {
+            padding: 64px 0;
+        }
+        .about-section.dark  { background: var(--dark); }
+        .about-section.navy  { background: var(--navy); }
+        .about-section.mid   { background: var(--navy-mid); }
+        .about-section.light { background: var(--light-bg); }
+
+        .about-section-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .about-section-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.3rem, 3vw, 1.85rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.25;
+        }
+        .about-section.dark  .about-section-heading,
+        .about-section.navy  .about-section-heading,
+        .about-section.mid   .about-section-heading { color: var(--white); }
+        .about-section.light .about-section-heading { color: var(--light-text); }
+
+        .about-section-heading .gold { color: var(--gold); }
+
+        .about-section p {
+            font-size: 0.97rem;
+            line-height: 1.85;
+            margin-bottom: 18px;
+        }
+        .about-section p:last-of-type { margin-bottom: 0; }
+        .about-section.dark p,
+        .about-section.navy p,
+        .about-section.mid  p  { color: rgba(255,255,255,0.7); }
+        .about-section.light p { color: var(--light-sub); }
+
+        .about-accent-bar {
+            width: 48px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+            margin-bottom: 22px;
+        }
+
+        /* ---- Standard / three pillars ---- */
+        .standard-pillars {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 36px;
+        }
+        .standard-pillar {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: var(--navy-light);
+            border-left: 3px solid var(--gold);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 20px 22px;
+        }
+        .pillar-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: rgba(196,145,28,0.25);
+            line-height: 1;
+            flex-shrink: 0;
+            width: 32px;
+            text-align: right;
+        }
+        .pillar-body h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+        .pillar-body p {
+            font-size: 0.85rem !important;
+            color: rgba(255,255,255,0.62) !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+        }
+
+        /* ---- CTA section ---- */
+        .about-cta {
+            background: var(--navy-light);
+            padding: 72px 0;
+            text-align: center;
+        }
+        .about-cta h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .about-cta p {
+            font-size: 0.97rem;
+            color: rgba(255,255,255,0.65);
+            max-width: 580px;
+            margin: 0 auto 32px;
+            line-height: 1.75;
+        }
+        .about-cta .cta-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+        .about-cta .cta-badge {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 0.04em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img">
+                <div>
+                    <span class="logo-text">Flying <span class="gold">Ace's</span></span>
+                    <span class="logo-sub">Photography &amp; Drone Services</span>
+                </div>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="packages.html">Packages/Pricing</a></li>
+                <li><a href="index.html#why-us">Why Us</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="book.html">Refer a Friend</a></li>
+                <li><a href="book.html" class="nav-cta">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="portfolio-page-hero">
+        <div class="container">
+            <p class="eyebrow">The Story Behind the Lens</p>
+            <h1>About <span class="gold">Flying Ace's</span></h1>
+            <p>Real estate media with purpose, precision, and a personal touch.</p>
+            <a href="index.html" class="back-link">&larr; Back to Home</a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         INTRO — photo placeholder + opening copy
+    ============================================================ -->
+    <div class="about-intro">
+        <div class="container">
+            <div class="about-intro-inner">
+
+                <!-- Photo placeholder -->
+                <div class="about-photo-wrap">
+                    <div class="about-photo-placeholder">
+                        <span class="photo-icon">📷</span>
+                        <div>
+                            <strong>Your Photo Here</strong>
+                            <p>Replace this placeholder with a photo of you holding a camera with your daughter. Recommended size: 800 × 1067 px (portrait).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Opening copy -->
+                <div class="about-intro-text">
+                    <p class="section-eyebrow">Lake City, FL &nbsp;·&nbsp; North Florida &amp; Beyond</p>
+                    <h1>About <span class="gold">Flying Ace's</span></h1>
+                    <p class="about-subtitle">Real estate media with purpose, precision, and a personal touch.</p>
+                    <div class="about-body">
+                        <p>Flying Ace's Photography &amp; Drone Services was built around one simple belief: the way a property is presented matters.</p>
+                        <p>Whether it is a family home, a vacant piece of land, a commercial project, or a business that needs stronger marketing content, people make decisions based on what they see first. My job is to make sure that first impression feels professional, polished, and worth paying attention to.</p>
+                        <p>I specialize in real estate photography, drone photography, listing videos, Zillow 3D walkthroughs, floor plans, land coverage, promotional media, and specialty drone services throughout North Florida and surrounding areas.</p>
+                        <p>But more than anything, I care about making the process easy.</p>
+                        <p>When you book with me, you are not just hiring someone to show up, snap a few photos, and leave. You are hiring someone who understands that your listing, your client, your business, and your reputation are on the line.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         WHY I STARTED THIS
+    ============================================================ -->
+    <section class="about-section dark">
+        <div class="container">
+            <div class="about-section-inner">
+                <div class="about-accent-bar"></div>
+                <h2 class="about-section-heading">Why I Started <span class="gold">This</span></h2>
+                <p>I have always been drawn to creative work, technology, aviation, and finding a better angle &mdash; literally and figuratively.</p>
+                <p>As an <strong>FAA Certified Commercial Drone Pilot</strong> and <strong>retired military veteran</strong>, I bring a mix of creativity and discipline to every shoot. The military taught me attention to detail, preparation, reliability, and the importance of doing the job right the first time. Photography and drone work gave me a way to turn that mindset into something visual, useful, and valuable for other people.</p>
+                <p>Real estate media became the perfect fit because it combines everything I enjoy: clean visuals, technology, problem-solving, and helping people present something in the best possible way.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FAMILY
+    ============================================================ -->
+    <section class="about-section mid">
+        <div class="container">
+            <div class="about-section-inner">
+                <div class="about-accent-bar"></div>
+                <h2 class="about-section-heading">Family Is a Big Part of <span class="gold">Why I Do This</span></h2>
+                <p>One of the biggest reasons I push so hard to build this business is my daughter.</p>
+                <p>She is my reminder that the work I do is bigger than just photos, videos, and websites. I am building something with my name on it. Something she can see. Something that shows her what it looks like to work hard, take pride in what you do, and create something from the ground up.</p>
+                <p>That is why I take this seriously.</p>
+                <p>Every property I shoot, every client I work with, and every project I take on is another chance to build a reputation I can be proud of.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PERSONAL STANDARD
+    ============================================================ -->
+    <section class="about-section navy">
+        <div class="container">
+            <div class="about-section-inner">
+                <div class="about-accent-bar"></div>
+                <h2 class="about-section-heading">A Personal Standard on <span class="gold">Every Shoot</span></h2>
+                <p>I treat every property I shoot like it matters &mdash; because it does.</p>
+                <p>Whether it is a starter home, a luxury listing, vacant land, a business, or a project still under construction, I approach it with the same mindset: if this were my home, my listing, or my business, I would want it shown the absolute best way possible.</p>
+                <p>That means paying attention to the angles, lighting, details, layout, surroundings, and the little things that can make a property feel more inviting online. I do not want to deliver &ldquo;good enough.&rdquo; I want the photos and videos to make someone stop, look closer, and feel like the property is worth seeing in person.</p>
+                <p>Whether you are a realtor trying to market a listing, a business owner who needs stronger visual content, or someone with a property that deserves to be shown the right way, I want to help you make it look its best.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         WHAT YOU CAN EXPECT
+    ============================================================ -->
+    <section class="about-section dark">
+        <div class="container">
+            <div class="about-section-inner">
+                <div class="about-accent-bar"></div>
+                <h2 class="about-section-heading">What You Can <span class="gold">Expect</span></h2>
+                <p>My goal is to give you media that looks clean, modern, and listing-ready &mdash; without making the process complicated.</p>
+                <p>You can expect clear communication, reliable scheduling, professional equipment, polished editing, and media designed to help your property or project stand out online.</p>
+                <p>From ground-level interiors to aerial drone coverage, I focus on showing the full story of a space: the layout, the details, the land, the lifestyle, and the features that make it worth noticing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         THE FLYING ACE'S STANDARD — Three pillars
+    ============================================================ -->
+    <section class="about-section mid">
+        <div class="container">
+            <div class="about-section-inner">
+                <div class="about-accent-bar"></div>
+                <h2 class="about-section-heading">The <span class="gold">Flying Ace's</span> Standard</h2>
+                <p>I believe good media should do three things:</p>
+
+                <div class="standard-pillars">
+                    <div class="standard-pillar">
+                        <div class="pillar-num">01</div>
+                        <div class="pillar-body">
+                            <h4>Get Attention.</h4>
+                            <p>Your photos and videos should stop people from scrolling.</p>
+                        </div>
+                    </div>
+                    <div class="standard-pillar">
+                        <div class="pillar-num">02</div>
+                        <div class="pillar-body">
+                            <h4>Build Confidence.</h4>
+                            <p>Buyers and clients should immediately feel like the property or business is worth a closer look.</p>
+                        </div>
+                    </div>
+                    <div class="standard-pillar">
+                        <div class="pillar-num">03</div>
+                        <div class="pillar-body">
+                            <h4>Make You Look Professional.</h4>
+                            <p>Because when your marketing looks better, your brand looks better.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 32px;">That is the standard I aim for on every project.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CTA
+    ============================================================ -->
+    <section class="about-cta">
+        <div class="container">
+            <p class="section-eyebrow">Ready When You Are</p>
+            <h2>Let's Make Your Property <span class="gold">Stand Out</span></h2>
+            <p>If you need clean, professional photos, drone coverage, video, 3D walkthroughs, floor plans, or media that helps your property or business get noticed, I would be honored to help.</p>
+            <a href="book.html" class="btn btn-gold">Book a Shoot</a>
+            <div class="cta-badges">
+                <span class="cta-badge">🎖️ FAA Certified Commercial Drone Pilot</span>
+                <span class="cta-badge">·</span>
+                <span class="cta-badge">⭐ Military Veteran</span>
+                <span class="cta-badge">·</span>
+                <span class="cta-badge">⚡ 24–48 Hr Turnaround</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Flying Ace's Photography &amp; Drone Services. All rights reserved. &nbsp;&middot;&nbsp; <a href="index.html" style="color:var(--gold)">Back to Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
