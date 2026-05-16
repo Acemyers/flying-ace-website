@@ -52,21 +52,11 @@
             text-align: center;
             padding: 24px;
         }
-        .about-photo-placeholder .photo-icon { font-size: 2.8rem; }
-        .about-photo-placeholder p {
-            font-size: 0.8rem;
-            line-height: 1.6;
-            max-width: 220px;
-        }
-        .about-photo-placeholder strong {
+        .about-photo-img {
+            width: 100%;
+            border-radius: var(--radius-lg);
             display: block;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: rgba(196,145,28,0.55);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 6px;
+            object-fit: cover;
         }
         .about-intro-text .section-eyebrow { margin-bottom: 10px; }
         .about-intro-text h1 {
@@ -267,15 +257,9 @@
         <div class="container">
             <div class="about-intro-inner">
 
-                <!-- Photo placeholder -->
+                <!-- Photo -->
                 <div class="about-photo-wrap">
-                    <div class="about-photo-placeholder">
-                        <span class="photo-icon">📷</span>
-                        <div>
-                            <strong>Your Photo Here</strong>
-                            <p>Replace this placeholder with a photo of you holding a camera with your daughter. Recommended size: 800 × 1067 px (portrait).</p>
-                        </div>
-                    </div>
+                    <img src="images/about-photo.jpg" alt="Flying Ace's owner with daughter" class="about-photo-img">
                 </div>
 
                 <!-- Opening copy -->
