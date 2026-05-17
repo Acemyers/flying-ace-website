@@ -98,6 +98,14 @@
     }
     </script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X87ZSNGKVY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X87ZSNGKVY');
+    </script>
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -151,7 +159,7 @@
     ============================================================ -->
     <section class="hero" id="home">
         <div class="hero-video-container">
-            <video class="hero-video" autoplay muted loop playsinline>
+            <video class="hero-video" autoplay muted loop playsinline webkit-playsinline>
                 <source src="videos/hero.mp4" type="video/mp4">
             </video>
             <!--
@@ -175,7 +183,7 @@
             </p>
 
             <div class="hero-animate hero-buttons">
-                <a href="portfolio.html" class="btn btn-outline btn-hero-equal">View Portfolio</a>
+                <a href="tel:3862924315" class="btn btn-outline btn-hero-equal">Call Now</a>
                 <div class="area-popup-wrap">
                     <button class="btn btn-outline btn-hero-equal" id="areaBtn" aria-expanded="false">&#128205; View Service Areas</button>
                     <div class="area-popup" id="areaPopup" aria-hidden="true">
@@ -191,11 +199,11 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="hero-scroll-hint">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
+            <div class="hero-scroll-hint">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
         </div>
     </section>
 
@@ -226,21 +234,41 @@
                 </div>
             </div>
             <div class="portfolio-preview-grid">
-                <div class="portfolio-preview-card">
+                <a href="portfolio-interior.html" class="portfolio-preview-card">
                     <img src="images/portfolio-interior.jpg" alt="Interior real estate photography" loading="lazy">
                     <div class="portfolio-preview-label">Interior Photography</div>
-                </div>
-                <div class="portfolio-preview-card">
+                </a>
+                <a href="portfolio-exterior.html" class="portfolio-preview-card">
                     <img src="images/portfolio-exterior.jpg" alt="Exterior real estate photography" loading="lazy">
                     <div class="portfolio-preview-label">Exterior Photography</div>
-                </div>
-                <div class="portfolio-preview-card">
+                </a>
+                <a href="portfolio-drone.html" class="portfolio-preview-card">
                     <img src="images/portfolio-drone.jpg" alt="Drone and aerial photography" loading="lazy">
                     <div class="portfolio-preview-label">Drone &amp; Aerial</div>
-                </div>
-                <div class="portfolio-preview-card">
+                </a>
+                <a href="portfolio-video.html" class="portfolio-preview-card">
                     <img src="images/portfolio-video.jpg" alt="Listing videos" loading="lazy">
                     <div class="portfolio-preview-label">Listing Videos</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT PREVIEW
+    ============================================================ -->
+    <section class="section" id="about-preview">
+        <div class="container">
+            <div class="about-preview-wrap">
+                <div class="about-preview-photo">
+                    <img src="images/about-photo.jpg" alt="Flying Ace's owner" loading="lazy">
+                </div>
+                <div class="about-preview-text">
+                    <p class="section-eyebrow">About Flying Ace's</p>
+                    <h2 class="section-title">FAA Certified. <span class="gold">Military Veteran.</span></h2>
+                    <p class="about-preview-desc">As a retired military veteran and FAA Part 107 certified drone pilot, I bring discipline, precision, and attention to detail to every shoot. Based in Lake City, FL — I serve agents and homeowners across North Florida with real estate photography, aerial drone, 3D walkthroughs, and listing media.</p>
+                    <p class="about-preview-quote"><strong>I treat every property I shoot like it's my own.</strong></p>
+                    <a href="about.html" class="btn btn-outline-gold">Learn More About Us &rarr;</a>
                 </div>
             </div>
         </div>
@@ -533,33 +561,35 @@
         <div class="photo-strip-track">
 
             <div class="strip-item">
-                <div class="strip-img" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=500&h=240&q=80')"></div>
-            </div>
-
-            <div class="strip-item strip-has-play" data-video-id="YOUR_VIDEO_ID">
-                <div class="strip-img" style="background-image:url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=500&h=240&q=80')">
-                    <button class="strip-play" aria-label="Play video">&#9654;</button>
-                </div>
+                <div class="strip-img" style="background-image:url('images/portfolio-exterior/thumbs/exterior-09.jpg')"></div>
             </div>
 
             <div class="strip-item">
-                <div class="strip-img" style="background-image:url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=500&h=240&q=80')"></div>
-            </div>
-
-            <div class="strip-item strip-has-play" data-video-id="YOUR_VIDEO_ID">
-                <div class="strip-img" style="background-image:url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&h=240&q=80')">
-                    <button class="strip-play" aria-label="Play video">&#9654;</button>
-                </div>
+                <div class="strip-img" style="background-image:url('images/portfolio-interior/thumbs/interior-01.jpg')"></div>
             </div>
 
             <div class="strip-item">
-                <div class="strip-img" style="background-image:url('https://images.unsplash.com/photo-1473163428515-4d9d31ab38c2?auto=format&fit=crop&w=500&h=240&q=80')"></div>
+                <div class="strip-img" style="background-image:url('images/portfolio-drone/thumbs/aerial-12.jpg')"></div>
             </div>
 
-            <div class="strip-item strip-has-play" data-video-id="YOUR_VIDEO_ID">
-                <div class="strip-img" style="background-image:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=500&h=240&q=80')">
-                    <button class="strip-play" aria-label="Play video">&#9654;</button>
-                </div>
+            <div class="strip-item">
+                <div class="strip-img" style="background-image:url('images/portfolio-exterior/thumbs/exterior-04.jpg')"></div>
+            </div>
+
+            <div class="strip-item">
+                <div class="strip-img" style="background-image:url('images/portfolio-interior/thumbs/interior-04.jpg')"></div>
+            </div>
+
+            <div class="strip-item">
+                <div class="strip-img" style="background-image:url('images/portfolio-drone/thumbs/aerial-05.jpg')"></div>
+            </div>
+
+            <div class="strip-item">
+                <div class="strip-img" style="background-image:url('images/portfolio-exterior/thumbs/exterior-12.jpg')"></div>
+            </div>
+
+            <div class="strip-item">
+                <div class="strip-img" style="background-image:url('images/portfolio-interior/thumbs/interior-03.jpg')"></div>
             </div>
 
         </div>
@@ -578,6 +608,23 @@
                 <div style="display:inline-block; margin-top:20px; background:rgba(200,160,60,0.1); border:1px solid rgba(200,160,60,0.4); border-radius:8px; padding:12px 20px;">
                     <span style="font-size:0.92rem; color:rgba(255,255,255,0.85);">📋 Getting ready for your shoot?</span>
                     <a href="prep-guide.html" style="display:block; margin-top:4px; color:var(--gold); font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.95rem;">View the Listing Prep Guide &rarr;</a>
+                </div>
+                <div style="margin-top:36px; text-align:left; max-width:480px; margin-left:auto; margin-right:auto;">
+                    <p style="font-family:'Montserrat',sans-serif; font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:14px;">What Happens Next</p>
+                    <div style="display:flex; flex-direction:column; gap:12px;">
+                        <div style="display:flex; align-items:flex-start; gap:12px;">
+                            <span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:var(--gold); color:#000; font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.75rem; display:flex; align-items:center; justify-content:center;">1</span>
+                            <p style="font-size:0.88rem; color:rgba(255,255,255,0.8); margin:0; line-height:1.5;"><strong style="color:#fff;">Send the request</strong> — Tell us what you need and where the property is.</p>
+                        </div>
+                        <div style="display:flex; align-items:flex-start; gap:12px;">
+                            <span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:var(--gold); color:#000; font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.75rem; display:flex; align-items:center; justify-content:center;">2</span>
+                            <p style="font-size:0.88rem; color:rgba(255,255,255,0.8); margin:0; line-height:1.5;"><strong style="color:#fff;">We confirm the details</strong> — We'll reach out to confirm timing, services, and access.</p>
+                        </div>
+                        <div style="display:flex; align-items:flex-start; gap:12px;">
+                            <span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:var(--gold); color:#000; font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.75rem; display:flex; align-items:center; justify-content:center;">3</span>
+                            <p style="font-size:0.88rem; color:rgba(255,255,255,0.8); margin:0; line-height:1.5;"><strong style="color:#fff;">Your media gets delivered</strong> — Photos and media are delivered online, usually within 24–48 hours.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="contact-wrapper">
@@ -736,5 +783,23 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+        (function() {
+            var v = document.querySelector('.hero-video');
+            if (!v) return;
+            var p = v.play();
+            if (p !== undefined) {
+                p.catch(function() {
+                    var play = function() {
+                        v.play();
+                        document.removeEventListener('touchstart', play);
+                        document.removeEventListener('click', play);
+                    };
+                    document.addEventListener('touchstart', play, { once: true });
+                    document.addEventListener('click', play, { once: true });
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
