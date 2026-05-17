@@ -498,11 +498,14 @@ ul   { list-style: none; }
 
 /* Scroll hint */
 .hero-scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-top: 28px;
     color: var(--gold);
     font-family: 'Montserrat', sans-serif;
     font-size: 0.75rem;
@@ -2282,7 +2285,6 @@ ul   { list-style: none; }
 ============================================================ */
 @media (max-width: 480px) {
     .hero-buttons { flex-direction: column; align-items: center; }
-    .hero-scroll-hint { margin-top: 120px; }
     .services-grid .service-card-img { height: 130px; }
     .services-grid .service-card-body { padding: 14px 14px 16px; }
     .services-grid .service-icon { font-size: 1.4rem; margin-bottom: 6px; }
