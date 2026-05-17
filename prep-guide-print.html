@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing Prep Checklist | Flying Ace's Photography & Drone Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 10.5pt;
+            color: #1a1a2e;
+            background: #fff;
+            padding: 0;
+        }
+
+        /* ---- Screen-only: print button bar ---- */
+        .print-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background: #1a1a2e;
+            padding: 14px 24px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+        }
+        .print-bar p { color: rgba(255,255,255,0.75); }
+        .btn-print {
+            background: #c8a03c;
+            color: #1a1a2e;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.88rem;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 22px;
+            cursor: pointer;
+            letter-spacing: 0.03em;
+        }
+        .btn-print:hover { background: #e0b848; }
+
+        /* ---- Document ---- */
+        .doc {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 36px 48px 48px;
+        }
+
+        /* ---- Header ---- */
+        .doc-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #c8a03c;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
+        }
+        .doc-header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .doc-logo {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+        }
+        .doc-brand-text { line-height: 1.25; }
+        .doc-brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13pt;
+            font-weight: 800;
+            color: #1a1a2e;
+            letter-spacing: 0.02em;
+        }
+        .doc-brand-name span { color: #c8a03c; }
+        .doc-brand-sub {
+            font-size: 8pt;
+            color: #555;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .doc-contact {
+            text-align: right;
+            font-size: 8.5pt;
+            color: #444;
+            line-height: 1.6;
+        }
+        .doc-contact a { color: #c8a03c; text-decoration: none; }
+
+        /* ---- Title block ---- */
+        .doc-title-block {
+            margin-bottom: 18px;
+        }
+        .doc-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17pt;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+        .doc-subtitle {
+            font-size: 9.5pt;
+            color: #555;
+        }
+
+        /* ---- Intro box ---- */
+        .doc-intro {
+            background: #f7f5ef;
+            border-left: 3px solid #c8a03c;
+            padding: 13px 16px;
+            margin-bottom: 22px;
+            border-radius: 0 4px 4px 0;
+        }
+        .doc-intro p {
+            font-size: 9pt;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 7px;
+        }
+        .doc-intro p:last-child { margin-bottom: 0; }
+        .doc-intro strong { color: #1a1a2e; }
+
+        /* ---- Two-column layout ---- */
+        .doc-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 28px;
+        }
+
+        /* ---- Section ---- */
+        .doc-section {
+            margin-bottom: 16px;
+            break-inside: avoid;
+        }
+        .doc-section-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 8pt;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #c8a03c;
+            border-bottom: 1px solid #e8dfc4;
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+        }
+        .doc-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .doc-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 9pt;
+            line-height: 1.45;
+            color: #222;
+        }
+        .doc-box {
+            flex-shrink: 0;
+            width: 11px;
+            height: 11px;
+            border: 1.5px solid #888;
+            border-radius: 2px;
+            margin-top: 2px;
+        }
+        .doc-checklist li.doc-note {
+            font-size: 8pt;
+            color: #777;
+            font-style: italic;
+            padding-left: 19px;
+        }
+        .doc-checklist li.doc-note .doc-box { display: none; }
+
+        /* ---- Final quick checklist: 2-col inside section ---- */
+        .doc-final-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 16px;
+        }
+
+        /* ---- Important note ---- */
+        .doc-important {
+            border: 1px solid #c8a03c;
+            border-radius: 4px;
+            padding: 11px 14px;
+            margin-top: 20px;
+            background: #fffdf5;
+            break-inside: avoid;
+        }
+        .doc-important h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 7.5pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #c8a03c;
+            margin-bottom: 5px;
+        }
+        .doc-important p {
+            font-size: 8.5pt;
+            color: #333;
+            line-height: 1.55;
+        }
+
+        /* ---- Footer ---- */
+        .doc-footer {
+            margin-top: 24px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .doc-footer p {
+            font-size: 7.5pt;
+            color: #888;
+        }
+        .doc-footer a { color: #c8a03c; text-decoration: none; }
+
+        /* ---- Print styles ---- */
+        @media print {
+            .print-bar { display: none; }
+            body { padding: 0; }
+            .doc { padding: 24px 36px 36px; max-width: 100%; }
+            @page { margin: 0.6in 0.65in; size: letter; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="print-bar">
+        <p>Click the button to save this as a PDF — then share it with your seller.</p>
+        <button class="btn-print" onclick="window.print()">Save as PDF / Print</button>
+    </div>
+
+    <div class="doc">
+
+        <div class="doc-header">
+            <div class="doc-header-brand">
+                <img src="images/logo.png" alt="Flying Ace's Logo" class="doc-logo">
+                <div class="doc-brand-text">
+                    <div class="doc-brand-name">Flying <span>Ace's</span></div>
+                    <div class="doc-brand-sub">Photography &amp; Drone Services</div>
+                </div>
+            </div>
+            <div class="doc-contact">
+                <p>(386) 292-4315</p>
+                <p>pilot@acesdroneservice.com</p>
+                <p>flyingacesmedia.com</p>
+                <p>Lake City, FL &amp; North Florida</p>
+            </div>
+        </div>
+
+        <div class="doc-title-block">
+            <div class="doc-title">Listing Prep Checklist</div>
+            <div class="doc-subtitle">A recommended guide to help your home look its absolute best before the photo shoot.</div>
+        </div>
+
+        <div class="doc-intro">
+            <p>This checklist is not mandatory, and I understand every home and situation is different. I will always help where I can and make small adjustments during the shoot when needed.</p>
+            <p>The more prepared the home is before I arrive, the better the final photos and videos will look. At a minimum, I always handle the basics before photos are taken: <strong>lights on, ceiling fans off, curtains/blinds opened evenly, and toilet seats down.</strong></p>
+        </div>
+
+        <div class="doc-columns">
+
+            <div>
+
+                <div class="doc-section">
+                    <div class="doc-section-heading">Whole Home</div>
+                    <ul class="doc-checklist">
+                        <li><span class="doc-box"></span>Turn on all lights and lamps.</li>
+                        <li><span class="doc-box"></span>Turn off all ceiling fans.</li>
+                        <li><span class="doc-box"></span>Open blinds/curtains evenly unless there is an unattractive view.</li>
+                        <li><span class="doc-box"></span>Replace burned-out bulbs.</li>
+                        <li><span class="doc-box"></span>Use matching bulb colors when possible.</li>
+                        <li><span class="doc-box"></span>Remove clutter from floors, counters, tables, and furniture.</li>
+                        <li><span class="doc-box"></span>Hide personal items, paperwork, mail, remotes, chargers, and loose cords.</li>
+                        <li><span class="doc-box"></span>Remove trash cans or hide them in a garage/closet.</li>
+                        <li><span class="doc-box"></span>Remove pet bowls, toys, beds, crates, and litter boxes.</li>
+                        <li><span class="doc-box"></span>Secure pets away from the shooting areas.</li>
+                        <li><span class="doc-box"></span>Put away cleaning supplies, brooms, mops, vacuums, and laundry baskets.</li>
+                        <li><span class="doc-box"></span>Straighten rugs, pillows, blankets, curtains, and furniture.</li>
+                        <li><span class="doc-box"></span>Make sure all rooms are unlocked and accessible.</li>
+                    </ul>
+                </div>
+
+                <div class="doc-section">
+                    <div class="doc-section-heading">Kitchen</div>
+                    <ul class="doc-checklist">
+                        <li><span class="doc-box"></span>Clear countertops as much as possible.</li>
+                        <li><span class="doc-box"></span>Put away dishes, sponges, soap bottles, paper towels, and dish racks.</li>
+                        <li><span class="doc-box"></span>Remove magnets, photos, and clutter from the refrigerator.</li>
+                        <li><span class="doc-box"></span>Hide trash cans.</li>
+                        <li><span class="doc-box"></span>Put away small appliances unless decorative.</li>
+                        <li><span class="doc-box"></span>Wipe counters, sink, stove, and stainless appliances.</li>
+                        <li><span class="doc-box"></span>Remove food, pet items, and personal items from view.</li>
+                        <li><span class="doc-box"></span>Add simple staging if desired (bowl of fruit, small plant).</li>
+                    </ul>
+                </div>
+
+                <div class="doc-section">
+                    <div class="doc-section-heading">Bathrooms</div>
+                    <ul class="doc-checklist">
+                        <li><span class="doc-box"></span>Put all toilet seats down.</li>
+                        <li><span class="doc-box"></span>Clear all counters.</li>
+                        <li><span class="doc-box"></span>Remove toothbrushes, razors, soap bottles, shampoo, and personal care items.</li>
+                        <li><span class="doc-box"></span>Remove bath mats, scales, plungers, toilet brushes, and trash cans.</li>
+                        <li><span class="doc-box"></span>Hang clean towels neatly.</li>
+                        <li><span class="doc-box"></span>Make sure glass showers are clean and clear.</li>
+                        <li><span class="doc-box"></span>Wipe mirrors, counters, faucets, and shower glass.</li>
+                        <li><span class="doc-box"></span>Make sure toilet paper rolls look neat.</li>
+                    </ul>
+                </div>
+
+                <div class="doc-section">
+                    <div class="doc-section-heading">Bedrooms</div>
+                    <ul class="doc-checklist">
+                        <li><span class="doc-box"></span>Make all beds neatly.</li>
+                        <li><span class="doc-box"></span>Straighten pillows and bedding.</li>
+                        <li><span class="doc-box"></span>Clear nightstands and dressers.</li>
+                        <li><span class="doc-box"></span>Hide chargers, cords, remotes, and personal items.</li>
+                        <li><span class="doc-box"></span>Remove laundry, shoes, hampers, and clutter from floors.</li>
+                        <li><span class="doc-box"></span>Close closet doors unless the closet is a feature.</li>
+                        <li><span class="doc-box"></span>Remove personal photos if privacy is a concern.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div>
+
+                <div class="doc-section">
+                    <div class="doc-section-heading">Living Areas</div>
+                    <ul class="doc-checklist">
+                        <li><span class="doc-box"></span>Clear coffee tables and side tables.</li>
+                        <li><span class="doc-box"></span>Straighten pillows, blankets, rugs, and furniture.</li>
+                        <li><span class="doc-box"></span>Hide remotes, cords, toys, magazines, and personal items.</li>
+                        <li><span class="doc-box"></span>Turn TVs off.</li>
+                        <li><span class="doc-box"></span>Remove excess decorations if the room feels crowded.</li>
+                        <li><span class="doc-box"></span>Open curtains/blinds evenly.</li>
+                    </ul>
+                </div>
+
+                <div class="doc-section">
+                    <div class="doc-section-heading">Office / Bonus Rooms</div>
+                    <ul class="doc-checklist">
+                        <li><span class="doc-box"></span>Clear desks of paperwork, mail, and personal documents.</li>
+                        <li><span class="doc-box"></span>Hide cords as much as possible.</li>
+                        <li><span class="doc-box"></span>Remove clutter from shelves if needed.</li>
+                        <li><span class="doc-box"></span>Straighten chairs, rugs, and d&eacute;cor.</li>
+                        <li><span class="doc-box"></span>Turn computer monitors off.</li>
+                    </ul>
+                </div>
+
+                <div class="doc-section">
+                    <div class="doc-section-heading">Exterior</div>
+                    <ul class="doc-checklist">
+                        <li><span class="doc-box"></span>Remove all vehicles from the driveway and front of the property.</li>
+                        <li><span class="doc-box"></span>Park vehicles across the street or away from the home.</li>
+                        <li class="doc-note">Exception: high-end vehicles may be left if they add to the marketing feel &mdash; ask first.</li>
+                        <li><span class="doc-box"></span>Close garage doors.</li>
+                        <li><span class="doc-box"></span>Remove trash cans, hoses, tools, toys, and yard equipment.</li>
+                        <li><span class="doc-box"></span>Mow/edge the lawn if possible.</li>
+                        <li><span class="doc-box"></span>Sweep the porch, driveway, and walkways.</li>
+                        <li><span class="doc-box"></span>Remove dead plants or empty planters.</li>
+                        <li><span class="doc-box"></span>Put patio cushions out and straighten outdoor furniture.</li>
+                        <li><span class="doc-box"></span>Open patio umbrellas if they look good.</li>
+                        <li><span class="doc-box"></span>Clean the pool and remove pool toys/cleaning equipment.</li>
+                        <li><span class="doc-box"></span>Turn on pool/spa features if desired.</li>
+                        <li><span class="doc-box"></span>Remove signs, political items, or personal decorations if needed.</li>
+                    </ul>
+                </div>
+
+                <div class="doc-section">
+                    <div class="doc-section-heading">Garage</div>
+                    <ul class="doc-checklist">
+                        <li><span class="doc-box"></span>Park vehicles elsewhere.</li>
+                        <li><span class="doc-box"></span>Clear clutter as much as possible.</li>
+                        <li><span class="doc-box"></span>Organize tools, bins, boxes, and equipment.</li>
+                        <li><span class="doc-box"></span>Turn on lights.</li>
+                        <li><span class="doc-box"></span>Open space so buyers can see the size of the garage.</li>
+                        <li><span class="doc-box"></span>Let me know ahead of time if the garage is very full.</li>
+                    </ul>
+                </div>
+
+                <div class="doc-section">
+                    <div class="doc-section-heading">Pets</div>
+                    <ul class="doc-checklist">
+                        <li><span class="doc-box"></span>Keep pets secured during the shoot.</li>
+                        <li><span class="doc-box"></span>Hide pet bowls, beds, toys, crates, litter boxes, and waste bags.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Final Quick Checklist -->
+        <div class="doc-section" style="margin-top:18px;">
+            <div class="doc-section-heading">Final Quick Checklist</div>
+            <ul class="doc-checklist doc-final-grid">
+                <li><span class="doc-box"></span>Lights on.</li>
+                <li><span class="doc-box"></span>Fans off.</li>
+                <li><span class="doc-box"></span>Toilet seats down.</li>
+                <li><span class="doc-box"></span>Counters clear.</li>
+                <li><span class="doc-box"></span>Trash cans hidden.</li>
+                <li><span class="doc-box"></span>Pets secured.</li>
+                <li><span class="doc-box"></span>Vehicles moved.</li>
+                <li><span class="doc-box"></span>Beds made.</li>
+                <li><span class="doc-box"></span>Blinds/curtains opened evenly.</li>
+                <li><span class="doc-box"></span>Personal items and clutter removed.</li>
+            </ul>
+        </div>
+
+        <div class="doc-important">
+            <h4>Important Note</h4>
+            <p>The home should be ready before the scheduled shoot time. I may make small adjustments for the best photo, but cleaning, decluttering, moving large items, staging, and organizing should be completed before arrival.</p>
+        </div>
+
+        <div class="doc-footer">
+            <p>&copy; 2026 Flying Ace's Photography &amp; Drone Services &nbsp;&middot;&nbsp; Lake City, FL</p>
+            <p>Questions? Call or text <a href="tel:3862924315">(386) 292-4315</a> &nbsp;&middot;&nbsp; <a href="mailto:pilot@acesdroneservice.com">pilot@acesdroneservice.com</a></p>
+        </div>
+
+    </div>
+
+    <script>
+        // Auto-open print dialog when page loads from the prep guide download button
+        if (window.opener || document.referrer.includes('prep-guide')) {
+            window.addEventListener('load', function () {
+                setTimeout(function () { window.print(); }, 600);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -114,22 +114,24 @@
         </div>
         <div class="nav-container">
             <a href="#home" class="nav-logo">
-                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img" loading="lazy">
+                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img" fetchpriority="high">
                 <div>
                     <span class="logo-text">Flying <span class="gold">Ace's</span></span>
                     <span class="logo-sub">Photography &amp; Drone Services</span>
                 </div>
             </a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span><span></span><span></span>
-            </button>
+            <div class="nav-right">
+                <a href="tel:3862924315" class="nav-mobile-phone">📞 (386) 292-4315</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="services.html">Services</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html">Services</a></li>
                 <li><a href="packages.html">Packages/Pricing</a></li>
                 
                 
-                <li><a href="#contact">Refer a Friend</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="book.html" class="nav-cta">Book Now</a></li>
             </ul>
@@ -166,12 +168,11 @@
                 <span class="gold">&amp; Drone Services</span>
             </h1>
             <p class="hero-animate hero-sub">
-                Premium photography, cinematic drone footage, immersive 3D walkthroughs,<br>
-                live drone streaming, aerial event coverage, drone photogrammetry &amp; more.
+                High-quality real estate media built to make listings stand out.
             </p>
 
             <div class="hero-animate hero-buttons">
-                <a href="#packages" class="btn btn-gold btn-hero-equal">View Packages</a>
+                <a href="portfolio.html" class="btn btn-outline btn-hero-equal">View Portfolio</a>
                 <div class="area-popup-wrap">
                     <button class="btn btn-outline btn-hero-equal" id="areaBtn" aria-expanded="false">&#128205; View Service Areas</button>
                     <div class="area-popup" id="areaPopup" aria-hidden="true">
@@ -204,6 +205,39 @@
                 <div class="tagline-text">
                     <p class="tagline-eyebrow">Built for Realtors Who Want Listings to Stand Out</p>
                     <p class="tagline-desc">Fast turnaround, polished edits, aerial coverage, Zillow 3D walkthroughs, floor plans, social media reels, and marketing content — all in one place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PORTFOLIO PREVIEW
+    ============================================================ -->
+    <section class="section light-section" id="portfolio-preview">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">Our Work</p>
+                <h2 class="section-title dark-title">Portfolio <span class="gold">Preview</span></h2>
+                <div style="margin-top:16px;">
+                    <a href="portfolio.html" class="btn btn-outline-gold">View Full Portfolio &rarr;</a>
+                </div>
+            </div>
+            <div class="portfolio-preview-grid">
+                <div class="portfolio-preview-card">
+                    <img src="images/portfolio-interior.jpg" alt="Interior real estate photography" loading="lazy">
+                    <div class="portfolio-preview-label">Interior Photography</div>
+                </div>
+                <div class="portfolio-preview-card">
+                    <img src="images/portfolio-exterior.jpg" alt="Exterior real estate photography" loading="lazy">
+                    <div class="portfolio-preview-label">Exterior Photography</div>
+                </div>
+                <div class="portfolio-preview-card">
+                    <img src="images/portfolio-drone.jpg" alt="Drone and aerial photography" loading="lazy">
+                    <div class="portfolio-preview-label">Drone &amp; Aerial</div>
+                </div>
+                <div class="portfolio-preview-card">
+                    <img src="images/portfolio-video.jpg" alt="Listing videos" loading="lazy">
+                    <div class="portfolio-preview-label">Listing Videos</div>
                 </div>
             </div>
         </div>
@@ -373,7 +407,7 @@
     <section class="section addons light-section" id="addons">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title dark-title">Photo <span class="gold">Enhancement Examples</span></h2>
+                <h2 class="section-title dark-title">Listing Photo <span class="gold">Enhancements</span></h2>
             </div>
             <div class="ba-sliders-grid">
 
@@ -537,6 +571,11 @@
                 <p class="section-eyebrow">Get in Touch</p>
                 <h2 class="section-title">Book a <span class="gold">Shoot</span></h2>
                 <p class="section-desc">Ready to elevate your listing? Fill out the form and we'll get back to you within 24 hours.</p>
+                <p class="section-desc" style="margin-top:8px;">Want a quicker response? Call or text anytime.</p>
+                <div style="display:inline-block; margin-top:20px; background:rgba(200,160,60,0.1); border:1px solid rgba(200,160,60,0.4); border-radius:8px; padding:12px 20px;">
+                    <span style="font-size:0.92rem; color:rgba(255,255,255,0.85);">📋 Getting ready for your shoot?</span>
+                    <a href="prep-guide.html" style="display:block; margin-top:4px; color:var(--gold); font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.95rem;">View the Listing Prep Guide &rarr;</a>
+                </div>
             </div>
             <div class="contact-wrapper">
                 <div class="contact-info">
@@ -594,8 +633,8 @@
                                 <option>Photography Package ($175)</option>
                                 <option>Videography Package ($175)</option>
                                 <option>Ultimate Showcase ($450)</option>
-                                <option>Zillow 3D + Floor Plan Add-on (Starting at $125)</option>
-                                <option>Floor Plan Only ($50)</option>
+                                <option>Zillow 3D Walkthrough + Interactive Floor Plan ($125)</option>
+                                <option>Floor Plan With Measurements ($50)</option>
                                 <option>Drone Vacant Land (from $89)</option>
                                 <option>Live Aerial Stream</option>
                                 <option>Construction Documentation</option>
@@ -654,12 +693,12 @@
                 <div class="footer-nav-col">
                     <p class="footer-col-heading">Quick Links</p>
                     <nav class="footer-links">
-                        <a href="#services">Services</a>
-                        <a href="#packages">Packages</a>
-                        <a href="#portfolio">Portfolio</a>
-                        <a href="#addons">Add-Ons</a>
-                        <a href="#why-us">Why Us</a>
-                        <a href="#contact">Contact</a>
+                        <a href="services.html">Services</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="packages.html">Packages/Pricing</a>
+                        <a href="about.html">About Us</a>
+                        <a href="book.html">Book Now</a>
+                        <a href="prep-guide.html">Listing Prep Guide</a>
                     </nav>
                 </div>
 
