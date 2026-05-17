@@ -50,7 +50,7 @@ window.addEventListener('scroll', () => {
 
 /* ---- Fade-in on scroll (Intersection Observer) ---- */
 const fadeTargets = document.querySelectorAll(
-    '.service-card, .package-card, .addon-item, .why-card, .portfolio-cat, .ba-slider-card, .referral-inner'
+    '.service-card, .addon-item, .ba-slider-card'
 );
 fadeTargets.forEach(el => el.classList.add('fade-item'));
 
@@ -66,7 +66,7 @@ const fadeObserver = new IntersectionObserver((entries) => {
 fadeTargets.forEach(el => fadeObserver.observe(el));
 
 /* ---- Stagger fade-in for grid children ---- */
-document.querySelectorAll('.services-grid, .why-grid, .addons-grid').forEach(grid => {
+document.querySelectorAll('.services-grid, .addons-grid').forEach(grid => {
     grid.querySelectorAll('.fade-item').forEach((el, i) => {
         el.style.transitionDelay = `${i * 0.06}s`;
     });
@@ -270,3 +270,205 @@ if (contactForm) {
         }
     });
 }
+
+/* ============================================================
+   PAGE TRANSITIONS — PAGE SPECIFIC
+   iris : portfolio pages + homepage
+   warm : about page (gold both ways)
+   none : everything else (instant nav, no overlay)
+============================================================ */
+(function () {
+    function ptType(url) {
+        var u = (url || window.location.href).toLowerCase();
+        if (u.indexOf('portfolio')  !== -1) return 'iris';
+        if (u.indexOf('about.html') !== -1) return 'warm';
+        if (u.indexOf('index.html') !== -1) return 'iris';
+        // Root URL — ends with / or domain only
+        try {
+            var path = new URL(u, window.location.href).pathname;
+            if (path === '/' || path === '') return 'iris';
+        } catch(e) {}
+        return 'none';
+    }
+
+    // Enter animation for the current page
+    var enterType = ptType();
+    if (enterType !== 'none') {
+        var enterOverlay = document.createElement('div');
+        enterOverlay.className = 'pt-overlay ' + enterType;
+        document.body.appendChild(enterOverlay);
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                enterOverlay.classList.add('pt-open');
+            });
+        });
+    }
+
+    var navigating = false;
+
+    document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href]');
+        if (!link || navigating) return;
+        var href = link.getAttribute('href');
+        if (!href) return;
+        if (href.charAt(0) === '#') return;
+        if (href.indexOf('tel:') === 0 || href.indexOf('mailto:') === 0) return;
+        if (link.target === '_blank') return;
+        if (href.indexOf('http') === 0 && href.indexOf('flyingacesmedia.com') === -1) return;
+
+        var destType = ptType(href);
+        if (destType === 'none') return; // instant nav, no animation
+
+        e.preventDefault();
+        navigating = true;
+
+        var exitOverlay = document.createElement('div');
+        exitOverlay.className = 'pt-overlay ' + destType;
+        document.body.appendChild(exitOverlay);
+        exitOverlay.getBoundingClientRect();
+        exitOverlay.classList.add('pt-close');
+
+        setTimeout(function() { window.location.href = href; }, 600);
+    });
+})();
+
+/* ============================================================
+   SCROLL REVEAL — CLASS SETUP
+   Classes applied here; GSAP ScrollTrigger handles animation.
+============================================================ */
+(function () {
+    document.querySelectorAll('.section-title, .about-section-heading, .section-eyebrow').forEach(el => {
+        el.classList.add('reveal-left');
+    });
+    document.querySelectorAll('.why-card').forEach((el, i) => {
+        el.classList.add(i % 2 === 0 ? 'reveal-left' : 'reveal-right');
+        el.style.transitionDelay = `${i * 0.07}s`;
+    });
+    document.querySelectorAll('.package-card').forEach((el, i) => {
+        el.classList.add('reveal-scale');
+        el.style.transitionDelay = `${i * 0.09}s`;
+    });
+    document.querySelectorAll('.standard-pillar').forEach((el, i) => {
+        el.classList.add(i % 2 === 0 ? 'reveal-left' : 'reveal-right');
+        el.style.transitionDelay = `${i * 0.1}s`;
+    });
+    document.querySelectorAll('.referral-inner, .about-cta').forEach(el => {
+        el.classList.add('reveal-up');
+    });
+    document.querySelectorAll('.faq-item').forEach((el, i) => {
+        el.classList.add('reveal-up');
+        el.style.transitionDelay = `${i * 0.06}s`;
+    });
+    document.querySelectorAll('.portfolio-cat').forEach((el, i) => {
+        el.classList.add('reveal-scale');
+        el.style.transitionDelay = `${i * 0.08}s`;
+    });
+})();
+
+/* ============================================================
+   SERVICES FAN — CLASS SETUP
+   Direction classes applied here; GSAP handles triggering.
+============================================================ */
+(function () {
+    document.querySelectorAll('.services-full-grid').forEach(grid => {
+        const cols = window.innerWidth <= 540 ? 1 : window.innerWidth <= 860 ? 2 : 3;
+        grid.querySelectorAll('.service-card').forEach((card, i) => {
+            const col = i % cols;
+            if (cols === 1)      card.classList.add('fan-center');
+            else if (cols === 2) card.classList.add(col === 0 ? 'fan-left' : 'fan-right');
+            else {
+                if (col === 0)      card.classList.add('fan-left');
+                else if (col === 1) card.classList.add('fan-center');
+                else                card.classList.add('fan-right');
+            }
+            card.style.transitionDelay = `${i * 0.07}s`;
+        });
+    });
+})();
+
+/* ============================================================
+   GSAP — SCROLL-REVERSIBLE REVEALS + HOMEPAGE HERO PIN
+============================================================ */
+(function () {
+    const GSAP_URL = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+    const ST_URL   = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+
+    function loadScript(src, cb) {
+        const s = document.createElement('script');
+        s.src = src;
+        s.onload = cb;
+        s.onerror = function () {
+            // CDN failed — fall back to simple one-way reveal
+            document.querySelectorAll('.reveal-left,.reveal-right,.reveal-up,.reveal-scale,.fan-left,.fan-center,.fan-right').forEach(el => {
+                el.classList.add('revealed');
+                el.classList.add('fan-visible');
+            });
+        };
+        document.head.appendChild(s);
+    }
+
+    loadScript(GSAP_URL, function () {
+        loadScript(ST_URL, initGSAP);
+    });
+
+    function initGSAP() {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Scroll-reversible reveals (class-based CSS transitions)
+        document.querySelectorAll('.reveal-left,.reveal-right,.reveal-up,.reveal-scale').forEach(el => {
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top 90%',
+                onEnter:     () => el.classList.add('revealed'),
+                onLeaveBack: () => el.classList.remove('revealed'),
+                onEnterBack: () => el.classList.add('revealed'),
+            });
+        });
+
+        // Services fan — class toggling so cards are never permanently invisible
+        document.querySelectorAll('.services-full-grid .service-card').forEach(function(card, i) {
+            var delay = i * 0.07;
+            ScrollTrigger.create({
+                trigger: card,
+                start: 'top 95%',
+                onEnter: function() {
+                    card.style.transitionDelay = delay + 's';
+                    card.classList.add('fan-visible');
+                },
+                onLeaveBack: function() {
+                    card.style.transitionDelay = '0s';
+                    card.classList.remove('fan-visible');
+                },
+                onEnterBack: function() {
+                    card.style.transitionDelay = delay + 's';
+                    card.classList.add('fan-visible');
+                },
+            });
+        });
+
+        // Homepage hero pin — hero-content drifts up and fades while pinned
+        var isHome = window.location.href.toLowerCase().indexOf('index.html') !== -1
+                  || window.location.pathname === '/'
+                  || window.location.pathname === '';
+        if (isHome) {
+            var hero = document.querySelector('.hero');
+            var heroContent = hero && hero.querySelector('.hero-content');
+            if (hero && heroContent) {
+                gsap.timeline({
+                    scrollTrigger: {
+                        trigger: hero,
+                        start: 'top top',
+                        end: '+=600',
+                        scrub: 1,
+                        pin: true,
+                        anticipatePin: 1,
+                    }
+                })
+                .to(heroContent, { y: -120, opacity: 0, ease: 'none' }, 0)
+                .to('.hero-scroll-hint', { opacity: 0, ease: 'none' }, 0)
+                .to('.hero-overlay', { opacity: 0, ease: 'none' }, 0);
+            }
+        }
+    }
+})();
+

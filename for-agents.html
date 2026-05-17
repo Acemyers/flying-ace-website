@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtor Toolkit | ROI Calculator & Package Recommender | Flying Ace's</title>
+    <meta name="description" content="Free tools for real estate agents in North Florida. Calculate your listing photo ROI, find the right media package, and book your shoot with Flying Ace's Photography & Drone.">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="realtor tools Lake City FL, listing photo ROI calculator, real estate photography package recommender, agent resources North Florida, listing media tools Florida">
+    <meta name="geo.region" content="US-FL">
+    <meta name="geo.placename" content="Lake City, Florida">
+    <meta name="geo.position" content="30.1897;-82.6390">
+    <meta name="ICBM" content="30.1897, -82.6390">
+    <link rel="canonical" href="https://flyingacesmedia.com/for-agents.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flyingacesmedia.com/for-agents.html">
+    <meta property="og:title" content="Realtor Toolkit | Flying Ace's Photography & Drone">
+    <meta property="og:description" content="Free tools built for real estate agents — ROI calculator, package recommender, shoot day tracker & more.">
+    <meta property="og:image" content="https://flyingacesmedia.com/images/portfolio-exterior.jpg">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://flyingacesmedia.com/"},{"@type":"ListItem","position":2,"name":"Realtor Toolkit","item":"https://flyingacesmedia.com/for-agents.html"}]}
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X87ZSNGKVY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X87ZSNGKVY');
+    </script>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ---- Tool Cards ---- */
+        .tools-hero {
+            padding: 96px 0 56px;
+            text-align: center;
+            background: var(--dark);
+        }
+        .tools-hero h1 { font-family:'Montserrat',sans-serif; font-size:clamp(2rem,5vw,3rem); font-weight:800; margin-bottom:12px; }
+        .tools-hero p { color:rgba(255,255,255,0.65); font-size:1rem; max-width:520px; margin:0 auto; }
+
+        .tool-section {
+            padding: 72px 0;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+        .tool-section:nth-child(odd) { background: var(--dark); }
+        .tool-section:nth-child(even) { background: var(--navy); }
+
+        .tool-label {
+            font-family:'Montserrat',sans-serif;
+            font-size:0.72rem;
+            font-weight:700;
+            letter-spacing:0.14em;
+            text-transform:uppercase;
+            color:var(--gold);
+            margin-bottom:10px;
+        }
+        .tool-title {
+            font-family:'Montserrat',sans-serif;
+            font-size:clamp(1.5rem,3.5vw,2.2rem);
+            font-weight:800;
+            margin-bottom:10px;
+            line-height:1.2;
+        }
+        .tool-desc {
+            color:rgba(255,255,255,0.6);
+            font-size:0.95rem;
+            max-width:560px;
+            margin-bottom:36px;
+            line-height:1.7;
+        }
+        .tool-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 680px;
+        }
+
+        /* ---- ROI Calculator ---- */
+        .roi-input-row {
+            display:flex;
+            align-items:center;
+            gap:16px;
+            margin-bottom:24px;
+            flex-wrap:wrap;
+        }
+        .roi-input-row label {
+            font-family:'Montserrat',sans-serif;
+            font-size:0.8rem;
+            font-weight:700;
+            color:rgba(255,255,255,0.7);
+            white-space:nowrap;
+        }
+        .roi-price-input {
+            flex:1;
+            min-width:160px;
+            font-family:'Montserrat',sans-serif;
+            font-size:1.1rem;
+            font-weight:700;
+            background:rgba(255,255,255,0.07);
+            border:1px solid rgba(255,255,255,0.15);
+            border-radius:8px;
+            color:#fff;
+            padding:10px 14px;
+        }
+        .roi-price-input:focus { outline:none; border-color:var(--gold); }
+        .roi-results {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:14px;
+            margin-bottom:20px;
+        }
+        @media(max-width:480px){ .roi-results { grid-template-columns:1fr; } }
+        .roi-stat {
+            background:rgba(196,145,28,0.08);
+            border:1px solid rgba(196,145,28,0.2);
+            border-radius:10px;
+            padding:16px;
+        }
+        .roi-stat-label {
+            font-size:0.72rem;
+            font-weight:600;
+            letter-spacing:0.08em;
+            text-transform:uppercase;
+            color:rgba(255,255,255,0.5);
+            margin-bottom:6px;
+        }
+        .roi-stat-value {
+            font-family:'Montserrat',sans-serif;
+            font-size:1.4rem;
+            font-weight:800;
+            color:var(--gold);
+        }
+        .roi-stat-sub {
+            font-size:0.75rem;
+            color:rgba(255,255,255,0.45);
+            margin-top:4px;
+        }
+        .roi-highlight {
+            background:rgba(196,145,28,0.14);
+            border:1px solid rgba(196,145,28,0.4);
+            border-radius:10px;
+            padding:16px 20px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:12px;
+            flex-wrap:wrap;
+        }
+        .roi-highlight-label { font-size:0.88rem; color:rgba(255,255,255,0.75); }
+        .roi-highlight-number {
+            font-family:'Montserrat',sans-serif;
+            font-size:1.6rem;
+            font-weight:900;
+            color:var(--gold);
+        }
+        .roi-source {
+            font-size:0.78rem;
+            color:rgba(255,255,255,0.6);
+            margin-top:16px;
+            padding:12px 14px;
+            background:rgba(255,255,255,0.04);
+            border-left:3px solid var(--gold);
+            border-radius:0 6px 6px 0;
+            line-height:1.6;
+        }
+        .roi-source strong { color:rgba(255,255,255,0.85); }
+
+        /* ---- Package Recommender ---- */
+        .quiz-step { display:none; }
+        .quiz-step.active { display:block; }
+        .quiz-progress {
+            display:flex;
+            gap:8px;
+            margin-bottom:24px;
+        }
+        .quiz-dot {
+            height:4px;
+            flex:1;
+            border-radius:2px;
+            background:rgba(255,255,255,0.12);
+            transition:background 0.3s;
+        }
+        .quiz-dot.done { background:var(--gold); }
+
+        .quiz-q {
+            font-family:'Montserrat',sans-serif;
+            font-size:1rem;
+            font-weight:700;
+            margin-bottom:18px;
+            color:#fff;
+        }
+        .quiz-options {
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+        }
+        .quiz-opt {
+            display:flex;
+            align-items:center;
+            gap:12px;
+            padding:13px 16px;
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.1);
+            border-radius:8px;
+            cursor:pointer;
+            transition:background 0.15s, border-color 0.15s;
+            font-size:0.9rem;
+            color:rgba(255,255,255,0.85);
+            text-align:left;
+            width:100%;
+        }
+        .quiz-opt:hover { background:rgba(196,145,28,0.08); border-color:rgba(196,145,28,0.3); }
+        .quiz-opt .opt-icon { font-size:1.3rem; flex-shrink:0; }
+
+        .quiz-result { display:none; }
+        .quiz-result.active { display:block; }
+        .quiz-result-badge {
+            display:inline-block;
+            background:var(--gold);
+            color:#000;
+            font-family:'Montserrat',sans-serif;
+            font-size:0.7rem;
+            font-weight:800;
+            letter-spacing:0.1em;
+            text-transform:uppercase;
+            padding:4px 10px;
+            border-radius:4px;
+            margin-bottom:12px;
+        }
+        .quiz-result-title {
+            font-family:'Montserrat',sans-serif;
+            font-size:1.3rem;
+            font-weight:800;
+            margin-bottom:8px;
+        }
+        .quiz-result-price {
+            font-family:'Montserrat',sans-serif;
+            font-size:1rem;
+            font-weight:700;
+            color:var(--gold);
+            margin-bottom:12px;
+        }
+        .quiz-result-why {
+            font-size:0.88rem;
+            color:rgba(255,255,255,0.65);
+            line-height:1.7;
+            margin-bottom:20px;
+        }
+        .quiz-restart {
+            background:none;
+            border:none;
+            color:rgba(255,255,255,0.4);
+            font-size:0.8rem;
+            cursor:pointer;
+            text-decoration:underline;
+            margin-top:12px;
+            display:block;
+        }
+        .quiz-restart:hover { color:rgba(255,255,255,0.7); }
+
+        /* ---- Shoot Tracker Promo ---- */
+        .tracker-promo {
+            display:flex;
+            align-items:flex-start;
+            gap:20px;
+            padding:24px;
+            background:rgba(196,145,28,0.07);
+            border:1px solid rgba(196,145,28,0.25);
+            border-radius:12px;
+            max-width:680px;
+        }
+        .tracker-promo-icon { font-size:2rem; flex-shrink:0; }
+        .tracker-promo h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1rem; margin-bottom:6px; }
+        .tracker-promo p { font-size:0.88rem; color:rgba(255,255,255,0.6); line-height:1.65; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-credentials">
+            <span>🎖️ FAA Certified Commercial Drone Pilot</span>
+            <span class="nav-cred-divider">·</span>
+            <span>⭐ Military Veteran</span>
+        </div>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img">
+                <div>
+                    <span class="logo-text">Flying <span class="gold">Ace's</span></span>
+                    <span class="logo-sub">Photography &amp; Drone Services</span>
+                </div>
+            </a>
+            <div class="nav-right">
+                <a href="tel:3862924315" class="nav-mobile-phone">📞 (386) 292-4315</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="packages.html">Packages/Pricing</a></li>
+                <li><a href="for-agents.html" class="active">Realtor Toolkit</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="book.html" class="nav-cta">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="tools-hero">
+        <div class="container">
+            <p class="section-eyebrow">For Real Estate Agents</p>
+            <h1>Your <span class="gold">Realtor Toolkit</span></h1>
+            <p>Free tools to help you make smarter listing decisions — before you ever pick up the phone.</p>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         ROI CALCULATOR
+    ============================================================ -->
+    <section class="tool-section">
+        <div class="container">
+            <p class="tool-label">Tool 1</p>
+            <h2 class="tool-title">Listing Photo <span class="gold">ROI Calculator</span></h2>
+            <p class="tool-desc">See the real dollar value of professional photography on your next listing. Enter the listing price and watch the math work in your favor.</p>
+
+            <div class="tool-card">
+                <div class="roi-input-row">
+                    <label for="roiPrice">Listing Price</label>
+                    <input type="text" id="roiPrice" class="roi-price-input" placeholder="$350,000" inputmode="numeric">
+                </div>
+
+                <div class="roi-results">
+                    <div class="roi-stat">
+                        <div class="roi-stat-label">Estimated Extra Sale Value</div>
+                        <div class="roi-stat-value" id="roiExtraLow">—</div>
+                        <div class="roi-stat-sub" id="roiExtraRange"></div>
+                    </div>
+                    <div class="roi-stat">
+                        <div class="roi-stat-label">Views Online</div>
+                        <div class="roi-stat-value">61%</div>
+                        <div class="roi-stat-sub">more views with pro photos</div>
+                    </div>
+                    <div class="roi-stat">
+                        <div class="roi-stat-label">Days on Market</div>
+                        <div class="roi-stat-value">32%</div>
+                        <div class="roi-stat-sub">faster with pro photos</div>
+                    </div>
+                    <div class="roi-stat">
+                        <div class="roi-stat-label">Your Shoot Cost</div>
+                        <div class="roi-stat-value">$175</div>
+                        <div class="roi-stat-sub">Photography Package</div>
+                    </div>
+                </div>
+
+                <div class="roi-highlight">
+                    <span class="roi-highlight-label">Estimated return on your $175 investment</span>
+                    <span class="roi-highlight-number" id="roiReturn">Enter a price above</span>
+                </div>
+
+                <p class="roi-source"><strong>Sources:</strong> Redfin, National Association of Realtors. Extra sale value estimated at 1–3% of listing price — results vary by market and property.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PACKAGE RECOMMENDER
+    ============================================================ -->
+    <section class="tool-section">
+        <div class="container">
+            <p class="tool-label">Tool 2</p>
+            <h2 class="tool-title">What Package <span class="gold">Do You Need?</span></h2>
+            <p class="tool-desc">Not sure what to book? Answer 3 quick questions and we'll tell you exactly what fits your listing — and why.</p>
+
+            <div class="tool-card">
+                <!-- Progress dots -->
+                <div class="quiz-progress">
+                    <div class="quiz-dot" id="dot1"></div>
+                    <div class="quiz-dot" id="dot2"></div>
+                    <div class="quiz-dot" id="dot3"></div>
+                </div>
+
+                <!-- Step 1: Property Type -->
+                <div class="quiz-step active" id="step1">
+                    <p class="quiz-q">What type of property is this?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-opt" onclick="quizAnswer(1,'residential')"><span class="opt-icon">🏠</span> Residential Home</button>
+                        <button class="quiz-opt" onclick="quizAnswer(1,'commercial')"><span class="opt-icon">🏢</span> Commercial / Business</button>
+                        <button class="quiz-opt" onclick="quizAnswer(1,'land')"><span class="opt-icon">🌾</span> Vacant Land</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Listing Price -->
+                <div class="quiz-step" id="step2">
+                    <p class="quiz-q">What's the listing price range?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-opt" onclick="quizAnswer(2,'low')"><span class="opt-icon">💰</span> Under $250,000</button>
+                        <button class="quiz-opt" onclick="quizAnswer(2,'mid')"><span class="opt-icon">💰</span> $250,000 – $500,000</button>
+                        <button class="quiz-opt" onclick="quizAnswer(2,'high')"><span class="opt-icon">💰</span> $500,000 – $750,000</button>
+                        <button class="quiz-opt" onclick="quizAnswer(2,'luxury')"><span class="opt-icon">💎</span> $750,000+</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Goal -->
+                <div class="quiz-step" id="step3">
+                    <p class="quiz-q">What's your primary goal for this listing?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-opt" onclick="quizAnswer(3,'mls')"><span class="opt-icon">📋</span> Clean MLS-ready photos, fast turnaround</button>
+                        <button class="quiz-opt" onclick="quizAnswer(3,'social')"><span class="opt-icon">📱</span> Photos + social media video content</button>
+                        <button class="quiz-opt" onclick="quizAnswer(3,'exposure')"><span class="opt-icon">🌐</span> Maximum online exposure — 3D tour, floor plan</button>
+                        <button class="quiz-opt" onclick="quizAnswer(3,'everything')"><span class="opt-icon">🏆</span> Everything — spare no expense</button>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="quiz-result" id="quizResult">
+                    <div class="quiz-result-badge">Our Recommendation</div>
+                    <div class="quiz-result-title" id="resultTitle"></div>
+                    <div class="quiz-result-price" id="resultPrice"></div>
+                    <div class="quiz-result-why" id="resultWhy"></div>
+                    <a href="book.html" class="btn btn-gold">Book This Now</a>
+                    <button class="quiz-restart" onclick="quizReset()">↩ Start over</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SHOOT DAY TRACKER PROMO
+    ============================================================ -->
+    <section class="tool-section">
+        <div class="container">
+            <p class="tool-label">Tool 3</p>
+            <h2 class="tool-title">Shoot Day <span class="gold">Live Tracker</span></h2>
+            <p class="tool-desc">When you book with us, your client gets a real-time status link on shoot day — so they always know exactly where things stand without having to call.</p>
+
+            <div class="tracker-promo">
+                <span class="tracker-promo-icon">📍</span>
+                <div>
+                    <h3>How It Works</h3>
+                    <p>On the morning of your shoot, we send your client a tracking link. As the day progresses — <strong style="color:#fff;">Confirmed → En Route → On Site → Editing → Delivered</strong> — the status updates in real time. No calls, no guessing, no "where are my photos?"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CTA
+    ============================================================ -->
+    <section class="tool-section" style="text-align:center;">
+        <div class="container">
+            <p class="section-eyebrow">Ready to Book?</p>
+            <h2 class="section-title">Let's <span class="gold">Elevate Your Listing</span></h2>
+            <p style="color:rgba(255,255,255,0.6); margin-bottom:28px; max-width:480px; margin-left:auto; margin-right:auto;">Fast turnaround. Clean delivery. Professional results — every time.</p>
+            <a href="book.html" class="btn btn-gold" style="font-size:1rem; padding:14px 40px;">Book a Shoot</a>
+            &nbsp;&nbsp;
+            <a href="tel:3862924315" class="btn btn-outline-gold">📞 Call or Text</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Flying Ace's Photography &amp; Drone Services. All rights reserved. &nbsp;&middot;&nbsp; <a href="index.html" style="color:var(--gold)">Back to Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+    /* ---- ROI Calculator ---- */
+    (function(){
+        var input  = document.getElementById('roiPrice');
+        var low    = document.getElementById('roiExtraLow');
+        var range  = document.getElementById('roiExtraRange');
+        var ret    = document.getElementById('roiReturn');
+
+        function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
+
+        function calc(){
+            var raw = input.value.replace(/[^0-9.]/g,'');
+            var price = parseFloat(raw)||0;
+            if(price < 1000){ low.textContent='—'; range.textContent=''; ret.textContent='Enter a price above'; return; }
+            var lo = price * 0.01;
+            var hi = price * 0.03;
+            var ratio = Math.round(lo / 175);
+            low.textContent = fmt(lo);
+            range.textContent = 'up to ' + fmt(hi) + ' more at closing';
+            ret.textContent = ratio > 1 ? ratio + ':1 on a $175 shoot' : 'Up to ' + fmt(hi) + ' more';
+        }
+
+        input.addEventListener('input', function(){
+            var raw = this.value.replace(/[^0-9]/g,'');
+            this.value = raw ? '$' + parseInt(raw,10).toLocaleString() : '';
+            calc();
+        });
+    })();
+
+    /* ---- Package Recommender ---- */
+    var quizData = { type: null, price: null, goal: null };
+
+    function quizAnswer(step, val){
+        if(step===1) quizData.type = val;
+        if(step===2) quizData.price = val;
+        if(step===3){ quizData.goal = val; showResult(); return; }
+
+        document.getElementById('step'+step).classList.remove('active');
+        document.getElementById('dot'+step).classList.add('done');
+
+        if(step===1 && (val==='land'||val==='commercial')){
+            quizData.price='n/a'; quizData.goal='n/a';
+            document.getElementById('dot2').classList.add('done');
+            document.getElementById('dot3').classList.add('done');
+            showResult(); return;
+        }
+        document.getElementById('step'+(step+1)).classList.add('active');
+    }
+
+    function showResult(){
+        var t=quizData.type, p=quizData.price, g=quizData.goal;
+        var title='', price='', why='';
+
+        if(t==='land'){
+            title='Drone Vacant Land Package';
+            price='Starting at $89';
+            why='For vacant land, aerial drone coverage is the single most powerful thing you can do. It shows the full scope of the property, boundaries, access, and surrounding area in a way no ground photo can.';
+        } else if(t==='commercial'){
+            title='Ultimate Showcase or Custom Quote';
+            price='Starting at $475 — call for custom pricing';
+            why='Commercial properties benefit from the full media treatment — photos, video, and a 3D walkthrough give potential buyers or tenants the most complete picture before they ever walk through the door. We\'ll put together a custom quote based on your specific project.';
+        } else if(g==='everything'||(p==='luxury')||(p==='high'&&g!=='mls')){
+            title='Ultimate Showcase';
+            price='Starting at $475';
+            why='For a listing at this price point, maximum media coverage is the right call. The Ultimate Showcase includes full photo + video, Zillow 3D interactive walkthrough, and a detailed floor plan — everything an out-of-town buyer or high-end client needs to fall in love before the showing.';
+        } else if(g==='exposure'||(p==='mid'&&g==='exposure')){
+            title='Photography Package + Zillow 3D Add-On';
+            price='$175 + $125 = $300';
+            why='Great photos get the listing seen. The Zillow 3D walkthrough keeps buyers engaged longer and dramatically improves time-on-site on Zillow — which signals to the algorithm to rank your listing higher. A smart combination for any listing looking for an edge.';
+        } else if(g==='social'){
+            title='Photography Package + Videography Package';
+            price='$175 + $175 = $350';
+            why='The photo package covers your MLS needs. The video gives you a ready-to-post social media reel — horizontally for YouTube and Facebook, vertically for Instagram and TikTok. A double hit that covers every platform your buyers are on.';
+        } else {
+            title='Photography Package';
+            price='Starting at $175';
+            why='Clean, professional, MLS-ready interior and exterior photos with drone coverage included. Fast 24–48 hour turnaround. Everything you need to get the listing online and looking sharp — nothing you don\'t.';
+        }
+
+        ['step1','step2','step3'].forEach(function(id){ document.getElementById(id).classList.remove('active'); });
+        ['dot1','dot2','dot3'].forEach(function(id){ document.getElementById(id).classList.add('done'); });
+        document.getElementById('resultTitle').textContent = title;
+        document.getElementById('resultPrice').textContent = price;
+        document.getElementById('resultWhy').textContent = why;
+        document.getElementById('quizResult').classList.add('active');
+    }
+
+    function quizReset(){
+        quizData = { type:null, price:null, goal:null };
+        document.getElementById('quizResult').classList.remove('active');
+        ['dot1','dot2','dot3'].forEach(function(id){ document.getElementById(id).classList.remove('done'); });
+        document.getElementById('step1').classList.add('active');
+        ['step2','step3'].forEach(function(id){ document.getElementById(id).classList.remove('active'); });
+    }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoot Day Tracker | Flying Ace's Photography & Drone</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X87ZSNGKVY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X87ZSNGKVY');
+    </script>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px 20px; }
+
+        .tracker-wrap {
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+        }
+        .tracker-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+        .tracker-logo img { width: 44px; height: 44px; object-fit: contain; }
+        .tracker-logo-text { font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:800; }
+
+        .tracker-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 36px 32px;
+        }
+
+        .tracker-status-label {
+            font-family:'Montserrat',sans-serif;
+            font-size:0.72rem;
+            font-weight:700;
+            letter-spacing:0.14em;
+            text-transform:uppercase;
+            color:rgba(255,255,255,0.45);
+            margin-bottom:10px;
+        }
+        .tracker-status-main {
+            font-family:'Montserrat',sans-serif;
+            font-size:clamp(1.6rem,5vw,2.2rem);
+            font-weight:900;
+            color:var(--gold);
+            margin-bottom:8px;
+            line-height:1.2;
+        }
+        .tracker-status-sub {
+            font-size:0.9rem;
+            color:rgba(255,255,255,0.55);
+            margin-bottom:32px;
+            line-height:1.6;
+        }
+
+        /* Steps */
+        .tracker-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            text-align: left;
+            margin-bottom: 32px;
+        }
+        .tracker-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            position: relative;
+        }
+        .tracker-step:not(:last-child)::after {
+            content:'';
+            position:absolute;
+            left: 15px;
+            top: 34px;
+            width: 2px;
+            height: calc(100% - 10px);
+            background: rgba(255,255,255,0.08);
+        }
+        .tracker-step.done::after { background: rgba(196,145,28,0.4); }
+
+        .step-icon-wrap {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.3);
+            font-family:'Montserrat',sans-serif;
+            margin-top: 4px;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s;
+        }
+        .tracker-step.done .step-icon-wrap {
+            background: rgba(196,145,28,0.15);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .tracker-step.current .step-icon-wrap {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #000;
+            box-shadow: 0 0 0 4px rgba(196,145,28,0.2);
+        }
+
+        .step-info { padding: 4px 0 20px; }
+        .step-name {
+            font-family:'Montserrat',sans-serif;
+            font-size:0.88rem;
+            font-weight:700;
+            color: rgba(255,255,255,0.3);
+            margin-bottom:2px;
+            transition: color 0.3s;
+        }
+        .tracker-step.done .step-name,
+        .tracker-step.current .step-name { color: #fff; }
+        .step-desc {
+            font-size:0.78rem;
+            color:rgba(255,255,255,0.25);
+            line-height:1.5;
+            transition: color 0.3s;
+        }
+        .tracker-step.done .step-desc,
+        .tracker-step.current .step-desc { color:rgba(255,255,255,0.5); }
+
+        /* Pulse animation for current step */
+        @keyframes pulse {
+            0%,100% { box-shadow: 0 0 0 4px rgba(196,145,28,0.2); }
+            50%      { box-shadow: 0 0 0 8px rgba(196,145,28,0.08); }
+        }
+        .tracker-step.current .step-icon-wrap { animation: pulse 2s infinite; }
+
+        .tracker-footer {
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.35);
+        }
+        .tracker-footer a { color: var(--gold); }
+
+        /* Delivered state */
+        .delivered-banner {
+            display:none;
+            background:rgba(196,145,28,0.12);
+            border:1px solid rgba(196,145,28,0.4);
+            border-radius:10px;
+            padding:20px;
+            margin-bottom:24px;
+            text-align:center;
+        }
+        .delivered-banner strong { color:var(--gold); display:block; font-size:1rem; margin-bottom:6px; }
+        .delivered-banner p { font-size:0.83rem; color:rgba(255,255,255,0.6); margin-bottom:16px; line-height:1.6; }
+        .btn-download {
+            display:inline-block;
+            background:var(--gold);
+            color:#000;
+            font-family:'Montserrat',sans-serif;
+            font-weight:800;
+            font-size:0.95rem;
+            padding:12px 28px;
+            border-radius:8px;
+            text-decoration:none;
+            letter-spacing:0.03em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tracker-wrap">
+        <div class="tracker-logo">
+            <img src="images/logo.png" alt="Flying Ace's Logo">
+            <span class="tracker-logo-text">Flying <span class="gold">Ace's</span></span>
+        </div>
+
+        <div class="tracker-card">
+            <div class="tracker-status-label">Shoot Day Status</div>
+            <div class="tracker-status-main" id="statusMain">Loading...</div>
+            <div class="tracker-status-sub" id="statusSub"></div>
+
+            <div class="delivered-banner" id="deliveredBanner">
+                <strong>🎉 Your media is ready!</strong>
+                <p id="deliveredMsg">Check your email for your invoice and download link. Questions? <a href="tel:3862924315" style="color:var(--gold);">(386) 292-4315</a></p>
+                <a id="dropboxBtn" href="#" target="_blank" rel="noopener" class="btn-download" style="display:none;">📁 Download Your Photos</a>
+            </div>
+
+            <div class="tracker-steps">
+                <div class="tracker-step" id="s1">
+                    <div class="step-icon-wrap">✓</div>
+                    <div class="step-info">
+                        <div class="step-name">Confirmed</div>
+                        <div class="step-desc">Shoot is scheduled and locked in.</div>
+                    </div>
+                </div>
+                <div class="tracker-step" id="s2">
+                    <div class="step-icon-wrap">🚗</div>
+                    <div class="step-info">
+                        <div class="step-name">En Route</div>
+                        <div class="step-desc">Heading to the property now.</div>
+                    </div>
+                </div>
+                <div class="tracker-step" id="s3">
+                    <div class="step-icon-wrap">📸</div>
+                    <div class="step-info">
+                        <div class="step-name">On Site</div>
+                        <div class="step-desc">Shooting the property right now.</div>
+                    </div>
+                </div>
+                <div class="tracker-step" id="s4">
+                    <div class="step-icon-wrap">🖥️</div>
+                    <div class="step-info">
+                        <div class="step-name">Editing</div>
+                        <div class="step-desc">Photos and media are being edited and processed.</div>
+                    </div>
+                </div>
+                <div class="tracker-step" id="s5">
+                    <div class="step-icon-wrap">✅</div>
+                    <div class="step-info">
+                        <div class="step-name">Delivered</div>
+                        <div class="step-desc">All media delivered to your inbox.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tracker-footer">
+                Questions? <a href="tel:3862924315">Call or text (386) 292-4315</a> &nbsp;·&nbsp; <a href="index.html">flyingacesmedia.com</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function(){
+        var statuses = [
+            { main:'Confirmed', sub:'Your shoot is scheduled and on the calendar. We\'ll see you soon!' },
+            { main:'En Route', sub:'We\'re on the way to the property now. Should be there shortly.' },
+            { main:'On Site — Shooting', sub:'We\'re at the property right now capturing your listing.' },
+            { main:'Editing', sub:'Shoot is wrapped. Your media is being edited and prepared for delivery.' },
+            { main:'Delivered! 🎉', sub:'Your photos and media have been sent to your email. Check your inbox!' }
+        ];
+
+        var params = new URLSearchParams(window.location.search);
+        var s = parseInt(params.get('s'), 10);
+        if(isNaN(s) || s < 1) s = 1;
+        if(s > 5) s = 5;
+
+        document.getElementById('statusMain').textContent = statuses[s-1].main;
+        document.getElementById('statusSub').textContent  = statuses[s-1].sub;
+
+        for(var i=1; i<=5; i++){
+            var el = document.getElementById('s'+i);
+            if(i < s)       el.classList.add('done');
+            else if(i === s) el.classList.add('current');
+        }
+
+        if(s === 5){
+            document.getElementById('deliveredBanner').style.display = 'block';
+            var dl = params.get('dl');
+            if(dl){
+                var btn = document.getElementById('dropboxBtn');
+                btn.href = dl;
+                btn.style.display = 'inline-block';
+                document.getElementById('deliveredMsg').innerHTML = 'Your photos are ready to download below. Check your email for your invoice. Questions? <a href="tel:3862924315" style="color:var(--gold);">(386) 292-4315</a>';
+            }
+        }
+    })();
+    </script>
+
+</body>
+</html>

@@ -36,7 +36,7 @@
     <style>
         .book-page-wrap {
             min-height: 80vh;
-            padding: 96px 0 72px;
+            padding: 128px 0 72px;
         }
         .book-page-header {
             text-align: center;
@@ -54,6 +54,157 @@
             font-size: 0.95rem;
             max-width: 520px;
             margin: 0 auto;
+        }
+        /* Service picker */
+        .service-picker {
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .service-picker-section { padding: 0; }
+        .service-picker-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            padding: 10px 14px 6px;
+            background: rgba(196,145,28,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .service-pick-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .service-pick-item:last-child { border-bottom: none; }
+        .service-pick-item:hover { background: rgba(255,255,255,0.04); }
+        .service-pick-item input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 4px;
+            background: rgba(255,255,255,0.06);
+            cursor: pointer;
+            position: relative;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .service-pick-item input[type="checkbox"]:checked {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+        .service-pick-item input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            width: 6px;
+            height: 10px;
+            border: 2px solid #000;
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+        }
+        .svc-name {
+            flex: 1;
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.3;
+        }
+        .svc-price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+        .service-pick-item.checked { background: rgba(196,145,28,0.08); }
+        /* Qty items use div not label — inner label wraps checkbox+name */
+        .svc-pick-inner {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            cursor: pointer;
+        }
+        .svc-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .svc-qty-controls {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 6px;
+            padding: 2px 4px;
+        }
+        .qty-btn {
+            background: none;
+            border: 1px solid rgba(196,145,28,0.5);
+            color: var(--gold);
+            border-radius: 4px;
+            width: 24px;
+            height: 24px;
+            font-size: 1rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.15s;
+        }
+        .qty-btn:hover { background: rgba(196,145,28,0.15); }
+        .qty-val {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #fff;
+            min-width: 18px;
+            text-align: center;
+        }
+        /* Total box */
+        .service-total-box {
+            margin-top: 14px;
+            background: rgba(196,145,28,0.12);
+            border: 1px solid rgba(196,145,28,0.5);
+            border-radius: 10px;
+            padding: 16px 18px;
+        }
+        .service-total-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        .service-total-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+        }
+        .service-total-amount {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+        .service-total-note {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.45);
+            margin: 0;
         }
         .book-contact-wrapper {
             display: grid;
@@ -125,6 +276,7 @@
                 <li><a href="packages.html">Packages/Pricing</a></li>
                 
                 
+                <li><a href="for-agents.html">Realtor Toolkit</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="book.html" class="nav-cta active">Book Now</a></li>
             </ul>
@@ -214,28 +366,131 @@
                             <input type="email" id="email" name="email" placeholder="jane@example.com" required>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+                    <div class="form-group" style="max-width:320px;">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label>Build Your Package <span style="font-size:0.78rem;color:rgba(255,255,255,0.4);font-weight:400;">— select all that apply</span></label>
+                        <div class="service-picker">
+
+                            <!-- PACKAGES -->
+                            <div class="service-picker-section">
+                                <p class="service-picker-heading">Packages</p>
+                                <label class="service-pick-item">
+                                    <input type="checkbox" class="svc-check" data-price="175" data-label="Photography Package ($175)" data-sqft="true">
+                                    <span class="svc-name">Photography Package</span>
+                                    <span class="svc-price">$175</span>
+                                </label>
+                                <label class="service-pick-item">
+                                    <input type="checkbox" class="svc-check" data-price="175" data-label="Videography Package ($175)">
+                                    <span class="svc-name">Videography Package</span>
+                                    <span class="svc-price">$175</span>
+                                </label>
+                                <label class="service-pick-item">
+                                    <input type="checkbox" class="svc-check" data-price="475" data-label="Ultimate Showcase ($475)" data-sqft="true">
+                                    <span class="svc-name">Ultimate Showcase</span>
+                                    <span class="svc-price">$475</span>
+                                </label>
+                            </div>
+
+                            <!-- ADD-ONS -->
+                            <div class="service-picker-section">
+                                <p class="service-picker-heading">Add-Ons</p>
+                                <label class="service-pick-item">
+                                    <input type="checkbox" class="svc-check" data-price="125" data-label="Zillow 3D Walkthrough + Interactive Floor Plan ($125)" data-sqft="true">
+                                    <span class="svc-name">Zillow 3D Walkthrough + Interactive Floor Plan</span>
+                                    <span class="svc-price">$125</span>
+                                </label>
+                                <label class="service-pick-item">
+                                    <input type="checkbox" class="svc-check" data-price="50" data-label="Floor Plan With Measurements ($50)" data-sqft="true">
+                                    <span class="svc-name">Floor Plan With Measurements</span>
+                                    <span class="svc-price">$50</span>
+                                </label>
+                                <label class="service-pick-item">
+                                    <input type="checkbox" class="svc-check" data-price="89" data-label="Drone Vacant Land (from $89)">
+                                    <span class="svc-name">Drone Vacant Land</span>
+                                    <span class="svc-price">from $89</span>
+                                </label>
+                                <!-- Qty add-ons -->
+                                <div class="service-pick-item" id="row-twilight">
+                                    <label class="svc-pick-inner">
+                                        <input type="checkbox" class="svc-check" id="chk-twilight" data-price="10" data-unitprice="10" data-label="Twilight Conversion" data-qty-target="qty-twilight">
+                                        <span class="svc-name">Magazine Quality Twilight Conversion</span>
+                                    </label>
+                                    <div class="svc-right">
+                                        <div class="svc-qty-controls" id="qty-twilight-wrap">
+                                            <button type="button" class="qty-btn" data-dir="-1" data-target="qty-twilight">−</button>
+                                            <span class="qty-val" id="qty-twilight">1</span>
+                                            <button type="button" class="qty-btn" data-dir="1" data-target="qty-twilight">+</button>
+                                        </div>
+                                        <span class="svc-price" id="price-twilight">$10 ea</span>
+                                    </div>
+                                </div>
+                                <div class="service-pick-item" id="row-lawn">
+                                    <label class="svc-pick-inner">
+                                        <input type="checkbox" class="svc-check" id="chk-lawn" data-price="5" data-unitprice="5" data-label="Lawn Enhancement" data-qty-target="qty-lawn">
+                                        <span class="svc-name">Lawn Enhancement</span>
+                                    </label>
+                                    <div class="svc-right">
+                                        <div class="svc-qty-controls" id="qty-lawn-wrap">
+                                            <button type="button" class="qty-btn" data-dir="-1" data-target="qty-lawn">−</button>
+                                            <span class="qty-val" id="qty-lawn">1</span>
+                                            <button type="button" class="qty-btn" data-dir="1" data-target="qty-lawn">+</button>
+                                        </div>
+                                        <span class="svc-price" id="price-lawn">$5 ea</span>
+                                    </div>
+                                </div>
+                                <div class="service-pick-item" id="row-pool">
+                                    <label class="svc-pick-inner">
+                                        <input type="checkbox" class="svc-check" id="chk-pool" data-price="10" data-unitprice="10" data-label="Pool Water Enhancement" data-qty-target="qty-pool">
+                                        <span class="svc-name">Pool Water Enhancement</span>
+                                    </label>
+                                    <div class="svc-right">
+                                        <div class="svc-qty-controls" id="qty-pool-wrap">
+                                            <button type="button" class="qty-btn" data-dir="-1" data-target="qty-pool">−</button>
+                                            <span class="qty-val" id="qty-pool">1</span>
+                                            <button type="button" class="qty-btn" data-dir="1" data-target="qty-pool">+</button>
+                                        </div>
+                                        <span class="svc-price" id="price-pool">$10 ea</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SPECIALTY SERVICES -->
+                            <div class="service-picker-section">
+                                <p class="service-picker-heading">Specialty Services</p>
+                                <label class="service-pick-item">
+                                    <input type="checkbox" class="svc-check" data-price="0" data-label="Marketing / Promo Video (from $250)">
+                                    <span class="svc-name">Marketing / Promo Video</span>
+                                    <span class="svc-price" style="color:rgba(255,255,255,0.45);">from $250</span>
+                                </label>
+                                <label class="service-pick-item">
+                                    <input type="checkbox" class="svc-check" data-price="0" data-label="Live Aerial Stream">
+                                    <span class="svc-name">Live Aerial Stream</span>
+                                    <span class="svc-price" style="color:rgba(255,255,255,0.45);">Call for Pricing</span>
+                                </label>
+                                <label class="service-pick-item">
+                                    <input type="checkbox" class="svc-check" data-price="0" data-label="Construction Documentation">
+                                    <span class="svc-name">Construction Documentation</span>
+                                    <span class="svc-price" style="color:rgba(255,255,255,0.45);">Call for Pricing</span>
+                                </label>
+                                <label class="service-pick-item">
+                                    <input type="checkbox" class="svc-check" data-price="0" data-label="Drone Photogrammetry / Mapping">
+                                    <span class="svc-name">Drone Photogrammetry / Mapping</span>
+                                    <span class="svc-price" style="color:rgba(255,255,255,0.45);">Call for Pricing</span>
+                                </label>
+                            </div>
+
                         </div>
-                        <div class="form-group">
-                            <label for="service">Service Needed</label>
-                            <select id="service" name="service">
-                                <option value="">Select a service...</option>
-                                <option>Photography Package ($175)</option>
-                                <option>Videography Package ($175)</option>
-                                <option>Ultimate Showcase ($450)</option>
-                                <option>Zillow 3D Walkthrough + Interactive Floor Plan ($125)</option>
-                                <option>Floor Plan With Measurements ($50)</option>
-                                <option>Drone Vacant Land (from $89)</option>
-                                <option>Live Aerial Stream</option>
-                                <option>Construction Documentation</option>
-                                <option>Marketing / Promo Video</option>
-                                <option>Drone Photogrammetry / Mapping</option>
-                                <option>Other / Multiple Services</option>
-                            </select>
+                        <div class="service-total-box" id="serviceTotalBox" style="display:none;">
+                            <div class="service-total-inner">
+                                <span class="service-total-label">Estimated Total</span>
+                                <span class="service-total-amount" id="serviceTotalAmount">$0</span>
+                            </div>
+                            <p class="service-total-note" id="serviceTotalNote"></p>
                         </div>
+                        <input type="hidden" name="service" id="servicesSelected">
                     </div>
                     <div class="form-group">
                         <label for="address">Property Address</label>
@@ -286,5 +541,114 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+    (function () {
+        var checks    = document.querySelectorAll('.svc-check');
+        var totalBox  = document.getElementById('serviceTotalBox');
+        var totalAmt  = document.getElementById('serviceTotalAmount');
+        var totalNote = document.getElementById('serviceTotalNote');
+        var hidden    = document.getElementById('servicesSelected');
+        var sqftInput = document.getElementById('sqft');
+
+        /* Parse sqft surcharge: $25 per 1,000 sqft over 3,000 */
+        function sqftSurcharge() {
+            if (!sqftInput) return 0;
+            var n = parseFloat(sqftInput.value.replace(/[^0-9.]/g, '')) || 0;
+            if (n <= 3000) return 0;
+            return Math.ceil((n - 3000) / 1000) * 25;
+        }
+
+        /* Get qty for a qty-enabled checkbox */
+        function getQty(cb) {
+            var qtyId = cb.dataset.qtyTarget;
+            if (!qtyId) return 1;
+            var el = document.getElementById(qtyId);
+            return el ? (parseInt(el.textContent, 10) || 1) : 1;
+        }
+
+        function recalc() {
+            var total    = 0;
+            var callOnly = false;
+            var sqftAmt  = sqftSurcharge();
+            var sqftHits = 0;
+            var selected = [];
+
+            checks.forEach(function (cb) {
+                var row      = cb.closest('.service-pick-item');
+                var qtyWrap  = cb.dataset.qtyTarget ? document.getElementById(cb.dataset.qtyTarget + '-wrap') : null;
+                var priceEl  = cb.id ? document.getElementById('price-' + cb.id.replace('chk-', '')) : null;
+                var unitPrice = parseInt(cb.dataset.unitprice || cb.dataset.price, 10);
+                var qty      = getQty(cb);
+
+                if (cb.checked) {
+                    row.classList.add('checked');
+                    if (qtyWrap) qtyWrap.style.display = 'flex';
+
+                    if (unitPrice > 0) {
+                        var line = unitPrice * qty;
+                        total += line;
+                        if (cb.dataset.sqft === 'true') sqftHits++;
+                        if (priceEl) priceEl.textContent = qty > 1 ? '$' + line + ' ($' + unitPrice + ' ea)' : '$' + unitPrice + ' ea';
+                    } else {
+                        callOnly = true;
+                        if (priceEl) priceEl.textContent = 'Call for Pricing';
+                    }
+
+                    var lbl = cb.dataset.label;
+                    selected.push(qty > 1 ? lbl + ' x' + qty : lbl);
+                } else {
+                    row.classList.remove('checked');
+                    if (qtyWrap) qtyWrap.style.display = 'none';
+                    if (priceEl && unitPrice > 0) priceEl.textContent = '$' + unitPrice + ' ea';
+                }
+            });
+
+            /* Apply sqft surcharge to eligible checked services */
+            var surcharge = sqftHits * sqftAmt;
+            total += surcharge;
+
+            hidden.value = selected.join(', ') +
+                (surcharge > 0 ? ' | Sq ft surcharge: +$' + surcharge : '');
+
+            if (selected.length === 0) { totalBox.style.display = 'none'; return; }
+
+            totalBox.style.display = 'block';
+
+            var note = '';
+            if (surcharge > 0) {
+                note = 'Includes +$' + surcharge + ' sq ft surcharge (' +
+                    sqftHits + ' service' + (sqftHits > 1 ? 's' : '') +
+                    ' × $' + sqftAmt + '). ';
+            }
+
+            if (callOnly && total > surcharge) {
+                totalAmt.textContent = '$' + total.toLocaleString() + '+';
+                note += 'Some services require a custom quote — we\'ll confirm the final total.';
+            } else if (callOnly) {
+                totalAmt.textContent = 'Quote Needed';
+                note += 'We\'ll reach out with a custom quote based on your project details.';
+            } else {
+                totalAmt.textContent = '$' + total.toLocaleString();
+                if (!note) note = 'Starting estimate — final total confirmed when we follow up.';
+            }
+            totalNote.textContent = note;
+        }
+
+        /* Qty buttons — stop propagation so they don't toggle the checkbox */
+        document.addEventListener('click', function (e) {
+            if (!e.target.classList.contains('qty-btn')) return;
+            e.preventDefault();
+            e.stopPropagation();
+            var dir    = parseInt(e.target.dataset.dir, 10);
+            var qtyEl  = document.getElementById(e.target.dataset.target);
+            if (!qtyEl) return;
+            qtyEl.textContent = Math.max(1, (parseInt(qtyEl.textContent, 10) || 1) + dir);
+            recalc();
+        }, true);
+
+        checks.forEach(function (cb) { cb.addEventListener('change', recalc); });
+        if (sqftInput) sqftInput.addEventListener('input', recalc);
+    })();
+    </script>
 </body>
 </html>

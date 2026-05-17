@@ -233,23 +233,25 @@ ul   { list-style: none; }
 .logo-sub {
     font-size: 0.6rem;
     letter-spacing: 0.14em;
-    color: rgba(255,255,255,0.78);
+    color: #fff;
+    font-weight: 700;
     text-transform: uppercase;
     display: block;
 }
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 36px;
+    gap: 24px;
 }
 .nav-menu a {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.78rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.78);
     transition: color var(--transition);
+    white-space: nowrap;
 }
 .nav-menu a:hover { color: var(--gold); }
 .nav-cta {
@@ -518,7 +520,6 @@ ul   { list-style: none; }
     0%, 100% { opacity: 0.35; transform: scaleY(1); }
     50%       { opacity: 1;    transform: scaleY(1.1); }
 }
-
 /* Hero element entrance animation — elements slide up on load */
 .hero-animate {
     opacity: 0;
@@ -550,7 +551,7 @@ ul   { list-style: none; }
 }
 .tagline-bar-inner {
     display: block;
-    align-items: center;
+    text-align: center;
 }
 .tagline-eyebrow {
     font-family: 'Montserrat', sans-serif;
@@ -2397,3 +2398,237 @@ ul   { list-style: none; }
     text-decoration: none;
 }
 .faq-a a:hover { text-decoration: underline; }
+
+/* ============================================================
+   PAGE TRANSITIONS — PAGE SPECIFIC
+============================================================ */
+.pt-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+/* ── IRIS — portfolio pages (camera shutter) ── */
+.pt-overlay.iris {
+    background: #000;
+    clip-path: circle(0% at 50% 50%);
+}
+.pt-overlay.iris.pt-close {
+    pointer-events: all;
+    animation: irisClose 0.55s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+.pt-overlay.iris.pt-open {
+    clip-path: circle(150% at 50% 50%);
+    animation: irisOpen 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+}
+@keyframes irisClose {
+    from { clip-path: circle(0% at 50% 50%); }
+    to   { clip-path: circle(150% at 50% 50%); }
+}
+@keyframes irisOpen {
+    from { clip-path: circle(150% at 50% 50%); }
+    to   { clip-path: circle(0% at 50% 50%); }
+}
+
+/* ── DRONE WIPE — services page (gold streak sweeps across) ── */
+.pt-overlay.drone {
+    background: var(--dark);
+    transform: translateX(-100%);
+}
+.pt-overlay.drone::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 5px; height: 100%;
+    background: var(--gold);
+    box-shadow: 0 0 24px var(--gold), 0 0 60px rgba(196,145,28,0.5);
+}
+.pt-overlay.drone.pt-close {
+    pointer-events: all;
+    animation: droneClose 0.5s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+.pt-overlay.drone.pt-open {
+    transform: translateX(0);
+    animation: droneOpen 0.6s cubic-bezier(0.76, 0, 0.24, 1) 0.05s forwards;
+}
+@keyframes droneClose {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(0); }
+}
+@keyframes droneOpen {
+    from { transform: translateX(0); }
+    to   { transform: translateX(105%); }
+}
+
+/* ── SLASH — home, packages, other pages (diagonal blade) ── */
+.pt-overlay.slash {
+    background: var(--dark);
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+.pt-overlay.slash.pt-close {
+    pointer-events: all;
+    animation: slashClose 0.5s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+.pt-overlay.slash.pt-open {
+    clip-path: polygon(0 0, 110% 0, 100% 100%, 0 100%);
+    animation: slashOpen 0.55s cubic-bezier(0.76, 0, 0.24, 1) 0.05s forwards;
+}
+@keyframes slashClose {
+    from { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+    to   { clip-path: polygon(0 0, 110% 0, 100% 100%, 0 100%); }
+}
+@keyframes slashOpen {
+    from { clip-path: polygon(0 0, 110% 0, 100% 100%, 0 100%); }
+    to   { clip-path: polygon(110% 0, 110% 0, 110% 100%, 110% 100%); }
+}
+
+/* ── FADE — book page (clean white flash) ── */
+.pt-overlay.fade-white {
+    background: #fff;
+    opacity: 0;
+}
+.pt-overlay.fade-white.pt-close {
+    pointer-events: all;
+    animation: fadeWClose 0.3s ease forwards;
+}
+.pt-overlay.fade-white.pt-open {
+    opacity: 1;
+    animation: fadeWOpen 0.45s ease 0.05s forwards;
+}
+@keyframes fadeWClose { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeWOpen  { from { opacity: 1; } to { opacity: 0; } }
+
+/* ── WARM FADE — about page (solid gold both ways) ── */
+.pt-overlay.warm {
+    background: linear-gradient(135deg, #e8b84b 0%, #c4911c 50%, #a87818 100%);
+    opacity: 0;
+}
+.pt-overlay.warm.pt-close {
+    pointer-events: all;
+    animation: fadeWClose 0.42s ease forwards;
+}
+.pt-overlay.warm.pt-open {
+    opacity: 1;
+    animation: fadeWOpen 0.55s ease 0.05s forwards;
+}
+
+/* ============================================================
+   SCROLL REVEAL VARIANTS
+============================================================ */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(44px);
+    transition: opacity 0.7s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-52px);
+    transition: opacity 0.7s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-right {
+    opacity: 0;
+    transform: translateX(52px);
+    transition: opacity 0.7s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.86);
+    transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.reveal-up.revealed,
+.reveal-left.revealed,
+.reveal-right.revealed,
+.reveal-scale.revealed {
+    opacity: 1;
+    transform: none;
+}
+
+/* ============================================================
+   SERVICES FAN EFFECT (services.html)
+   Initial hide states — GSAP ScrollTrigger adds fan-visible.
+============================================================ */
+.service-card.fan-left {
+    opacity: 0;
+    transform: translateX(-90px) rotate(-7deg);
+    transition: opacity 0.6s ease, transform 0.72s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.service-card.fan-center {
+    opacity: 0;
+    transform: translateY(-55px) scale(0.88);
+    transition: opacity 0.6s ease, transform 0.72s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.service-card.fan-right {
+    opacity: 0;
+    transform: translateX(90px) rotate(7deg);
+    transition: opacity 0.6s ease, transform 0.72s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.service-card.fan-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ============================================================
+   CURTAIN REVEAL — about preview photo (homepage)
+============================================================ */
+.curtain-ready {
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.curtain-revealed {
+    clip-path: inset(0% 0 0 0);
+}
+
+/* ============================================================
+   PORTFOLIO 3D HOVER
+============================================================ */
+.port-grid {
+    perspective: 1400px;
+    perspective-origin: 50% 40%;
+}
+.port-item {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    will-change: transform;
+}
+.port-grid:hover .port-item {
+    transform: scale(0.96);
+}
+.port-grid .port-item:hover {
+    transform: scale(1.04) translateZ(28px) !important;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+    z-index: 2;
+    position: relative;
+}
+
+/* ============================================================
+   HAMBURGER — gold color when open
+============================================================ */
+.nav-toggle span {
+    transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.25s ease,
+                background-color 0.25s ease;
+}
+.nav-toggle.active span {
+    background-color: var(--gold);
+}
+
+/* ============================================================
+   MOBILE NAV — slide-in from right with fade links
+============================================================ */
+.nav-menu a {
+    transition: color var(--transition), opacity 0.3s ease, transform 0.3s ease;
+}
+.nav-menu.open a {
+    animation: navLinkSlide 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.nav-menu.open li:nth-child(1) a { animation-delay: 0.05s; }
+.nav-menu.open li:nth-child(2) a { animation-delay: 0.10s; }
+.nav-menu.open li:nth-child(3) a { animation-delay: 0.15s; }
+.nav-menu.open li:nth-child(4) a { animation-delay: 0.20s; }
+.nav-menu.open li:nth-child(5) a { animation-delay: 0.25s; }
+.nav-menu.open li:nth-child(6) a { animation-delay: 0.30s; }
+.nav-menu.open li:nth-child(7) a { animation-delay: 0.35s; }
+@keyframes navLinkSlide {
+    from { opacity: 0; transform: translateX(24px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
