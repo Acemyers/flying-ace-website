@@ -414,43 +414,53 @@ if (contactForm) {
     function initGSAP() {
         gsap.registerPlugin(ScrollTrigger);
 
+        var isMobile = window.innerWidth <= 768;
+
         // Scroll-reversible reveals (class-based CSS transitions)
         document.querySelectorAll('.reveal-left,.reveal-right,.reveal-up,.reveal-scale').forEach(el => {
-            ScrollTrigger.create({
-                trigger: el,
-                start: 'top 90%',
-                onEnter:     () => el.classList.add('revealed'),
-                onLeaveBack: () => el.classList.remove('revealed'),
-                onEnterBack: () => el.classList.add('revealed'),
-            });
+            if (isMobile) {
+                el.classList.add('revealed');
+            } else {
+                ScrollTrigger.create({
+                    trigger: el,
+                    start: 'top 90%',
+                    onEnter:     () => el.classList.add('revealed'),
+                    onLeaveBack: () => el.classList.remove('revealed'),
+                    onEnterBack: () => el.classList.add('revealed'),
+                });
+            }
         });
 
         // Services fan — class toggling so cards are never permanently invisible
         document.querySelectorAll('.services-full-grid .service-card').forEach(function(card, i) {
             var delay = i * 0.07;
-            ScrollTrigger.create({
-                trigger: card,
-                start: 'top 95%',
-                onEnter: function() {
-                    card.style.transitionDelay = delay + 's';
-                    card.classList.add('fan-visible');
-                },
-                onLeaveBack: function() {
-                    card.style.transitionDelay = '0s';
-                    card.classList.remove('fan-visible');
-                },
-                onEnterBack: function() {
-                    card.style.transitionDelay = delay + 's';
-                    card.classList.add('fan-visible');
-                },
-            });
+            if (isMobile) {
+                card.classList.add('fan-visible');
+            } else {
+                ScrollTrigger.create({
+                    trigger: card,
+                    start: 'top 95%',
+                    onEnter: function() {
+                        card.style.transitionDelay = delay + 's';
+                        card.classList.add('fan-visible');
+                    },
+                    onLeaveBack: function() {
+                        card.style.transitionDelay = '0s';
+                        card.classList.remove('fan-visible');
+                    },
+                    onEnterBack: function() {
+                        card.style.transitionDelay = delay + 's';
+                        card.classList.add('fan-visible');
+                    },
+                });
+            }
         });
 
-        // Homepage hero pin — hero-content drifts up and fades while pinned
+        // Homepage hero scroll effect — desktop only (pin breaks on mobile browsers)
         var isHome = window.location.href.toLowerCase().indexOf('index.html') !== -1
                   || window.location.pathname === '/'
                   || window.location.pathname === '';
-        if (isHome) {
+        if (isHome && !isMobile) {
             var hero = document.querySelector('.hero');
             var heroContent = hero && hero.querySelector('.hero-content');
             if (hero && heroContent) {
