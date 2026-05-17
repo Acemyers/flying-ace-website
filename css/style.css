@@ -707,15 +707,19 @@ ul   { list-style: none; }
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 28px 10px 9px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.68));
+    padding: 32px 10px 10px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.78));
     color: #fff;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     text-align: center;
+    z-index: 1;
+}
+@media (max-width: 768px) {
+    .port-video-label { font-size: 0.65rem; padding: 24px 8px 8px; }
 }
 
 .service-card-body {
@@ -2165,40 +2169,6 @@ ul   { list-style: none; }
 .port-video-item {
     position: relative !important;
     cursor: pointer;
-}
-.port-video-item::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.30);
-    z-index: 1;
-    transition: background 0.2s ease;
-}
-.port-video-item::after {
-    content: '\25BA';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.92);
-    color: #1a1a1a;
-    font-size: 1.4rem;
-    line-height: 60px;
-    text-align: center;
-    padding-left: 4px;
-    box-sizing: border-box;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.5);
-    z-index: 2;
-    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-}
-.port-video-item:hover::before { background: rgba(0,0,0,0.15); }
-.port-video-item:hover::after {
-    transform: translate(-50%, -50%) scale(1.12);
-    background: var(--gold);
-    color: #fff;
 }
 .port-placeholder {
     position: absolute;
