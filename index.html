@@ -403,7 +403,6 @@
                 </div>
 
                 <div class="package-compact-card featured">
-                    <span class="pkg-compact-badge">Most Popular</span>
                     <div class="pkg-compact-top">
                         <h3>Ultimate Showcase</h3>
                         <div class="pkg-compact-price">From <strong>$475</strong></div>
@@ -420,9 +419,6 @@
                     </div>
                 </div>
 
-            </div>
-            <div class="packages-size-note">
-                <span class="gold">&#9650;</span>&nbsp; +$25 per 1,000 sq ft over 3,000 sq ft &nbsp;|&nbsp; Properties over 5,000 sq ft — <a href="packages.html">See pricing details</a>
             </div>
             <div style="text-align:center; margin-top:24px;">
                 <a href="packages.html" class="btn btn-outline-gold">View Full Packages &amp; Pricing &rarr;</a>
@@ -446,7 +442,6 @@
                 <!-- Twilight Conversion -->
                 <div class="ba-slider-card">
                     <h4 class="ba-slider-title">Magazine Quality Twilight Conversion</h4>
-                    <p class="ba-slider-desc">We digitally convert a daytime exterior into a stunning twilight/dusk shot.</p>
                     <p class="ba-slider-price">$10 per</p>
                     <div class="ba-slider" data-slider>
                         <div class="ba-before" style="background-image:url('images/enhancement-twilight-before.jpg')">
@@ -471,7 +466,6 @@
                 <!-- Sky Replacement -->
                 <div class="ba-slider-card">
                     <h4 class="ba-slider-title">Sky Replacement</h4>
-                    <p class="ba-slider-desc">Overcast or dull skies replaced with bright, vivid blue — every time.</p>
                     <p class="ba-slider-price">Included with all packages</p>
                     <div class="ba-slider" data-slider>
                         <div class="ba-before" style="background-image:url('images/enhancement-sky-before.jpg')">
@@ -496,7 +490,6 @@
                 <!-- Lawn / Grass Enhancement -->
                 <div class="ba-slider-card">
                     <h4 class="ba-slider-title">Lawn Enhancement</h4>
-                    <p class="ba-slider-desc">Dry or patchy grass transformed into lush, green curb appeal.</p>
                     <p class="ba-slider-price">$5 per</p>
                     <div class="ba-slider" data-slider>
                         <div class="ba-before" style="background-image:url('images/enhancement-lawn-before.jpg')">
@@ -521,7 +514,6 @@
                 <!-- Pool Water Enhancement -->
                 <div class="ba-slider-card">
                     <h4 class="ba-slider-title">Pool Water Enhancement</h4>
-                    <p class="ba-slider-desc">Pool water color corrected and clarified for a sparkling, inviting look.</p>
                     <p class="ba-slider-price">$10 (applies to all pool photos per listing)</p>
                     <div class="ba-slider" data-slider>
                         <div class="ba-before" style="background-image:url('images/enhancement-pool-before.jpg')">
@@ -561,40 +553,48 @@
     <section class="photo-strip">
         <div class="photo-strip-track">
 
-            <div class="strip-item">
-                <div class="strip-img" style="background-image:url('images/portfolio-exterior/thumbs/exterior-09.jpg')"></div>
+            <div class="strip-item" data-full="images/portfolio-exterior/exterior-09.webp">
+                <div class="strip-img" style="background-image:url('images/portfolio-exterior/thumbs/exterior-09.webp')"></div>
             </div>
 
-            <div class="strip-item">
-                <div class="strip-img" style="background-image:url('images/portfolio-interior/thumbs/interior-01.jpg')"></div>
+            <div class="strip-item" data-full="images/portfolio-interior/interior-01.webp">
+                <div class="strip-img" style="background-image:url('images/portfolio-interior/thumbs/interior-01.webp')"></div>
             </div>
 
-            <div class="strip-item">
-                <div class="strip-img" style="background-image:url('images/portfolio-drone/thumbs/aerial-12.jpg')"></div>
+            <div class="strip-item" data-full="images/portfolio-drone/aerial-12.webp">
+                <div class="strip-img" style="background-image:url('images/portfolio-drone/thumbs/aerial-12.webp')"></div>
             </div>
 
-            <div class="strip-item">
-                <div class="strip-img" style="background-image:url('images/portfolio-exterior/thumbs/exterior-04.jpg')"></div>
+            <div class="strip-item" data-full="images/portfolio-exterior/exterior-04.webp">
+                <div class="strip-img" style="background-image:url('images/portfolio-exterior/thumbs/exterior-04.webp')"></div>
             </div>
 
-            <div class="strip-item">
-                <div class="strip-img" style="background-image:url('images/portfolio-interior/thumbs/interior-04.jpg')"></div>
+            <div class="strip-item" data-full="images/portfolio-interior/interior-04.webp">
+                <div class="strip-img" style="background-image:url('images/portfolio-interior/thumbs/interior-04.webp')"></div>
             </div>
 
-            <div class="strip-item">
-                <div class="strip-img" style="background-image:url('images/portfolio-drone/thumbs/aerial-05.jpg')"></div>
+            <div class="strip-item" data-full="images/portfolio-drone/aerial-05.webp">
+                <div class="strip-img" style="background-image:url('images/portfolio-drone/thumbs/aerial-05.webp')"></div>
             </div>
 
-            <div class="strip-item">
-                <div class="strip-img" style="background-image:url('images/portfolio-exterior/thumbs/exterior-12.jpg')"></div>
+            <div class="strip-item" data-full="images/portfolio-exterior/exterior-12.webp">
+                <div class="strip-img" style="background-image:url('images/portfolio-exterior/thumbs/exterior-12.webp')"></div>
             </div>
 
-            <div class="strip-item">
-                <div class="strip-img" style="background-image:url('images/portfolio-interior/thumbs/interior-03.jpg')"></div>
+            <div class="strip-item" data-full="images/portfolio-interior/interior-03.webp">
+                <div class="strip-img" style="background-image:url('images/portfolio-interior/thumbs/interior-03.webp')"></div>
             </div>
 
         </div>
     </section>
+
+    <!-- Photo strip lightbox -->
+    <div class="strip-lightbox" id="stripLightbox">
+        <button class="strip-lightbox-close" id="stripLightboxClose" aria-label="Close photo">&times;</button>
+        <button class="strip-lightbox-nav strip-lightbox-prev" id="stripLightboxPrev" aria-label="Previous photo">&#8249;</button>
+        <img class="strip-lightbox-img" id="stripLightboxImg" src="" alt="Full size photo">
+        <button class="strip-lightbox-nav strip-lightbox-next" id="stripLightboxNext" aria-label="Next photo">&#8250;</button>
+    </div>
 
     <!-- ============================================================
          CONTACT
@@ -659,7 +659,20 @@
                     <div class="footer-contact-list">
                         <p>📞 <a href="tel:3862924315">(386) 292-4315</a></p>
                         <p>📧 <a href="mailto:pilot@acesdroneservice.com">pilot@acesdroneservice.com</a></p>
-                        <p>📍 Lake City · O'Brien · Lake Butler · Alachua<br>Gainesville · Glen Saint Mary · Starke · Mayo<br>Branford · Live Oak · Perry · Valdosta<br>Jacksonville · St. Augustine · Palm Coast<br>Ormond Beach · Daytona · North FL</p>
+                        <div style="position:relative; display:inline-block;">
+                            <button class="footer-area-btn" id="footerAreaBtn" aria-expanded="false">📍 Service Areas</button>
+                            <div class="area-popup" id="footerAreaPopup" aria-hidden="true">
+                                <div class="area-popup-grid">
+                                    <span>Lake City</span><span>O'Brien</span><span>Lake Butler</span>
+                                    <span>Alachua</span><span>Gainesville</span><span>Glen Saint Mary</span>
+                                    <span>Starke</span><span>Mayo</span><span>Branford</span>
+                                    <span>Live Oak</span><span>Perry</span><span>Valdosta</span>
+                                    <span>Jacksonville</span><span>St. Augustine</span><span>Palm Coast</span>
+                                    <span>Ormond Beach</span><span>Daytona</span>
+                                    <span class="area-popup-note">North Florida &amp; Surrounding Areas</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <p class="footer-tagline">🎖️ FAA Part 107 Certified &nbsp;·&nbsp; Licensed &amp; Insured &nbsp;·&nbsp; Military Veteran</p>
                 </div>
@@ -682,10 +695,6 @@
                         <a href="https://www.facebook.com/profile.php?id=61566472164500" class="social-link" target="_blank" rel="noopener noreferrer">
                             <span class="social-icon">&#x1F4D8;</span> Facebook
                         </a>
-                        <!-- Replace # with your YouTube URL when ready -->
-                        <a href="#" class="social-link">
-                            <span class="social-icon">&#x1F3A5;</span> YouTube
-                        </a>
                     </div>
                 </div>
 
@@ -707,6 +716,76 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+        /* Footer service area popup */
+        (function() {
+            var btn = document.getElementById('footerAreaBtn');
+            var popup = document.getElementById('footerAreaPopup');
+            if (!btn || !popup) return;
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var open = popup.classList.toggle('open');
+                btn.setAttribute('aria-expanded', open);
+                popup.setAttribute('aria-hidden', !open);
+            });
+            document.addEventListener('click', function() {
+                popup.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+                popup.setAttribute('aria-hidden', 'true');
+            });
+        })();
+
+        /* Photo strip lightbox with arrows + swipe */
+        (function() {
+            var lb = document.getElementById('stripLightbox');
+            var img = document.getElementById('stripLightboxImg');
+            var closeBtn = document.getElementById('stripLightboxClose');
+            var prevBtn = document.getElementById('stripLightboxPrev');
+            var nextBtn = document.getElementById('stripLightboxNext');
+            if (!lb || !img) return;
+
+            var items = Array.from(document.querySelectorAll('.strip-item[data-full]'));
+            var current = 0;
+
+            function show(index) {
+                current = (index + items.length) % items.length;
+                img.src = items[current].getAttribute('data-full');
+            }
+
+            items.forEach(function(item, i) {
+                item.addEventListener('click', function() {
+                    show(i);
+                    lb.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeLb() {
+                lb.classList.remove('open');
+                img.src = '';
+                document.body.style.overflow = '';
+            }
+
+            closeBtn.addEventListener('click', closeLb);
+            prevBtn.addEventListener('click', function(e) { e.stopPropagation(); show(current - 1); });
+            nextBtn.addEventListener('click', function(e) { e.stopPropagation(); show(current + 1); });
+            lb.addEventListener('click', function(e) { if (e.target === lb || e.target === img) closeLb(); });
+            document.addEventListener('keydown', function(e) {
+                if (!lb.classList.contains('open')) return;
+                if (e.key === 'Escape') closeLb();
+                if (e.key === 'ArrowLeft') show(current - 1);
+                if (e.key === 'ArrowRight') show(current + 1);
+            });
+
+            /* Touch swipe */
+            var touchStartX = 0;
+            lb.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+            lb.addEventListener('touchend', function(e) {
+                var diff = touchStartX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 40) diff > 0 ? show(current + 1) : show(current - 1);
+            });
+        })();
+    </script>
     <script>
         (function() {
             var v = document.querySelector('.hero-video');

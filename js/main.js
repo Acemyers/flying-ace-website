@@ -16,7 +16,8 @@ const navToggle = document.getElementById('navToggle');
 const navMenu   = document.getElementById('navMenu');
 
 if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         navToggle.classList.toggle('active');
         navMenu.classList.toggle('open');
     });
@@ -26,6 +27,13 @@ if (navToggle && navMenu) {
             navToggle.classList.remove('active');
             navMenu.classList.remove('open');
         });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('open');
+        }
     });
 }
 

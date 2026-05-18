@@ -668,7 +668,7 @@ ul   { list-style: none; }
 }
 
 .service-card-img {
-    height: 200px;
+    height: 220px;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -708,25 +708,26 @@ ul   { list-style: none; }
     background: rgba(255,255,255,1);
     transform: translate(-50%, -50%) scale(1.12);
 }
+.port-video-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
 .port-video-label {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 36px 10px 10px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.82));
-    color: #fff;
+    margin: 6px 0 0;
+    padding: 0;
+    background: none;
+    color: rgba(255,255,255,0.82);
     font-family: 'Montserrat', sans-serif;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     text-align: center;
-    z-index: 3;
 }
 
 .service-card-body {
-    padding: 24px 22px 26px;
+    padding: 14px 16px 16px;
 }
 .service-icon {
     font-size: 1.8rem;
@@ -734,15 +735,13 @@ ul   { list-style: none; }
 }
 .service-card-body h3 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--light-text);
-    margin-bottom: 8px;
+    margin-bottom: 0;
 }
 .service-card-body p {
-    font-size: 0.875rem;
-    color: var(--light-sub);
-    line-height: 1.65;
+    display: none;
 }
 
 /* ============================================================
@@ -1146,8 +1145,8 @@ ul   { list-style: none; }
 /* Before/After slider grid — all 4 on one row */
 .ba-sliders-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
     margin-bottom: 48px;
 }
 
@@ -1937,9 +1936,9 @@ ul   { list-style: none; }
     margin-bottom: 20px;
 }
 .footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
 }
 .footer-links a {
     font-size: 0.88rem;
@@ -2057,6 +2056,77 @@ ul   { list-style: none; }
     transform: translate(-50%, -50%) scale(1.14);
 }
 
+/* Strip photo lightbox */
+.strip-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    background: rgba(0,0,0,0.92);
+    align-items: center;
+    justify-content: center;
+}
+.strip-lightbox.open { display: flex; }
+.strip-lightbox-img {
+    max-width: 92vw;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: var(--radius);
+    box-shadow: 0 24px 72px rgba(0,0,0,0.7);
+}
+.strip-lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.7);
+    font-size: 2.2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color var(--transition);
+    z-index: 3001;
+}
+.strip-lightbox-close:hover { color: var(--gold); }
+.strip-lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+    z-index: 3001;
+}
+.strip-lightbox-nav:hover { background: rgba(196,145,28,0.7); color: #fff; }
+.strip-lightbox-prev { left: 16px; }
+.strip-lightbox-next { right: 16px; }
+
+/* Footer service area popup button */
+.footer-area-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(196,145,28,0.1);
+    border: 1px solid rgba(196,145,28,0.35);
+    border-radius: 20px;
+    color: rgba(255,255,255,0.65);
+    font-size: 0.84rem;
+    padding: 7px 14px;
+    cursor: pointer;
+    transition: background var(--transition), border-color var(--transition), color var(--transition);
+    margin-top: 4px;
+}
+.footer-area-btn:hover { background: rgba(196,145,28,0.2); border-color: var(--gold); color: var(--gold); }
+
 /* ============================================================
    PORTFOLIO PAGES (interior/exterior/drone/video)
 ============================================================ */
@@ -2159,7 +2229,7 @@ ul   { list-style: none; }
     overflow: hidden;
     aspect-ratio: 4/3;
     cursor: pointer;
-    border: 1px dashed rgba(196,145,28,0.2);
+    border: 1.5px solid rgba(196,145,28,0.55);
     transition: transform var(--transition);
 }
 .port-item:hover { transform: scale(1.02); }
@@ -2236,7 +2306,8 @@ ul   { list-style: none; }
 @media (max-width: 768px) {
     .section { padding: 72px 0; }
 
-    .nav-toggle { display: flex; }
+    .nav-toggle { display: flex !important; }
+    .nav-right  { display: flex !important; }
     .nav-menu {
         position: fixed;
         top: 0;
@@ -2275,7 +2346,7 @@ ul   { list-style: none; }
 
     .services-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
 
-    .ba-sliders-grid { grid-template-columns: 1fr 1fr; }
+    .ba-sliders-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
 
     .port-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -2285,11 +2356,10 @@ ul   { list-style: none; }
 ============================================================ */
 @media (max-width: 480px) {
     .hero-buttons { flex-direction: column; align-items: center; }
-    .services-grid .service-card-img { height: 130px; }
-    .services-grid .service-card-body { padding: 14px 14px 16px; }
+    .services-grid .service-card-img { height: 150px; }
+    .services-grid .service-card-body { padding: 12px 12px 14px; }
     .services-grid .service-icon { font-size: 1.4rem; margin-bottom: 6px; }
     .services-grid .service-card-body h3 { font-size: 0.82rem; }
-    .services-grid .service-card-body p { font-size: 0.78rem; line-height: 1.5; }
     .packages-grid { grid-template-columns: 1fr; }
     .contact-form { padding: 24px 16px; }
     .port-grid { grid-template-columns: 1fr; }
@@ -2302,8 +2372,8 @@ ul   { list-style: none; }
 .portfolio-preview-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-top: 40px;
+    gap: 10px;
+    margin-top: 24px;
 }
 .portfolio-preview-card {
     position: relative;
@@ -2621,7 +2691,7 @@ ul   { list-style: none; }
 }
 .port-grid .port-item:hover {
     transform: scale(1.04) translateZ(28px) !important;
-    box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 0 1.5px rgba(196,145,28,0.85);
     z-index: 2;
     position: relative;
 }
