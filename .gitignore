@@ -11,3 +11,6 @@ desktop.ini
 
 # Node (if you ever add build tools later)
 node_modules/
+
+# Local Netlify folder
+.netlify

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing Flyer | 123 Showcase Lane</title>
+    <meta name="description" content="Sample printable real estate listing flyer with QR code, property photos, listing details, and agent contact information.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://flyingacesmedia.com/listings/123-showcase-lane-flyer.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Listing Flyer | 123 Showcase Lane">
+    <meta property="og:description" content="Sample printable real estate listing flyer with QR code, property photos, listing details, and agent contact.">
+    <meta property="og:url" content="https://flyingacesmedia.com/listings/123-showcase-lane-flyer.html">
+    <meta property="og:image" content="https://flyingacesmedia.com/images/sample-listing-flyer.png">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --ink:#101828; --muted:#667085; --gold:#c4911c; --line:#dde3ed; --paper:#ffffff; --soft:#f4f6fa; }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        html { -webkit-text-size-adjust:none; text-size-adjust:none; }
+        body { background:#d8dee8; color:var(--ink); font-family:'Open Sans',Arial,sans-serif; line-height:1.5; padding:24px; }
+        .flyer-viewer { width:100%; }
+        .flyer-image-preview { display:none; width:100%; height:auto; margin:0 auto; background:#fff; box-shadow:0 18px 50px rgba(16,24,40,.24); }
+        .flyer-sheet { position:relative; width:min(8.5in,100%); min-height:11in; margin:0 auto; background:var(--paper); box-shadow:0 24px 70px rgba(16,24,40,.24); overflow:hidden; }
+        .sample-ribbon { position:absolute; top:22px; right:-52px; z-index:4; width:220px; transform:rotate(35deg); background:var(--gold); color:#fff; font-family:'Montserrat',sans-serif; font-size:.7rem; font-weight:900; letter-spacing:.14em; text-align:center; text-transform:uppercase; padding:7px 0; }
+        .flyer-hero { position:relative; height:4.85in; background:linear-gradient(180deg,rgba(5,7,12,.08),rgba(5,7,12,.84)),url("../images/portfolio-exterior/exterior-01.webp") center/cover no-repeat; color:#fff; display:flex; align-items:flex-end; padding:.46in; }
+        .flyer-brand { position:absolute; top:.28in; left:.38in; display:flex; align-items:center; gap:.12in; color:#fff; font-family:'Montserrat',sans-serif; font-size:.15in; font-weight:900; letter-spacing:.02em; text-transform:uppercase; text-shadow:0 2px 12px rgba(0,0,0,.55); }
+        .flyer-brand img { width:.48in; height:.48in; object-fit:contain; }
+        .flyer-brand span { display:block; color:rgba(255,255,255,.72); font-size:.095in; letter-spacing:.15em; margin-top:.02in; }
+        .hero-copy { width:100%; display:grid; grid-template-columns:minmax(0,1fr) 1.56in; gap:.3in; align-items:end; }
+        .eyebrow { color:var(--gold); font-family:'Montserrat',sans-serif; font-size:.11in; font-weight:900; letter-spacing:.18em; text-transform:uppercase; margin-bottom:.08in; }
+        h1 { font-family:'Montserrat',sans-serif; font-size:.63in; font-weight:900; line-height:.95; letter-spacing:0; margin-bottom:.12in; }
+        .location { color:rgba(255,255,255,.82); font-size:.17in; font-weight:600; }
+        .qr-card { background:#fff; border-radius:.08in; padding:.12in; color:var(--ink); text-align:center; }
+        .qr-card img { width:1.28in; height:1.28in; display:block; margin:0 auto .08in; }
+        .qr-card strong { display:block; font-family:'Montserrat',sans-serif; font-size:.11in; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+        .qr-card span { display:block; color:var(--muted); font-size:.085in; line-height:1.3; margin-top:.035in; }
+        .flyer-body { padding:.34in .42in .38in; }
+        .stats-row { display:grid; grid-template-columns:repeat(5,1fr); gap:.1in; margin-bottom:.3in; }
+        .stat { border:1px solid var(--line); border-radius:.08in; padding:.12in .08in; text-align:center; background:var(--soft); }
+        .stat strong { display:block; font-family:'Montserrat',sans-serif; font-size:.17in; font-weight:900; line-height:1; color:var(--ink); }
+        .stat span { display:block; color:var(--muted); font-family:'Montserrat',sans-serif; font-size:.075in; font-weight:800; letter-spacing:.12em; text-transform:uppercase; margin-top:.05in; }
+        .content-grid { display:grid; grid-template-columns:1fr 2.25in; gap:.32in; align-items:start; }
+        h2 { font-family:'Montserrat',sans-serif; font-size:.28in; font-weight:900; line-height:1.08; margin-bottom:.12in; }
+        .description { color:#475467; font-size:.118in; line-height:1.72; margin-bottom:.16in; }
+        .feature-list { display:grid; grid-template-columns:1fr 1fr; gap:.07in .14in; list-style:none; color:#344054; font-size:.105in; font-weight:700; }
+        .feature-list li::before { content:""; display:inline-block; width:.06in; height:.06in; border-radius:50%; background:var(--gold); margin-right:.06in; vertical-align:middle; }
+        .agent-box { border:1px solid var(--line); border-radius:.08in; overflow:hidden; background:#fff; }
+        .agent-box-header { background:#080b12; color:#fff; padding:.18in; }
+        .agent-box-header span { display:block; color:var(--gold); font-family:'Montserrat',sans-serif; font-size:.08in; font-weight:900; letter-spacing:.16em; text-transform:uppercase; margin-bottom:.045in; }
+        .agent-box-header strong { display:block; font-family:'Montserrat',sans-serif; font-size:.2in; font-weight:900; line-height:1; }
+        .agent-details { padding:.18in; }
+        .agent-details p { color:var(--muted); font-size:.105in; line-height:1.55; margin-bottom:.14in; }
+        .contact-line { border-top:1px solid var(--line); padding-top:.12in; font-family:'Montserrat',sans-serif; font-size:.105in; font-weight:800; line-height:1.75; overflow-wrap:anywhere; }
+        .photo-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:.08in; margin-top:.28in; }
+        .photo-strip img { width:100%; height:1.06in; object-fit:cover; border-radius:.07in; }
+        .flyer-footer { position:absolute; left:.42in; right:.42in; bottom:.25in; display:flex; justify-content:space-between; gap:.2in; color:var(--muted); border-top:1px solid var(--line); padding-top:.14in; font-size:.095in; }
+        .flyer-footer strong { color:var(--ink); font-family:'Montserrat',sans-serif; font-weight:900; }
+        .gold { color:var(--gold); }
+        @media print { @page { size:letter; margin:0; } body { background:#fff; padding:0; } .flyer-sheet { width:8.5in; height:11in; min-height:11in; box-shadow:none; } }
+        @media (max-width:900px) { html,body { overflow:auto; } body { padding:12px; background:#d8dee8; -webkit-overflow-scrolling:touch; } .flyer-viewer { display:none; } .flyer-image-preview { display:block; max-width:430px; touch-action:pan-x pan-y pinch-zoom; } }
+    </style>
+</head>
+<body>
+    <img class="flyer-image-preview" src="../images/sample-listing-flyer.png" alt="Sample Listing Launch Kit flyer for 123 Showcase Lane">
+    <div class="flyer-viewer">
+        <main class="flyer-sheet">
+            <div class="sample-ribbon">Sample</div>
+            <section class="flyer-hero">
+                <div class="flyer-brand">
+                    <img src="../images/logo.png" alt="Flying Ace's logo">
+                    <div>Flying <span class="gold">Ace's</span><span>Listing Media</span></div>
+                </div>
+                <div class="hero-copy">
+                    <div>
+                        <p class="eyebrow">Just Listed</p>
+                        <h1>123 Showcase Lane</h1>
+                        <p class="location">Gainesville, Florida 32605</p>
+                    </div>
+                    <div class="qr-card">
+                        <img src="../images/qr-123-showcase-lane.png" alt="QR code for 123 Showcase Lane">
+                        <strong>Scan For Media</strong>
+                        <span>Full gallery, drone views, 3D tour, floor plan, and showing info</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="flyer-body">
+                <div class="stats-row" aria-label="Property summary">
+                    <div class="stat"><strong>$649K</strong><span>Price</span></div>
+                    <div class="stat"><strong>4</strong><span>Beds</span></div>
+                    <div class="stat"><strong>3</strong><span>Baths</span></div>
+                    <div class="stat"><strong>2,840</strong><span>Sq Ft</span></div>
+                    <div class="stat"><strong>0.42 acres</strong><span>Acres</span></div>
+                </div>
+                <div class="content-grid">
+                    <div>
+                        <h2>Modern Gainesville living with room to gather.</h2>
+                        <p class="description">Welcome to 123 Showcase Lane, a well-kept Gainesville home with bright living spaces, an open kitchen, comfortable bedroom layout, and a private backyard made for easy entertaining. Scan the code to view the full gallery, aerial views, 3D walkthrough, floor plan, and showing details.</p>
+                        <ul class="feature-list">
+                            <li>Open kitchen</li>
+                            <li>Drone views</li>
+                            <li>3D walkthrough</li>
+                            <li>Floor plan</li>
+                            <li>Private backyard</li>
+                            <li>Schedule showing</li>
+                        </ul>
+                    </div>
+                    <aside class="agent-box">
+                        <div class="agent-box-header">
+                            <span>Presented By</span>
+                            <strong>Your Name</strong>
+                        </div>
+                        <div class="agent-details">
+                            <p>RE/MAX. Schedule a showing or request the full property packet.</p>
+                            <div class="contact-line">
+                                Call/Text: (386) 555-0147<br>
+                                agent@example.com
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <div class="photo-strip" aria-label="Featured listing photos">
+                    <img src="../images/portfolio-interior/interior-05.webp" alt="123 Showcase Lane listing preview">
+                    <img src="../images/portfolio-drone/aerial-06.webp" alt="123 Showcase Lane listing preview">
+                    <img src="../images/portfolio-interior/interior-14.webp" alt="123 Showcase Lane listing preview">
+                </div>
+            </section>
+
+            <footer class="flyer-footer">
+                <span><strong>Listing Launch Kit Flyer</strong> for open houses and listing presentations</span>
+                <span>Media by Flying Ace's Photography &amp; Drone Services</span>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

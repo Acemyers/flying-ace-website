@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Flying Ace's Photography & Drone Services | Lake City, FL</title>
-    <meta name="description" content="Meet the pilot behind Flying Ace's Photography & Drone Services — FAA Certified, military veteran, real estate media specialist serving Lake City, Gainesville, Jacksonville & North Florida.">
+    <title>About | Real Estate Media & Drone | Lake City, FL</title>
+    <meta name="description" content="Meet Flying Ace's: FAA-certified drone pilot, military veteran and real estate media specialist serving Lake City, Gainesville and North Florida.">
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="real estate photographer Lake City FL, FAA certified drone pilot Florida, military veteran photographer Lake City, drone pilot Alachua County FL, veteran owned photography business North Florida">
     <meta name="geo.region" content="US-FL">
@@ -101,6 +101,12 @@
                 gap: 36px;
             }
             .about-photo-wrap { position: static; }
+            .about-photo-img {
+                width: min(100%, 360px);
+                max-height: 68vh;
+                margin: 0 auto;
+                object-fit: contain;
+            }
             .about-photo-placeholder { aspect-ratio: 4/3; max-width: 480px; margin: 0 auto; }
         }
 
@@ -227,34 +233,32 @@
 </head>
 <body>
 
-    <nav class="navbar scrolled" id="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-credentials">
-            <span>🎖️ FAA Certified Commercial Drone Pilot</span>
+            <span>&#127895;&#65039; FAA Certified Commercial Drone Pilot</span>
             <span class="nav-cred-divider">·</span>
-            <span>⭐ Military Veteran</span>
+            <span>&#11088; Military Veteran</span>
         </div>
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img">
+                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img" decoding="async" width="350" height="350">
                 <div>
                     <span class="logo-text">Flying <span class="gold">Ace's</span></span>
                     <span class="logo-sub">Photography &amp; Drone Services</span>
                 </div>
             </a>
             <div class="nav-right">
-                <a href="tel:3862924315" class="nav-mobile-phone">📞 (386) 292-4315</a>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <a href="tel:3862924315" class="nav-mobile-phone">&#9742; (386) 292-4315</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navMenu" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="packages.html">Packages/Pricing</a></li>
-                
+                <li><a href="packages.html">Services &amp; Pricing</a></li>
                 <li><a href="for-agents.html">Realtor Toolkit</a></li>
-                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="about.html" class="active" aria-current="page">About Us</a></li>
                 <li><a href="book.html" class="nav-cta">Book Now</a></li>
             </ul>
         </div>
@@ -263,7 +267,7 @@
     <!-- ============================================================
          HERO
     ============================================================ -->
-    <section class="portfolio-page-hero">
+    <section class="portfolio-page-hero page-hero-compact">
         <div class="container">
             <p class="eyebrow">The Story Behind the Lens</p>
             <h1>About <span class="gold">Flying Ace's</span></h1>
@@ -281,7 +285,7 @@
 
                 <!-- Photo -->
                 <div class="about-photo-wrap">
-                    <img src="images/about-photo.jpg" alt="Flying Ace's owner with daughter" class="about-photo-img">
+                    <img src="images/about-photo.jpg" alt="Flying Ace's owner with daughter" class="about-photo-img" decoding="async" width="900" height="1350" loading="lazy">
                 </div>
 
                 <!-- Opening copy -->
@@ -289,7 +293,7 @@
                     <p class="section-eyebrow">Lake City, FL &nbsp;·&nbsp; North Florida &amp; Beyond</p>
                     <div class="about-body">
                         <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.3rem,3vw,1.85rem);font-weight:800;color:#fff;margin-bottom:24px;line-height:1.25;">Real Estate Media With a <span style="color:var(--gold);">Personal Standard</span></h2>
-                        <p>Flying Ace's Photography &amp; Drone Services was built on one simple belief: the way a property is presented matters.</p>
+                        <p>My name is Cameron, and Flying Ace's Photography &amp; Drone Services was built on one simple belief: the way a property is presented matters.</p>
                         <p>Whether it's a home, vacant land, a commercial project, or a business that needs stronger visual content, people make decisions based on what they see first. My goal is to make that first impression clean, professional, and worth paying attention to.</p>
                         <p>As an <strong>FAA Certified Commercial Drone Pilot</strong> and <strong>retired military veteran</strong>, I bring creativity, discipline, and attention to detail to every shoot. I specialize in real estate photography, drone photo and video, listing videos, Zillow 3D walkthroughs, floor plans, land coverage, promotional media, and specialty drone services throughout North Florida and surrounding areas.</p>
                         <p>More than anything, I care about making the process easy. When you book with me, you're not just hiring someone to take photos &mdash; you're hiring someone who understands that your listing, your client, your business, and your reputation are on the line.</p>
@@ -317,29 +321,13 @@
     <!-- ============================================================
          PERSONAL STANDARD
     ============================================================ -->
-    <section class="about-section navy">
+    <section class="about-section mid">
         <div class="container">
             <div class="about-section-inner">
                 <div class="about-accent-bar"></div>
                 <h2 class="about-section-heading">My <span class="gold">Standard</span></h2>
                 <p><strong>I treat every property I shoot like it's my own.</strong></p>
-                <p>Whether it's a starter home, luxury listing, vacant land, business, or construction project, I approach it with the same mindset: if this were my home, my listing, or my business, I would want it shown the absolute best way possible.</p>
-                <p>That means paying attention to the lighting, angles, details, layout, surroundings, and the little things that help a property or project stand out online.</p>
-                <p>Whether you're a realtor marketing a listing, a business owner needing stronger visual content, or someone with a property that deserves to be shown the right way, I want to help you make it look its best.</p>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ============================================================
-         THE FLYING ACE'S STANDARD — Three pillars
-    ============================================================ -->
-    <section class="about-section mid">
-        <div class="container">
-            <div class="about-section-inner">
-                <div class="about-accent-bar"></div>
-                <h2 class="about-section-heading">The <span class="gold">Flying Ace's</span> Standard</h2>
-                <p>I believe good media should do three things:</p>
+                <p>Starter home, luxury listing, vacant land, business, or construction project - the goal is the same: clean media that makes the property easier to understand and easier to trust.</p>
 
                 <div class="standard-pillars">
                     <div class="standard-pillar">
@@ -364,8 +352,6 @@
                         </div>
                     </div>
                 </div>
-
-                <p style="margin-top: 32px;">That is the standard I aim for on every project.</p>
             </div>
         </div>
     </section>
@@ -380,11 +366,11 @@
             <p>If you need clean, professional photos, drone coverage, video, 3D walkthroughs, floor plans, or media that helps your property or business get noticed, I would be honored to help.</p>
             <a href="book.html" class="btn btn-gold">Book a Shoot</a>
             <div class="cta-badges">
-                <span class="cta-badge">🎖️ FAA Certified Commercial Drone Pilot</span>
+                <span class="cta-badge">&#127895;&#65039; FAA Certified Commercial Drone Pilot</span>
                 <span class="cta-badge">·</span>
-                <span class="cta-badge">⭐ Military Veteran</span>
+                <span class="cta-badge">&#11088; Military Veteran</span>
                 <span class="cta-badge">·</span>
-                <span class="cta-badge">⚡ 24–48 Hr Turnaround</span>
+                <span class="cta-badge">&#9889; 24-48 Hr Turnaround</span>
             </div>
         </div>
     </section>

@@ -1,0 +1,15 @@
+# Canonical host and protocol.
+http://flyingacesmedia.com/* https://flyingacesmedia.com/:splat 301!
+http://www.flyingacesmedia.com/* https://flyingacesmedia.com/:splat 301!
+https://www.flyingacesmedia.com/* https://flyingacesmedia.com/:splat 301!
+
+# Collapse duplicate home URLs.
+/index.html / 301!
+
+# Retired internal shoot tracker page.
+/shoot-tracker.html /for-agents.html 301!
+
+# Retired old agent and delivery demo pages. The current sample is the agent portal.
+/agents/demo.html /agent-portal-sample.html 301!
+/agents/template.html /agent-portal-sample.html 301!
+/deliveries/sample-private-delivery.html /agent-portal-sample.html 301!

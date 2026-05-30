@@ -1,0 +1,18 @@
+# Local/dev files that should not be uploaded as public static assets.
+.git/
+.netlify/
+.netlify-appdata/
+.vscode/
+.idea/
+node_modules/
+.npm-cache/
+tools/
+agents/
+netlify/edge-functions/
+**/__pycache__/
+*.pyc
+start-local.bat
+shoot-tracker.html
+Thumbs.db
+desktop.ini
+.DS_Store

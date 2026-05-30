@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Realtor Toolkit | ROI Calculator & Package Recommender | Flying Ace's</title>
-    <meta name="description" content="Free tools for real estate agents in North Florida. Calculate your listing photo ROI, find the right media package, and book your shoot with Flying Ace's Photography & Drone.">
+    <title>Realtor Toolkit | Portal & Listing Launch Kit</title>
+    <meta name="description" content="Tools for real estate agents in North Florida: private agent portal example, Listing Launch Kit, and seller prep guide.">
     <meta name="robots" content="index, follow">
-    <meta name="keywords" content="realtor tools Lake City FL, listing photo ROI calculator, real estate photography package recommender, agent resources North Florida, listing media tools Florida">
+    <meta name="keywords" content="realtor tools Lake City FL, real estate photo prep guide, agent resources North Florida, listing media tools Florida, listing launch kit">
     <meta name="geo.region" content="US-FL">
     <meta name="geo.placename" content="Lake City, Florida">
     <meta name="geo.position" content="30.1897;-82.6390">
@@ -15,7 +15,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://flyingacesmedia.com/for-agents.html">
     <meta property="og:title" content="Realtor Toolkit | Flying Ace's Photography & Drone">
-    <meta property="og:description" content="Free tools built for real estate agents — ROI calculator, package recommender, shoot day tracker & more.">
+    <meta property="og:description" content="Tools built for real estate agents: private agent portal example, Listing Launch Kit, and seller prep guide.">
     <meta property="og:image" content="https://flyingacesmedia.com/images/portfolio-exterior.jpg">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://flyingacesmedia.com/"},{"@type":"ListItem","position":2,"name":"Realtor Toolkit","item":"https://flyingacesmedia.com/for-agents.html"}]}
@@ -36,13 +36,94 @@
     <style>
         /* ---- Tool Cards ---- */
         .tools-hero {
-            padding: 96px 0 56px;
-            text-align: center;
-            background: var(--dark);
+            position:relative;
+            min-height:68vh;
+            padding:150px 0 76px;
+            display:flex;
+            align-items:flex-end;
+            text-align:left;
+            background:
+                linear-gradient(90deg, rgba(5,7,12,0.95) 0%, rgba(5,7,12,0.68) 52%, rgba(5,7,12,0.2) 100%),
+                url("images/portfolio-exterior.jpg") center/cover no-repeat;
         }
-        .tools-hero h1 { font-family:'Montserrat',sans-serif; font-size:clamp(2rem,5vw,3rem); font-weight:800; margin-bottom:12px; }
-        .tools-hero p { color:rgba(255,255,255,0.65); font-size:1rem; max-width:520px; margin:0 auto; }
+        .tools-hero .container {
+            position:relative;
+            z-index:1;
+        }
+        .tools-hero-inner {
+            max-width:760px;
+        }
+        .tools-hero h1 {
+            font-family:'Montserrat',sans-serif;
+            font-size:clamp(2.45rem,6vw,5rem);
+            font-weight:900;
+            line-height:0.98;
+            margin-bottom:16px;
+            text-shadow:0 3px 24px rgba(0,0,0,0.7);
+        }
+        .tools-hero p {
+            color:rgba(255,255,255,0.78);
+            font-size:1.04rem;
+            line-height:1.65;
+            max-width:560px;
+            margin:0;
+            text-shadow:0 2px 16px rgba(0,0,0,0.82);
+        }
+        .tools-dashboard {
+            display:grid;
+            grid-template-columns:repeat(4,minmax(0,1fr));
+            gap:12px;
+            margin-top:28px;
+            max-width:820px;
+        }
+        .tools-dashboard-card {
+            display:block;
+            min-width:0;
+            padding:16px;
+            border:1px solid rgba(196,145,28,0.32);
+            border-radius:10px;
+            background:rgba(5,7,12,0.54);
+            color:#fff;
+            text-decoration:none;
+            backdrop-filter:blur(14px);
+            -webkit-backdrop-filter:blur(14px);
+            transition:transform var(--transition), border-color var(--transition), background var(--transition);
+        }
+        .tools-dashboard-card:hover {
+            transform:translateY(-3px);
+            border-color:rgba(196,145,28,0.78);
+            background:rgba(12,20,34,0.82);
+        }
+        .tools-dashboard-card span {
+            display:block;
+            color:var(--gold);
+            font-family:'Montserrat',sans-serif;
+            font-size:0.62rem;
+            font-weight:900;
+            letter-spacing:0.12em;
+            text-transform:uppercase;
+            margin-bottom:7px;
+        }
+        .tools-dashboard-card strong {
+            display:block;
+            font-family:'Montserrat',sans-serif;
+            font-size:0.95rem;
+            line-height:1.2;
+            margin-bottom:4px;
+        }
+        .tools-dashboard-card small {
+            display:block;
+            color:rgba(255,255,255,0.62);
+            font-size:0.76rem;
+            line-height:1.4;
+        }
 
+        html {
+            scroll-padding-top: 128px;
+        }
+        .tool-section[id] {
+            scroll-margin-top: 128px;
+        }
         .tool-section {
             padding: 72px 0;
             border-top: 1px solid rgba(255,255,255,0.07);
@@ -81,191 +162,157 @@
             max-width: 680px;
         }
 
-        /* ---- ROI Calculator ---- */
-        .roi-input-row {
-            display:flex;
-            align-items:center;
-            gap:16px;
-            margin-bottom:24px;
-            flex-wrap:wrap;
-        }
-        .roi-input-row label {
-            font-family:'Montserrat',sans-serif;
-            font-size:0.8rem;
-            font-weight:700;
-            color:rgba(255,255,255,0.7);
-            white-space:nowrap;
-        }
-        .roi-price-input {
-            flex:1;
-            min-width:160px;
-            font-family:'Montserrat',sans-serif;
-            font-size:1.1rem;
-            font-weight:700;
-            background:rgba(255,255,255,0.07);
-            border:1px solid rgba(255,255,255,0.15);
-            border-radius:8px;
-            color:#fff;
-            padding:10px 14px;
-        }
-        .roi-price-input:focus { outline:none; border-color:var(--gold); }
-        .roi-results {
+        /* ---- Listing Prep Kit ---- */
+        .prep-kit-layout {
             display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:14px;
-            margin-bottom:20px;
+            grid-template-columns:minmax(0,1fr) minmax(260px,0.72fr);
+            gap:20px;
+            align-items:stretch;
         }
-        @media(max-width:480px){ .roi-results { grid-template-columns:1fr; } }
-        .roi-stat {
-            background:rgba(196,145,28,0.08);
-            border:1px solid rgba(196,145,28,0.2);
-            border-radius:10px;
-            padding:16px;
-        }
-        .roi-stat-label {
-            font-size:0.72rem;
-            font-weight:600;
-            letter-spacing:0.08em;
-            text-transform:uppercase;
-            color:rgba(255,255,255,0.5);
-            margin-bottom:6px;
-        }
-        .roi-stat-value {
-            font-family:'Montserrat',sans-serif;
-            font-size:1.4rem;
-            font-weight:800;
-            color:var(--gold);
-        }
-        .roi-stat-sub {
-            font-size:0.75rem;
-            color:rgba(255,255,255,0.45);
-            margin-top:4px;
-        }
-        .roi-highlight {
-            background:rgba(196,145,28,0.14);
-            border:1px solid rgba(196,145,28,0.4);
-            border-radius:10px;
-            padding:16px 20px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            gap:12px;
-            flex-wrap:wrap;
-        }
-        .roi-highlight-label { font-size:0.88rem; color:rgba(255,255,255,0.75); }
-        .roi-highlight-number {
-            font-family:'Montserrat',sans-serif;
-            font-size:1.6rem;
-            font-weight:900;
-            color:var(--gold);
-        }
-        .roi-source {
-            font-size:0.78rem;
-            color:rgba(255,255,255,0.6);
-            margin-top:16px;
-            padding:12px 14px;
+        .prep-kit-panel,
+        .prep-kit-side {
             background:rgba(255,255,255,0.04);
-            border-left:3px solid var(--gold);
-            border-radius:0 6px 6px 0;
-            line-height:1.6;
-        }
-        .roi-source strong { color:rgba(255,255,255,0.85); }
-
-        /* ---- Package Recommender ---- */
-        .quiz-step { display:none; }
-        .quiz-step.active { display:block; }
-        .quiz-progress {
-            display:flex;
-            gap:8px;
-            margin-bottom:24px;
-        }
-        .quiz-dot {
-            height:4px;
-            flex:1;
-            border-radius:2px;
-            background:rgba(255,255,255,0.12);
-            transition:background 0.3s;
-        }
-        .quiz-dot.done { background:var(--gold); }
-
-        .quiz-q {
-            font-family:'Montserrat',sans-serif;
-            font-size:1rem;
-            font-weight:700;
-            margin-bottom:18px;
-            color:#fff;
-        }
-        .quiz-options {
-            display:flex;
-            flex-direction:column;
-            gap:10px;
-        }
-        .quiz-opt {
-            display:flex;
-            align-items:center;
-            gap:12px;
-            padding:13px 16px;
-            background:rgba(255,255,255,0.05);
             border:1px solid rgba(255,255,255,0.1);
-            border-radius:8px;
-            cursor:pointer;
-            transition:background 0.15s, border-color 0.15s;
-            font-size:0.9rem;
-            color:rgba(255,255,255,0.85);
-            text-align:left;
-            width:100%;
+            border-radius:12px;
+            padding:24px;
         }
-        .quiz-opt:hover { background:rgba(196,145,28,0.08); border-color:rgba(196,145,28,0.3); }
-        .quiz-opt .opt-icon { font-size:1.3rem; flex-shrink:0; }
-
-        .quiz-result { display:none; }
-        .quiz-result.active { display:block; }
-        .quiz-result-badge {
-            display:inline-block;
-            background:var(--gold);
-            color:#000;
+        .prep-kit-eyebrow {
             font-family:'Montserrat',sans-serif;
             font-size:0.7rem;
             font-weight:800;
             letter-spacing:0.1em;
             text-transform:uppercase;
-            padding:4px 10px;
-            border-radius:4px;
-            margin-bottom:12px;
-        }
-        .quiz-result-title {
-            font-family:'Montserrat',sans-serif;
-            font-size:1.3rem;
-            font-weight:800;
+            color:var(--gold);
             margin-bottom:8px;
         }
-        .quiz-result-price {
+        .prep-kit-panel h3,
+        .prep-kit-side h3 {
             font-family:'Montserrat',sans-serif;
-            font-size:1rem;
-            font-weight:700;
-            color:var(--gold);
-            margin-bottom:12px;
+            font-size:1.15rem;
+            font-weight:800;
+            color:#fff;
+            margin-bottom:10px;
+            line-height:1.35;
         }
-        .quiz-result-why {
-            font-size:0.88rem;
-            color:rgba(255,255,255,0.65);
+        .prep-kit-panel p,
+        .prep-kit-side p {
+            color:rgba(255,255,255,0.62);
+            font-size:0.9rem;
             line-height:1.7;
-            margin-bottom:20px;
         }
-        .quiz-restart {
-            background:none;
-            border:none;
-            color:rgba(255,255,255,0.4);
-            font-size:0.8rem;
-            cursor:pointer;
-            text-decoration:underline;
-            margin-top:12px;
+        .prep-kit-grid {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:10px;
+            margin:20px 0;
+        }
+        .prep-kit-item {
+            background:rgba(196,145,28,0.08);
+            border:1px solid rgba(196,145,28,0.22);
+            border-radius:10px;
+            padding:14px;
+        }
+        .prep-kit-item strong {
             display:block;
+            font-family:'Montserrat',sans-serif;
+            font-size:0.82rem;
+            font-weight:800;
+            color:#fff;
+            margin-bottom:5px;
         }
-        .quiz-restart:hover { color:rgba(255,255,255,0.7); }
+        .prep-kit-item span {
+            display:block;
+            color:rgba(255,255,255,0.58);
+            font-size:0.78rem;
+            line-height:1.5;
+        }
+        .prep-kit-actions {
+            display:flex;
+            flex-wrap:wrap;
+            gap:12px;
+            margin-top:18px;
+        }
+        .prep-kit-list {
+            display:grid;
+            gap:11px;
+            margin:18px 0 22px;
+        }
+        .prep-kit-list li {
+            position:relative;
+            padding-left:18px;
+            color:rgba(255,255,255,0.68);
+            font-size:0.84rem;
+            line-height:1.55;
+        }
+        .prep-kit-list li::before {
+            content:'';
+            position:absolute;
+            left:0;
+            top:0.65em;
+            width:6px;
+            height:6px;
+            border-radius:50%;
+            background:var(--gold);
+        }
+        .prep-simple-panel {
+            display:grid;
+            grid-template-columns:minmax(0,1fr) minmax(220px,0.6fr);
+            gap:18px;
+            align-items:start;
+        }
+        .prep-simple-lead h3 {
+            font-family:'Montserrat',sans-serif;
+            font-size:1.35rem;
+            font-weight:900;
+            color:#fff;
+            line-height:1.25;
+            margin-bottom:10px;
+        }
+        .prep-simple-lead p {
+            color:rgba(255,255,255,0.62);
+            font-size:0.92rem;
+            line-height:1.65;
+            max-width:520px;
+        }
+        .prep-simple-list {
+            display:grid;
+            gap:9px;
+            margin-top:18px;
+        }
+        .prep-simple-list li {
+            display:flex;
+            align-items:center;
+            gap:9px;
+            color:rgba(255,255,255,0.82);
+            font-family:'Montserrat',sans-serif;
+            font-size:0.83rem;
+            font-weight:800;
+        }
+        .prep-simple-list li::before {
+            content:'';
+            width:8px;
+            height:8px;
+            border-radius:50%;
+            background:var(--gold);
+            flex:0 0 auto;
+        }
+        .prep-simple-actions {
+            display:grid;
+            gap:12px;
+            align-self:stretch;
+        }
+        .prep-simple-note {
+            border:1px solid rgba(196,145,28,0.24);
+            background:rgba(196,145,28,0.08);
+            border-radius:10px;
+            padding:14px;
+            color:rgba(255,255,255,0.68);
+            font-size:0.82rem;
+            line-height:1.55;
+        }
 
-        /* ---- Shoot Tracker Promo ---- */
-        .tracker-promo {
+        /* ---- Tool Promo ---- */
+        .tool-promo {
             display:flex;
             align-items:flex-start;
             gap:20px;
@@ -275,39 +322,404 @@
             border-radius:12px;
             max-width:680px;
         }
-        .tracker-promo-icon { font-size:2rem; flex-shrink:0; }
-        .tracker-promo h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1rem; margin-bottom:6px; }
-        .tracker-promo p { font-size:0.88rem; color:rgba(255,255,255,0.6); line-height:1.65; }
+        .tool-promo-icon { font-size:2rem; flex-shrink:0; }
+        .tool-promo h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1rem; margin-bottom:6px; }
+        .tool-promo p { font-size:0.88rem; color:rgba(255,255,255,0.6); line-height:1.65; }
+        .tool-promo > div { min-width:0; }
+        .portal-link-promo {
+            align-items:center;
+            gap:10px;
+            max-width:360px !important;
+            padding:12px 14px;
+            border-radius:8px;
+        }
+        .portal-link-promo .tool-promo-icon {
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            width:30px;
+            height:30px;
+            border-radius:8px;
+            background:rgba(196,145,28,0.14);
+            font-size:1rem;
+        }
+        .portal-link-promo h3 {
+            font-size:0.82rem;
+            line-height:1.25;
+            margin:0;
+        }
+        .portal-link-promo p {
+            display:none;
+        }
+
+        /* ---- Private Agent Portal Preview ---- */
+        .delivery-demo-layout {
+            display:grid;
+            grid-template-columns:minmax(0,0.9fr) minmax(320px,1.1fr);
+            gap:28px;
+            align-items:start;
+        }
+        .delivery-demo-copy {
+            max-width:520px;
+        }
+        .delivery-demo-list {
+            display:grid;
+            gap:8px;
+            margin:14px 0 18px;
+        }
+        .delivery-demo-list li {
+            display:flex;
+            gap:12px;
+            color:rgba(255,255,255,0.68);
+            font-size:0.82rem;
+            line-height:1.4;
+        }
+        .delivery-demo-list li::before {
+            content:'';
+            width:7px;
+            height:7px;
+            margin-top:0.65em;
+            border-radius:50%;
+            background:var(--gold);
+            flex:0 0 auto;
+        }
+        .delivery-sample-preview {
+            background:linear-gradient(180deg, rgba(13,17,32,0.98), rgba(6,9,15,0.98));
+            border:1px solid rgba(196,145,28,0.3);
+            border-radius:12px;
+            box-shadow:0 18px 56px rgba(0,0,0,0.38);
+            overflow:hidden;
+        }
+        .delivery-preview-browser {
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:14px;
+            padding:12px 16px;
+            background:rgba(255,255,255,0.04);
+            border-bottom:1px solid rgba(255,255,255,0.08);
+        }
+        .delivery-preview-url {
+            color:rgba(255,255,255,0.48);
+            font-family:'Montserrat',sans-serif;
+            font-size:0.68rem;
+            font-weight:700;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+        }
+        .delivery-preview-lock {
+            color:var(--gold);
+            font-family:'Montserrat',sans-serif;
+            font-size:0.64rem;
+            font-weight:900;
+            letter-spacing:0.1em;
+            text-transform:uppercase;
+            flex:0 0 auto;
+        }
+        .delivery-preview-body {
+            padding:24px;
+        }
+        .portal-preview-agent {
+            display:flex;
+            align-items:center;
+            gap:10px;
+            margin-bottom:16px;
+        }
+        .portal-preview-avatar {
+            width:46px;
+            height:46px;
+            border-radius:50%;
+            object-fit:cover;
+            border:2px solid rgba(196,145,28,0.55);
+            box-shadow:0 8px 20px rgba(0,0,0,0.22);
+            flex:0 0 auto;
+        }
+        .delivery-preview-status {
+            display:inline-flex;
+            border:1px solid rgba(196,145,28,0.4);
+            background:rgba(196,145,28,0.12);
+            color:var(--gold);
+            border-radius:6px;
+            padding:7px 10px;
+            font-family:'Montserrat',sans-serif;
+            font-size:0.66rem;
+            font-weight:900;
+            letter-spacing:0.1em;
+            text-transform:uppercase;
+            margin-bottom:16px;
+        }
+        .portal-preview-agent .delivery-preview-status {
+            margin-bottom:4px;
+        }
+        .delivery-preview-title {
+            font-family:'Montserrat',sans-serif;
+            font-size:clamp(1.55rem,3.5vw,2.35rem);
+            font-weight:900;
+            color:#fff;
+            line-height:1.05;
+            margin-bottom:8px;
+        }
+        .delivery-preview-copy {
+            color:rgba(255,255,255,0.6);
+            font-size:0.9rem;
+            line-height:1.65;
+            margin-bottom:20px;
+        }
+        .delivery-preview-grid {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:10px;
+            margin-bottom:20px;
+        }
+        .delivery-preview-detail {
+            background:rgba(255,255,255,0.045);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:8px;
+            padding:12px;
+            min-width:0;
+        }
+        .delivery-preview-detail span {
+            display:block;
+            color:rgba(255,255,255,0.42);
+            font-size:0.7rem;
+            margin-bottom:3px;
+        }
+        .delivery-preview-detail strong {
+            display:block;
+            color:#fff;
+            font-family:'Montserrat',sans-serif;
+            font-size:0.82rem;
+            overflow-wrap:anywhere;
+        }
+        .portal-preview-history {
+            display:grid;
+            gap:10px;
+            margin-bottom:20px;
+        }
+        .portal-preview-row {
+            display:grid;
+            grid-template-columns:minmax(0,1fr) auto;
+            gap:12px;
+            align-items:center;
+            background:rgba(255,255,255,0.045);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:8px;
+            padding:12px;
+        }
+        .portal-preview-row strong {
+            display:block;
+            color:#fff;
+            font-family:'Montserrat',sans-serif;
+            font-size:0.82rem;
+            line-height:1.35;
+            overflow-wrap:anywhere;
+        }
+        .portal-preview-row span {
+            display:block;
+            color:rgba(255,255,255,0.42);
+            font-size:0.7rem;
+            margin-top:2px;
+        }
+        .portal-preview-link {
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            border:1px solid rgba(196,145,28,0.48);
+            color:var(--gold);
+            border-radius:6px;
+            font-family:'Montserrat',sans-serif;
+            font-size:0.62rem;
+            font-weight:900;
+            letter-spacing:0.06em;
+            text-transform:uppercase;
+            padding:7px 9px;
+            white-space:nowrap;
+        }
+        .portal-invoice-actions {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:8px;
+            margin:-4px 0 16px;
+        }
+        .portal-invoice-actions .portal-preview-link {
+            min-height:34px;
+            padding:8px 10px;
+            text-align:center;
+        }
+        .portal-preview-link.is-disabled,
+        .delivery-preview-actions span {
+            cursor:default;
+            opacity:0.78;
+            pointer-events:none;
+        }
+        .delivery-preview-actions {
+            display:grid;
+            grid-template-columns:1.2fr 1fr 1fr;
+            gap:10px;
+        }
+        .delivery-preview-actions a,
+        .delivery-preview-actions span {
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            min-height:44px;
+            border-radius:8px;
+            font-family:'Montserrat',sans-serif;
+            font-size:0.68rem;
+            font-weight:900;
+            letter-spacing:0.06em;
+            text-transform:uppercase;
+            text-align:center;
+            padding:10px;
+        }
+        .delivery-preview-actions a:first-child,
+        .delivery-preview-actions span:first-child {
+            background:var(--gold);
+            color:var(--navy);
+        }
+        .delivery-preview-actions a:not(:first-child),
+        .delivery-preview-actions span:not(:first-child) {
+            border:1px solid rgba(196,145,28,0.48);
+            color:var(--gold);
+        }
+
+        @media(max-width:640px){
+            .tools-hero {
+                min-height:62vh;
+                padding: 132px 0 46px;
+                background:
+                    linear-gradient(180deg, rgba(5,7,12,0.58) 0%, rgba(5,7,12,0.88) 78%, rgba(5,7,12,0.96) 100%),
+                    url("images/portfolio-exterior.jpg") center/cover no-repeat;
+            }
+            .tools-hero h1 {
+                font-size: 2.15rem;
+                line-height: 1.02;
+                overflow-wrap: break-word;
+            }
+            .tools-hero h1 .gold {
+                display:block;
+            }
+            .tools-hero p {
+                font-size:0.96rem;
+            }
+            .tools-dashboard {
+                grid-template-columns:1fr 1fr;
+            }
+            .tools-dashboard-card {
+                padding:14px 12px;
+            }
+            .tools-dashboard-card small {
+                display:none;
+            }
+            html {
+                scroll-padding-top: 112px;
+            }
+            .tool-section[id] {
+                scroll-margin-top: 112px;
+            }
+            .tool-section {
+                padding: 58px 0;
+            }
+            .tool-card,
+            .tool-promo {
+                width:100%;
+                max-width:100%;
+            }
+            .tool-card {
+                padding: 24px 18px;
+            }
+            .tool-promo {
+                flex-direction:column;
+                gap:14px;
+                padding:20px 18px;
+            }
+            .tool-promo-icon {
+                font-size:1.6rem;
+            }
+            .portal-link-promo {
+                flex-direction:row;
+                align-items:center;
+                gap:10px;
+                padding:10px 12px;
+                max-width:100%;
+            }
+            .portal-link-promo .tool-promo-icon {
+                width:28px;
+                height:28px;
+                font-size:0.95rem;
+            }
+            .portal-link-promo h3 {
+                font-size:0.76rem;
+                line-height:1.22;
+            }
+            .tool-desc,
+            .tool-promo p,
+            .prep-kit-panel p,
+            .prep-kit-side p {
+                overflow-wrap:anywhere;
+            }
+            .tool-promo .btn {
+                width:100%;
+                justify-content:center;
+                text-align:center;
+                padding-left:14px;
+                padding-right:14px;
+                white-space:normal;
+            }
+            .delivery-demo-layout,
+            .delivery-preview-grid,
+            .delivery-preview-actions,
+            .prep-kit-layout,
+            .prep-kit-grid,
+            .prep-simple-panel,
+            .portal-preview-row {
+                grid-template-columns:1fr;
+            }
+            .prep-kit-actions .btn {
+                width:100%;
+                justify-content:center;
+                text-align:center;
+            }
+            .portal-preview-link {
+                text-align:center;
+            }
+            .delivery-preview-body {
+                padding:20px 16px;
+            }
+            .delivery-preview-url {
+                max-width:210px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <nav class="navbar scrolled" id="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-credentials">
-            <span>🎖️ FAA Certified Commercial Drone Pilot</span>
-            <span class="nav-cred-divider">·</span>
-            <span>⭐ Military Veteran</span>
+            <span>&#127894;&#65039; FAA Certified Commercial Drone Pilot</span>
+            <span class="nav-cred-divider">&middot;</span>
+            <span>&#11088; Military Veteran</span>
         </div>
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img">
+                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img" decoding="async" width="350" height="350">
                 <div>
                     <span class="logo-text">Flying <span class="gold">Ace's</span></span>
                     <span class="logo-sub">Photography &amp; Drone Services</span>
                 </div>
             </a>
             <div class="nav-right">
-                <a href="tel:3862924315" class="nav-mobile-phone">📞 (386) 292-4315</a>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <a href="tel:3862924315" class="nav-mobile-phone">&#9742; (386) 292-4315</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navMenu" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="packages.html">Packages/Pricing</a></li>
-                <li><a href="for-agents.html" class="active">Realtor Toolkit</a></li>
+                <li><a href="packages.html">Services &amp; Pricing</a></li>
+                <li><a href="for-agents.html" class="active" aria-current="page">Realtor Toolkit</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="book.html" class="nav-cta">Book Now</a></li>
             </ul>
@@ -317,182 +729,161 @@
     <!-- HERO -->
     <div class="tools-hero">
         <div class="container">
-            <p class="section-eyebrow">For Real Estate Agents</p>
-            <h1>Your <span class="gold">Realtor Toolkit</span></h1>
-            <p>Free tools to help you make smarter listing decisions — before you ever pick up the phone.</p>
+            <div class="tools-hero-inner">
+                <p class="section-eyebrow">For Real Estate Agents</p>
+                <h1>Tools for <span class="gold">Cleaner Listings</span></h1>
+                <p>Pick the tool you need and keep moving.</p>
+                <div class="tools-dashboard" aria-label="Realtor toolkit shortcuts">
+                    <a class="tools-dashboard-card" href="#private-delivery-page">
+                        <span>01</span>
+                        <strong>Agent Portal</strong>
+                        <small>Deliveries, rewards, rebooking.</small>
+                    </a>
+                    <a class="tools-dashboard-card" href="#listing-launch-tool">
+                        <span>02</span>
+                        <strong>Launch Kit</strong>
+                        <small>Property page, flyer, QR code.</small>
+                    </a>
+                    <a class="tools-dashboard-card" href="#listing-prep-kit">
+                        <span>03</span>
+                        <strong>Prep Guide</strong>
+                        <small>Send sellers one checklist.</small>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- ============================================================
-         ROI CALCULATOR
+         PRIVATE AGENT PORTAL
     ============================================================ -->
-    <section class="tool-section">
+    <section class="tool-section" id="private-delivery-page">
         <div class="container">
             <p class="tool-label">Tool 1</p>
-            <h2 class="tool-title">Listing Photo <span class="gold">ROI Calculator</span></h2>
-            <p class="tool-desc">See the real dollar value of professional photography on your next listing. Enter the listing price and watch the math work in your favor.</p>
+            <h2 class="tool-title">Private Agent <span class="gold">Portal</span></h2>
+            <p class="tool-desc">Deliveries, invoices, rewards, and rebooking in one private link.</p>
 
-            <div class="tool-card">
-                <div class="roi-input-row">
-                    <label for="roiPrice">Listing Price</label>
-                    <input type="text" id="roiPrice" class="roi-price-input" placeholder="$350,000" inputmode="numeric">
-                </div>
-
-                <div class="roi-results">
-                    <div class="roi-stat">
-                        <div class="roi-stat-label">Estimated Extra Sale Value</div>
-                        <div class="roi-stat-value" id="roiExtraLow">—</div>
-                        <div class="roi-stat-sub" id="roiExtraRange"></div>
-                    </div>
-                    <div class="roi-stat">
-                        <div class="roi-stat-label">Views Online</div>
-                        <div class="roi-stat-value">61%</div>
-                        <div class="roi-stat-sub">more views with pro photos</div>
-                    </div>
-                    <div class="roi-stat">
-                        <div class="roi-stat-label">Days on Market</div>
-                        <div class="roi-stat-value">32%</div>
-                        <div class="roi-stat-sub">faster with pro photos</div>
-                    </div>
-                    <div class="roi-stat">
-                        <div class="roi-stat-label">Your Shoot Cost</div>
-                        <div class="roi-stat-value">$175</div>
-                        <div class="roi-stat-sub">Photography Package</div>
+            <div class="delivery-demo-layout">
+                <div class="delivery-demo-copy">
+                    <ul class="delivery-demo-list">
+                        <li>Past media and invoices stay saved.</li>
+                        <li>Rewards and rebooking stay one tap away.</li>
+                    </ul>
+                    <div style="display:flex; flex-wrap:wrap; gap:12px;">
+                        <a href="agent-portal-sample.html" class="btn btn-gold">Open Full Example</a>
+                        <a href="book.html" class="btn btn-outline-gold">Book a Shoot</a>
                     </div>
                 </div>
 
-                <div class="roi-highlight">
-                    <span class="roi-highlight-label">Estimated return on your $175 investment</span>
-                    <span class="roi-highlight-number" id="roiReturn">Enter a price above</span>
-                </div>
+                <div class="delivery-sample-preview" aria-label="Private agent portal preview">
+                    <div class="delivery-preview-body">
+                        <div class="portal-preview-agent">
+                            <img class="portal-preview-avatar" src="portal/rs-4n34n5j/assets/rosy-sparks-headshot.jpg" alt="Rosy Sparks realtor portrait" width="1638" height="2048">
+                            <div>
+                                <div class="delivery-preview-status">Agent Portal</div>
+                            </div>
+                        </div>
+                        <h3 class="delivery-preview-title">Hey Agent, welcome back.</h3>
+                        <p class="delivery-preview-copy">Your recent deliveries, referral rewards, and next booking tools are saved here.</p>
 
-                <p class="roi-source"><strong>Sources:</strong> Redfin, National Association of Realtors. Extra sale value estimated at 1–3% of listing price — results vary by market and property.</p>
+                        <div class="delivery-preview-grid">
+                            <div class="delivery-preview-detail">
+                                <span>Shoots Completed</span>
+                                <strong>4</strong>
+                            </div>
+                            <div class="delivery-preview-detail">
+                                <span>Referral Credit</span>
+                                <strong>$25</strong>
+                            </div>
+                            <div class="delivery-preview-detail">
+                                <span>Invoices</span>
+                                <strong>Saved</strong>
+                            </div>
+                            <div class="delivery-preview-detail">
+                                <span>Rebooking</span>
+                                <strong>One Tap</strong>
+                            </div>
+                        </div>
+
+                        <div class="portal-invoice-actions" aria-label="Invoice actions">
+                            <span class="portal-preview-link is-disabled" aria-disabled="true">View Invoice</span>
+                            <span class="portal-preview-link is-disabled" aria-disabled="true">Download Invoice</span>
+                        </div>
+
+                        <div class="portal-preview-history">
+                            <div class="portal-preview-row">
+                                <div>
+                                    <strong>218 Magnolia Lane</strong>
+                                    <span>Ultimate Showcase &middot; Delivered May 14</span>
+                                </div>
+                                <span class="portal-preview-link is-disabled">Dropbox</span>
+                            </div>
+                            <div class="portal-preview-row">
+                                <div>
+                                    <strong>5501 NW 13th St</strong>
+                                    <span>Photos + Zillow 3D &middot; Delivered Apr 30</span>
+                                </div>
+                                <span class="portal-preview-link is-disabled">Dropbox</span>
+                            </div>
+                        </div>
+
+                        <div class="delivery-preview-actions">
+                            <span>Open Portal</span>
+                            <span>Rewards</span>
+                            <span>Book Again</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-         PACKAGE RECOMMENDER
+         LISTING LAUNCH KIT
     ============================================================ -->
-    <section class="tool-section">
+    <section class="tool-section" id="listing-launch-tool">
         <div class="container">
             <p class="tool-label">Tool 2</p>
-            <h2 class="tool-title">What Package <span class="gold">Do You Need?</span></h2>
-            <p class="tool-desc">Not sure what to book? Answer 3 quick questions and we'll tell you exactly what fits your listing — and why.</p>
+            <h2 class="tool-title">Listing Launch <span class="gold">Kit</span></h2>
+            <p class="tool-desc">The tool agents use to win listings before the photos are even taken. A $100 add-on that turns any listing media package into a full marketing launch — branded property page, flyer, and QR code.</p>
 
-            <div class="tool-card">
-                <!-- Progress dots -->
-                <div class="quiz-progress">
-                    <div class="quiz-dot" id="dot1"></div>
-                    <div class="quiz-dot" id="dot2"></div>
-                    <div class="quiz-dot" id="dot3"></div>
-                </div>
-
-                <!-- Step 1: Property Type -->
-                <div class="quiz-step active" id="step1">
-                    <p class="quiz-q">What type of property is this?</p>
-                    <div class="quiz-options">
-                        <button class="quiz-opt" onclick="quizAnswer(1,'residential')"><span class="opt-icon">🏠</span> Residential Home</button>
-                        <button class="quiz-opt" onclick="quizAnswer(1,'commercial')"><span class="opt-icon">🏢</span> Commercial / Business</button>
-                        <button class="quiz-opt" onclick="quizAnswer(1,'land')"><span class="opt-icon">🌾</span> Vacant Land</button>
+            <div class="tool-promo">
+                <span class="tool-promo-icon">$100</span>
+                <div>
+                    <h3>Built for Open Houses and Seller Presentations</h3>
+                    <p>Send the details, review before publishing, then use the page and flyer anywhere the listing is promoted.</p>
+                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:18px;">
+                        <a href="listing-launch-kit.html" class="btn btn-gold">See What's Included</a>
                     </div>
-                </div>
-
-                <!-- Step 2: Listing Price -->
-                <div class="quiz-step" id="step2">
-                    <p class="quiz-q">What's the listing price range?</p>
-                    <div class="quiz-options">
-                        <button class="quiz-opt" onclick="quizAnswer(2,'low')"><span class="opt-icon">💰</span> Under $250,000</button>
-                        <button class="quiz-opt" onclick="quizAnswer(2,'mid')"><span class="opt-icon">💰</span> $250,000 – $500,000</button>
-                        <button class="quiz-opt" onclick="quizAnswer(2,'high')"><span class="opt-icon">💰</span> $500,000 – $750,000</button>
-                        <button class="quiz-opt" onclick="quizAnswer(2,'luxury')"><span class="opt-icon">💎</span> $750,000+</button>
-                    </div>
-                </div>
-
-                <!-- Step 3: Goal -->
-                <div class="quiz-step" id="step3">
-                    <p class="quiz-q">What's your primary goal for this listing?</p>
-                    <div class="quiz-options">
-                        <button class="quiz-opt" onclick="quizAnswer(3,'mls')"><span class="opt-icon">📋</span> Clean MLS-ready photos, fast turnaround</button>
-                        <button class="quiz-opt" onclick="quizAnswer(3,'social')"><span class="opt-icon">📱</span> Photos + social media video content</button>
-                        <button class="quiz-opt" onclick="quizAnswer(3,'exposure')"><span class="opt-icon">🌐</span> Maximum online exposure — 3D tour, floor plan</button>
-                        <button class="quiz-opt" onclick="quizAnswer(3,'everything')"><span class="opt-icon">🏆</span> Everything — spare no expense</button>
-                    </div>
-                </div>
-
-                <!-- Results -->
-                <div class="quiz-result" id="quizResult">
-                    <div class="quiz-result-badge">Our Recommendation</div>
-                    <div class="quiz-result-title" id="resultTitle"></div>
-                    <div class="quiz-result-price" id="resultPrice"></div>
-                    <div class="quiz-result-why" id="resultWhy"></div>
-                    <a href="book.html" class="btn btn-gold">Book This Now</a>
-                    <button class="quiz-restart" onclick="quizReset()">↩ Start over</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-         SHOOT DAY TRACKER PROMO
+         LISTING PREP KIT
     ============================================================ -->
-    <section class="tool-section">
+    <section class="tool-section" id="listing-prep-kit">
         <div class="container">
             <p class="tool-label">Tool 3</p>
-            <h2 class="tool-title">Shoot Day <span class="gold">Live Tracker</span></h2>
-            <p class="tool-desc">When you book with us, you get a real-time status link on shoot day — so you always know exactly where things stand without having to call.</p>
+            <h2 class="tool-title">Listing Prep <span class="gold">Kit</span></h2>
+            <p class="tool-desc">A simple checklist sellers can follow before photo day.</p>
 
-            <div class="tracker-promo">
-                <span class="tracker-promo-icon">📍</span>
-                <div>
-                    <h3>How It Works</h3>
-                    <p>On the morning of your shoot, we send you a tracking link. As the day progresses — <strong style="color:#fff;">Confirmed → En Route → On Site → Editing → Delivered</strong> — the status updates in real time. No calls, no guessing, no "where are my photos?"</p>
-                </div>
-            </div>
+            <div class="tool-card" style="max-width:900px;">
+                <div class="prep-simple-panel">
+                    <div class="prep-simple-lead">
+                        <div class="prep-kit-eyebrow">Seller-ready checklist</div>
+                        <h3>Send it once. Avoid the usual prep issues.</h3>
+                        <p>Use it after booking so the home is cleaner, easier to shoot, and ready when we arrive.</p>
+                        <ul class="prep-simple-list">
+                            <li>Print-friendly checklist</li>
+                        </ul>
+                    </div>
 
-            <div style="margin-top:28px; text-align:center;">
-                <p style="font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:14px;">Example — Delivered Status Page</p>
-
-                <!-- Mockup: replace with real screenshot by adding images/tracker-preview.jpg and swapping to <img> -->
-                <div id="trackerPreviewImg" style="display:inline-block; max-width:300px; width:100%; background:#0d1525; border-radius:18px; border:1.5px solid rgba(196,145,28,0.45); box-shadow:0 8px 32px rgba(0,0,0,0.5); overflow:hidden; text-align:left;">
-                    <!-- Phone notch bar -->
-                    <div style="background:#0a0f1e; padding:10px 18px 8px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.07);">
-                        <span style="font-size:0.65rem; color:rgba(255,255,255,0.5); font-family:'Montserrat',sans-serif;">flyingacesmedia.com/track</span>
-                        <span style="font-size:0.65rem; color:var(--gold); font-family:'Montserrat',sans-serif; font-weight:700;">LIVE</span>
-                    </div>
-                    <!-- Header -->
-                    <div style="padding:18px 18px 12px; border-bottom:1px solid rgba(255,255,255,0.06);">
-                        <p style="font-family:'Montserrat',sans-serif; font-size:0.6rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;">Flying Ace's Media</p>
-                        <p style="font-size:0.82rem; font-weight:700; color:#fff; margin-bottom:2px; font-family:'Montserrat',sans-serif;">123 Oak Lane · Lake City, FL</p>
-                        <p style="font-size:0.7rem; color:rgba(255,255,255,0.5);">Shoot Day Status Tracker</p>
-                    </div>
-                    <!-- Status steps -->
-                    <div style="padding:14px 18px; display:flex; flex-direction:column; gap:10px;">
-                        <div style="display:flex; align-items:center; gap:10px;">
-                            <span style="width:20px; height:20px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.65rem; color:#000;">✓</span>
-                            <span style="font-size:0.78rem; color:rgba(255,255,255,0.9); font-family:'Montserrat',sans-serif; font-weight:600;">Confirmed</span>
-                        </div>
-                        <div style="display:flex; align-items:center; gap:10px;">
-                            <span style="width:20px; height:20px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.65rem; color:#000;">✓</span>
-                            <span style="font-size:0.78rem; color:rgba(255,255,255,0.9); font-family:'Montserrat',sans-serif; font-weight:600;">En Route</span>
-                        </div>
-                        <div style="display:flex; align-items:center; gap:10px;">
-                            <span style="width:20px; height:20px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.65rem; color:#000;">✓</span>
-                            <span style="font-size:0.78rem; color:rgba(255,255,255,0.9); font-family:'Montserrat',sans-serif; font-weight:600;">On Site</span>
-                        </div>
-                        <div style="display:flex; align-items:center; gap:10px;">
-                            <span style="width:20px; height:20px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.65rem; color:#000;">✓</span>
-                            <span style="font-size:0.78rem; color:rgba(255,255,255,0.9); font-family:'Montserrat',sans-serif; font-weight:600;">Editing</span>
-                        </div>
-                        <div style="display:flex; align-items:center; gap:10px;">
-                            <span style="width:20px; height:20px; border-radius:50%; background:#22c55e; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.65rem; color:#fff;">✓</span>
-                            <span style="font-size:0.78rem; color:#22c55e; font-family:'Montserrat',sans-serif; font-weight:800;">Delivered ✓</span>
-                        </div>
-                    </div>
-                    <!-- Download link -->
-                    <div style="margin:0 18px 18px; background:rgba(196,145,28,0.12); border:1px solid rgba(196,145,28,0.4); border-radius:8px; padding:10px 14px; text-align:center;">
-                        <p style="font-size:0.72rem; color:rgba(255,255,255,0.6); margin-bottom:4px;">Your photos are ready</p>
-                        <p style="font-family:'Montserrat',sans-serif; font-size:0.78rem; font-weight:700; color:var(--gold);">📥 Download Gallery</p>
+                    <div class="prep-simple-actions">
+                        <a href="prep-guide.html" class="btn btn-gold btn-full">Open Prep Guide</a>
+                        <a href="prep-guide-print.html" target="_blank" rel="noopener" class="btn btn-outline-gold btn-full">Printable Version</a>
+                        <div class="prep-simple-note">Best sent as soon as the shoot is booked.</div>
                     </div>
                 </div>
             </div>
@@ -505,11 +896,11 @@
     <section class="tool-section" style="text-align:center;">
         <div class="container">
             <p class="section-eyebrow">Ready to Book?</p>
-            <h2 class="section-title">Let's <span class="gold">Elevate Your Listing</span></h2>
-            <p style="color:rgba(255,255,255,0.6); margin-bottom:28px; max-width:480px; margin-left:auto; margin-right:auto;">Fast turnaround. Clean delivery. Professional results — every time.</p>
+            <h2 class="section-title">Bring the Next <span class="gold">Listing to Market</span></h2>
+            <p style="color:rgba(255,255,255,0.6); margin-bottom:28px; max-width:480px; margin-left:auto; margin-right:auto;">Fast turnaround. Clean delivery. Professional results - every time.</p>
             <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;">
                 <a href="book.html" class="btn btn-gold" style="font-size:1rem; padding:14px 40px;">Book a Shoot</a>
-                <a href="tel:3862924315" class="btn btn-outline-gold">📞 Call or Text</a>
+                <a href="tel:3862924315" class="btn btn-outline-gold">&#9742; Call or Text</a>
             </div>
         </div>
     </section>
@@ -517,107 +908,12 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
-                <p>&copy; 2026 Flying Ace's Photography &amp; Drone Services. All rights reserved. &nbsp;&middot;&nbsp; <a href="index.html" style="color:var(--gold)">Back to Home</a></p>
+                <p>&copy; 2026 Flying Ace's Photography &amp; Drone Services. All rights reserved. &nbsp;&middot;&nbsp; <a href="index.html" style="color:var(--gold)">Home</a></p>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-    /* ---- ROI Calculator ---- */
-    (function(){
-        var input  = document.getElementById('roiPrice');
-        var low    = document.getElementById('roiExtraLow');
-        var range  = document.getElementById('roiExtraRange');
-        var ret    = document.getElementById('roiReturn');
-
-        function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
-
-        function calc(){
-            var raw = input.value.replace(/[^0-9.]/g,'');
-            var price = parseFloat(raw)||0;
-            if(price < 1000){ low.textContent='—'; range.textContent=''; ret.textContent='Enter a price above'; return; }
-            var lo = price * 0.01;
-            var hi = price * 0.03;
-            var ratio = Math.round(lo / 175);
-            low.textContent = fmt(lo);
-            range.textContent = 'up to ' + fmt(hi) + ' more at closing';
-            ret.textContent = ratio > 1 ? ratio + ':1 on a $175 shoot' : 'Up to ' + fmt(hi) + ' more';
-        }
-
-        input.addEventListener('input', function(){
-            var raw = this.value.replace(/[^0-9]/g,'');
-            this.value = raw ? '$' + parseInt(raw,10).toLocaleString() : '';
-            calc();
-        });
-    })();
-
-    /* ---- Package Recommender ---- */
-    var quizData = { type: null, price: null, goal: null };
-
-    function quizAnswer(step, val){
-        if(step===1) quizData.type = val;
-        if(step===2) quizData.price = val;
-        if(step===3){ quizData.goal = val; showResult(); return; }
-
-        document.getElementById('step'+step).classList.remove('active');
-        document.getElementById('dot'+step).classList.add('done');
-
-        if(step===1 && (val==='land'||val==='commercial')){
-            quizData.price='n/a'; quizData.goal='n/a';
-            document.getElementById('dot2').classList.add('done');
-            document.getElementById('dot3').classList.add('done');
-            showResult(); return;
-        }
-        document.getElementById('step'+(step+1)).classList.add('active');
-    }
-
-    function showResult(){
-        var t=quizData.type, p=quizData.price, g=quizData.goal;
-        var title='', price='', why='';
-
-        if(t==='land'){
-            title='Drone Vacant Land Package';
-            price='Starting at $89';
-            why='For vacant land, aerial drone coverage is the single most powerful thing you can do. It shows the full scope of the property, boundaries, access, and surrounding area in a way no ground photo can.';
-        } else if(t==='commercial'){
-            title='Ultimate Showcase or Custom Quote';
-            price='Starting at $475 — call for custom pricing';
-            why='Commercial properties benefit from the full media treatment — photos, video, and a 3D walkthrough give potential buyers or tenants the most complete picture before they ever walk through the door. We\'ll put together a custom quote based on your specific project.';
-        } else if(g==='everything'||(p==='luxury')||(p==='high'&&g!=='mls')){
-            title='Ultimate Showcase';
-            price='Starting at $475';
-            why='For a listing at this price point, maximum media coverage is the right call. The Ultimate Showcase includes full photo + video, Zillow 3D interactive walkthrough, and a detailed floor plan — everything an out-of-town buyer or high-end client needs to fall in love before the showing.';
-        } else if(g==='exposure'||(p==='mid'&&g==='exposure')){
-            title='Photography Package + Zillow 3D Add-On';
-            price='$175 + $125 = $300';
-            why='Great photos get the listing seen. The Zillow 3D walkthrough keeps buyers engaged longer and dramatically improves time-on-site on Zillow — which signals to the algorithm to rank your listing higher. A smart combination for any listing looking for an edge.';
-        } else if(g==='social'){
-            title='Photography Package + Videography Package';
-            price='$175 + $175 = $350';
-            why='The photo package covers your MLS needs. The video gives you a ready-to-post social media reel — horizontally for YouTube and Facebook, vertically for Instagram and TikTok. A double hit that covers every platform your buyers are on.';
-        } else {
-            title='Photography Package';
-            price='Starting at $175';
-            why='Clean, professional, MLS-ready interior and exterior photos with drone coverage included. Fast 24–48 hour turnaround. Everything you need to get the listing online and looking sharp — nothing you don\'t.';
-        }
-
-        ['step1','step2','step3'].forEach(function(id){ document.getElementById(id).classList.remove('active'); });
-        ['dot1','dot2','dot3'].forEach(function(id){ document.getElementById(id).classList.add('done'); });
-        document.getElementById('resultTitle').textContent = title;
-        document.getElementById('resultPrice').textContent = price;
-        document.getElementById('resultWhy').textContent = why;
-        document.getElementById('quizResult').classList.add('active');
-    }
-
-    function quizReset(){
-        quizData = { type:null, price:null, goal:null };
-        document.getElementById('quizResult').classList.remove('active');
-        ['dot1','dot2','dot3'].forEach(function(id){ document.getElementById(id).classList.remove('done'); });
-        document.getElementById('step1').classList.add('active');
-        ['step2','step3'].forEach(function(id){ document.getElementById(id).classList.remove('active'); });
-    }
-    </script>
 
 </body>
 </html>

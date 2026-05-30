@@ -10,38 +10,40 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
 
-# HTML pages — always revalidate so updates go live immediately
+# HTML pages - always revalidate so updates go live immediately
 [[headers]]
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# CSS — 1 year cache (filename includes content hash via Netlify or manual deploy)
+# CSS - short cache because filenames are not content-hashed
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
-# JavaScript — 1 year cache
+# JavaScript - short cache because filenames are not content-hashed
 [[headers]]
   for = "/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
-# Images — 1 year cache (portfolio images rarely change)
+# Images - 1 year cache (portfolio images rarely change)
 [[headers]]
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Videos — 1 year cache
+# Videos - 1 year cache
 [[headers]]
   for = "/videos/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Sitemap and robots — short cache so search engines pick up updates fast
+# Sitemap and robots - short cache so search engines pick up updates fast
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]
@@ -51,3 +53,52 @@
   for = "/robots.txt"
   [headers.values]
     Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/agents/*"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/deliveries/*"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/portal/*"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+
+[[headers]]
+  for = "/portal/*/assets/*-download.png"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Content-Disposition = "attachment"
+
+[[headers]]
+  for = "/agent-portal-sample.html"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/agent-request-received.html"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/prep-guide-print.html"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/listings/123-showcase-lane*"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow"

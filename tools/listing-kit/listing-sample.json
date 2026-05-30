@@ -1,0 +1,39 @@
+{
+  "address": "123 Showcase Lane",
+  "city_state_zip": "Gainesville, Florida 32605",
+  "status": "Just Listed",
+  "price": "$649,000",
+  "beds": "4",
+  "baths": "3",
+  "sqft": "2,840",
+  "lot_size": "0.42 acres",
+  "year_built": "2019",
+  "mls": "GC123456",
+  "agent_name": "Your Name",
+  "brokerage": "RE/MAX",
+  "agent_phone": "(386) 555-0147",
+  "agent_email": "agent@example.com",
+  "description": "This sample listing page shows how your real estate media can become a QR-ready open house and seller marketing package. Buyers can scan from a flyer, yard sign, or open house table and instantly view exterior photos, interior highlights, aerial context, a 3D tour, floor plan link, Zillow or MLS link, and agent contact buttons.",
+  "highlights": [
+    "Photo gallery",
+    "Drone coverage",
+    "3D walkthrough",
+    "Floor plan link",
+    "Zillow/MLS button",
+    "Agent call/text"
+  ],
+  "hero_image": "images/portfolio-exterior/exterior-01.webp",
+  "gallery_images": [
+    "images/portfolio-exterior/exterior-01.webp",
+    "images/portfolio-interior/interior-05.webp",
+    "images/portfolio-drone/aerial-06.webp",
+    "images/portfolio-interior/interior-14.webp",
+    "images/portfolio-interior/interior-03.webp",
+    "images/portfolio-drone/aerial-01.webp"
+  ],
+  "zillow_url": "https://www.zillow.com/view-imx/2002e32c-fe62-477a-83e0-1f2c3ceacbf9/?utm_source=captureapp",
+  "video_url": "../portfolio-video.html",
+  "tour_url": "https://www.zillow.com/view-imx/2002e32c-fe62-477a-83e0-1f2c3ceacbf9/?utm_source=captureapp",
+  "floor_plan_url": "../images/service.interactivefloor.jpg",
+  "sample": true
+}

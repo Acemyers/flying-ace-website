@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book a Shoot | Flying Ace's Photography & Drone | Lake City, FL</title>
-    <meta name="description" content="Book your real estate photography, drone, Zillow 3D walkthrough, or listing video session with Flying Ace's. Fast 24–48hr turnaround. Serving Lake City, Gainesville, Jacksonville & North Florida.">
+    <meta name="description" content="Book real estate photography, drone media, Zillow 3D tours, listing video, launch kits, or AI Cinematic Property Walkthrough service with Flying Ace's.">
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="book real estate photographer Lake City FL, schedule drone photography North Florida, book listing photos Gainesville FL, real estate photography appointment Lake City, hire drone pilot North Florida">
     <meta name="geo.region" content="US-FL">
@@ -18,7 +18,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://flyingacesmedia.com/book.html">
     <meta property="og:title" content="Book a Shoot | Flying Ace's Photography & Drone">
-    <meta property="og:description" content="Ready to elevate your listing? Book your shoot with Flying Ace's — real estate photos, drone, 3D tours & more. Fast 24–48hr turnaround.">
+    <meta property="og:description" content="Book your real estate media shoot with Flying Ace's: listing photos, drone, 3D tours, video, and fast 24–48hr turnaround.">
     <meta property="og:image" content="https://flyingacesmedia.com/images/portfolio-exterior.jpg">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-X87ZSNGKVY"></script>
@@ -62,18 +62,38 @@
             overflow: hidden;
             margin-top: 8px;
         }
-        .service-picker-section { padding: 0; }
+        .service-picker-section {
+            padding: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .service-picker-section:last-child { border-bottom: none; }
         .service-picker-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.7rem;
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--gold);
-            padding: 10px 14px 6px;
+            padding: 12px 14px;
             background: rgba(196,145,28,0.06);
+            cursor: pointer;
+            list-style: none;
+        }
+        .service-picker-heading::-webkit-details-marker { display: none; }
+        .service-picker-heading::after {
+            content: '+';
+            font-size: 1rem;
+            line-height: 1;
+            color: rgba(255,255,255,0.55);
+        }
+        .service-picker-section[open] .service-picker-heading {
             border-bottom: 1px solid rgba(255,255,255,0.06);
         }
+        .service-picker-section[open] .service-picker-heading::after { content: '-'; }
         .service-pick-item {
             display: flex;
             align-items: center;
@@ -85,6 +105,9 @@
         }
         .service-pick-item:last-child { border-bottom: none; }
         .service-pick-item:hover { background: rgba(255,255,255,0.04); }
+        .service-pick-item.service-pick-soon {
+            background: rgba(196,145,28,0.07);
+        }
         .service-pick-item input[type="checkbox"] {
             appearance: none;
             -webkit-appearance: none;
@@ -127,7 +150,64 @@
             color: var(--gold);
             white-space: nowrap;
         }
+        .sqft-marker {
+            color: var(--gold);
+            font-weight: 900;
+            margin-left: 3px;
+        }
+        .sqft-fee-note {
+            margin: 4px 0 18px;
+            padding: 12px 14px;
+            border: 1px solid rgba(196,145,28,0.28);
+            border-radius: 8px;
+            background: rgba(196,145,28,0.08);
+            color: rgba(255,255,255,0.68);
+            font-size: 0.78rem;
+            line-height: 1.55;
+        }
+        .sqft-fee-note strong {
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
         .service-pick-item.checked { background: rgba(196,145,28,0.08); }
+        .service-package-details {
+            margin: -1px 14px 12px 46px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.025);
+            overflow: hidden;
+        }
+        .service-package-details summary {
+            padding: 9px 12px;
+            color: rgba(255,255,255,0.66);
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            list-style: none;
+        }
+        .service-package-details summary::-webkit-details-marker { display: none; }
+        .service-package-details summary::after {
+            content: '+';
+            float: right;
+            color: var(--gold);
+        }
+        .service-package-details[open] summary {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            color: var(--gold);
+        }
+        .service-package-details[open] summary::after { content: '-'; }
+        .service-package-details ul {
+            margin: 0;
+            padding: 10px 14px 12px 28px;
+            color: rgba(255,255,255,0.68);
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
         /* Qty items use div not label — inner label wraps checkbox+name */
         .svc-pick-inner {
             display: flex;
@@ -140,6 +220,56 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+        @media (max-width: 560px) {
+            .book-page-header > p {
+                max-width: 330px;
+                line-height: 1.55;
+            }
+            .book-page-header div[style*="max-width:480px"] {
+                max-width: 340px !important;
+            }
+            .book-page-header div[style*="align-items:flex-start"] {
+                gap: 9px !important;
+            }
+            .book-page-header div[style*="align-items:flex-start"] p {
+                font-size: 0.82rem !important;
+                line-height: 1.45 !important;
+            }
+            .service-pick-item {
+                gap: 8px;
+                padding: 10px 10px;
+            }
+            .service-package-details {
+                margin-left: 38px;
+                margin-right: 10px;
+            }
+            .svc-name {
+                min-width: 0;
+                font-size: clamp(0.72rem, 3.2vw, 0.86rem);
+                overflow-wrap: anywhere;
+            }
+            .svc-price {
+                max-width: 86px;
+                white-space: normal;
+                text-align: right;
+                line-height: 1.18;
+                font-size: clamp(0.62rem, 2.8vw, 0.76rem);
+            }
+            .service-picker-section:last-of-type .svc-price {
+                max-width: 76px;
+                font-size: clamp(0.58rem, 2.55vw, 0.72rem);
+                letter-spacing: 0.01em;
+            }
+            .service-pick-item input[type="checkbox"] {
+                width: 18px;
+                height: 18px;
+            }
+            .svc-right {
+                gap: 6px;
+                justify-content: flex-end;
+                flex-wrap: wrap;
+            }
         }
         .svc-qty-controls {
             display: none;
@@ -214,8 +344,73 @@
             max-width: 960px;
             margin: 0 auto;
         }
+        .book-contact-wrapper .contact-info {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .book-contact-wrapper .contact-item {
+            gap: 10px;
+            padding: 14px;
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+        }
+        .book-contact-wrapper .contact-icon {
+            width: 38px;
+            height: 38px;
+            font-size: 1.05rem;
+        }
+        .book-contact-wrapper .contact-item strong {
+            font-size: 0.62rem;
+            margin-bottom: 3px;
+        }
+        .book-contact-wrapper .contact-item p,
+        .book-contact-wrapper .area-btn {
+            font-size: 0.78rem;
+            line-height: 1.35;
+        }
+        .book-contact-wrapper .contact-form {
+            padding: 32px 30px;
+        }
+        .book-contact-wrapper .form-row {
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .book-contact-wrapper .form-row .form-group {
+            margin-bottom: 0;
+        }
+        .book-contact-wrapper .form-group {
+            gap: 6px;
+            margin-bottom: 12px;
+        }
         @media (max-width: 720px) {
             .book-contact-wrapper { grid-template-columns: 1fr; gap: 32px; }
+        }
+        @media (max-width: 560px) {
+            .book-contact-wrapper .contact-info {
+                gap: 10px;
+            }
+            .book-contact-wrapper .contact-item {
+                flex-direction: column;
+                padding: 11px;
+            }
+            .book-contact-wrapper .contact-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 0.92rem;
+            }
+            .book-contact-wrapper .contact-item strong {
+                font-size: 0.56rem;
+                line-height: 1.2;
+            }
+            .book-contact-wrapper .contact-item p,
+            .book-contact-wrapper .area-btn {
+                font-size: 0.68rem;
+            }
+            .book-contact-wrapper .contact-form {
+                padding: 24px 18px;
+            }
         }
         @media (max-width: 768px) {
             .nav-right  { display: flex !important; }
@@ -253,36 +448,33 @@
 </head>
 <body>
 
-    <nav class="navbar scrolled" id="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-credentials">
-            <span>🎖️ FAA Certified Commercial Drone Pilot</span>
+            <span>&#127895;&#65039; FAA Certified Commercial Drone Pilot</span>
             <span class="nav-cred-divider">·</span>
-            <span>⭐ Military Veteran</span>
+            <span>&#11088; Military Veteran</span>
         </div>
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img">
+                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img" decoding="async" width="350" height="350">
                 <div>
                     <span class="logo-text">Flying <span class="gold">Ace's</span></span>
                     <span class="logo-sub">Photography &amp; Drone Services</span>
                 </div>
             </a>
             <div class="nav-right">
-                <a href="tel:3862924315" class="nav-mobile-phone">📞 (386) 292-4315</a>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <a href="tel:3862924315" class="nav-mobile-phone">&#9742; (386) 292-4315</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navMenu" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="packages.html">Packages/Pricing</a></li>
-                
-                
+                <li><a href="packages.html">Services &amp; Pricing</a></li>
                 <li><a href="for-agents.html">Realtor Toolkit</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="book.html" class="nav-cta active">Book Now</a></li>
+                <li><a href="book.html" class="nav-cta active" aria-current="page">Book Now</a></li>
             </ul>
         </div>
     </nav>
@@ -293,63 +485,48 @@
             <div class="book-page-header">
                 <p class="section-eyebrow">Get in Touch</p>
                 <h1>Book a <span class="gold">Shoot</span></h1>
-                <p>Fill out the form and we'll get back to you within 24 hours.</p>
-                <p style="margin-top:8px; color: var(--gold); font-weight:600;">Want a quicker response? Call or text anytime.</p>
-                <div style="display:inline-block; margin-top:20px; background:rgba(200,160,60,0.1); border:1px solid rgba(200,160,60,0.4); border-radius:8px; padding:12px 20px;">
-                    <span style="font-size:0.92rem; color:rgba(255,255,255,0.85);">📋 Getting ready for your shoot?</span>
-                    <a href="prep-guide.html" style="display:block; margin-top:4px; color:var(--gold); font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.95rem;">View the Listing Prep Guide &rarr;</a>
-                </div>
-                <div style="margin-top:36px; text-align:left; max-width:480px; margin-left:auto; margin-right:auto;">
-                    <p style="font-family:'Montserrat',sans-serif; font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:14px;">What Happens Next</p>
-                    <div style="display:flex; flex-direction:column; gap:12px;">
-                        <div style="display:flex; align-items:flex-start; gap:12px;">
-                            <span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:var(--gold); color:#000; font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.75rem; display:flex; align-items:center; justify-content:center;">1</span>
-                            <p style="font-size:0.88rem; color:rgba(255,255,255,0.8); margin:0; line-height:1.5;"><strong style="color:#fff;">Send the request</strong> — Tell us what you need and where the property is.</p>
-                        </div>
-                        <div style="display:flex; align-items:flex-start; gap:12px;">
-                            <span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:var(--gold); color:#000; font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.75rem; display:flex; align-items:center; justify-content:center;">2</span>
-                            <p style="font-size:0.88rem; color:rgba(255,255,255,0.8); margin:0; line-height:1.5;"><strong style="color:#fff;">We confirm the details</strong> — We'll reach out to confirm timing, services, and access.</p>
-                        </div>
-                        <div style="display:flex; align-items:flex-start; gap:12px;">
-                            <span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:var(--gold); color:#000; font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.75rem; display:flex; align-items:center; justify-content:center;">3</span>
-                            <p style="font-size:0.88rem; color:rgba(255,255,255,0.8); margin:0; line-height:1.5;"><strong style="color:#fff;">Your media gets delivered</strong> — Photos and media are delivered online, usually within 24–48 hours.</p>
-                        </div>
-                    </div>
-                </div>
+                <p>Choose what you need, add the property details, and send the request. We'll confirm the date and next steps.</p>
             </div>
 
             <div class="book-contact-wrapper">
 
                 <div class="contact-info">
                     <div class="contact-item">
-                        <span class="contact-icon">📞</span>
+                        <span class="contact-icon">&#9742;</span>
                         <div>
                             <strong>Phone</strong>
                             <p><a href="tel:3862924315">(386) 292-4315</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <span class="contact-icon">📧</span>
+                        <span class="contact-icon">&#9993;</span>
                         <div>
                             <strong>Email</strong>
                             <p><a href="mailto:pilot@acesdroneservice.com">pilot@acesdroneservice.com</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <span class="contact-icon">📍</span>
+                        <span class="contact-icon">&#128205;</span>
                         <div>
                             <strong>Service Area</strong>
-                            <div class="contact-cities">
-                                <span>Lake City</span><span>O'Brien</span><span>Lake Butler</span><span>Alachua</span>
-                                <span>Gainesville</span><span>Glen Saint Mary</span><span>Starke</span><span>Mayo</span>
-                                <span>Branford</span><span>Live Oak</span><span>Perry</span><span>Valdosta</span>
-                                <span>Jacksonville</span><span>St. Augustine</span><span>Palm Coast</span>
-                                <span>Ormond Beach</span><span>Daytona</span>
+                            <div class="area-popup-wrap book-area-popup-wrap">
+                                <button type="button" class="area-btn" id="areaBtn" aria-expanded="false">View Service Areas</button>
+                                <div class="area-popup" id="areaPopup" aria-hidden="true">
+                                    <div class="area-popup-grid">
+                                        <span>Lake City</span><span>O'Brien</span><span>Lake Butler</span>
+                                        <span>Alachua</span><span>Gainesville</span><span>Glen Saint Mary</span>
+                                        <span>Starke</span><span>Mayo</span><span>Branford</span>
+                                        <span>Live Oak</span><span>Perry</span><span>Valdosta</span>
+                                        <span>Jacksonville</span><span>St. Augustine</span><span>Palm Coast</span>
+                                        <span>Ormond Beach</span><span>Daytona</span>
+                                        <span class="area-popup-note">North Florida &amp; Surrounding Areas</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <span class="contact-icon">⚡</span>
+                        <span class="contact-icon">&#9889;</span>
                         <div>
                             <strong>Turnaround</strong>
                             <p>Photos &amp; media delivered in 24–48 hours</p>
@@ -357,9 +534,10 @@
                     </div>
                 </div>
 
-                <form class="contact-form" id="contactForm" name="book" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <form class="contact-form" id="contactForm" name="book" method="POST" action="book.html" data-netlify="true" netlify-honeypot="bot-field">
                     <input type="hidden" name="bot-field" style="display:none">
                     <input type="hidden" name="form-name" value="book">
+                    <input type="hidden" name="source" value="book-page">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Your Name</label>
@@ -370,46 +548,110 @@
                             <input type="email" id="email" name="email" placeholder="jane@example.com" required>
                         </div>
                     </div>
-                    <div class="form-group" style="max-width:320px;">
+                    <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
                     </div>
                     <div class="form-group">
-                        <label>Build Your Package <span style="font-size:0.78rem;color:rgba(255,255,255,0.4);font-weight:400;">— select all that apply</span></label>
+                        <label>What Do You Need? <span style="font-size:0.78rem;color:rgba(255,255,255,0.4);font-weight:400;">Select all that apply</span></label>
                         <div class="service-picker">
 
                             <!-- PACKAGES -->
-                            <div class="service-picker-section">
-                                <p class="service-picker-heading">Packages</p>
+                            <details class="service-picker-section" open>
+                                <summary class="service-picker-heading">Packages</summary>
                                 <label class="service-pick-item">
                                     <input type="checkbox" class="svc-check" data-price="175" data-label="Photography Package ($175)" data-sqft="true">
-                                    <span class="svc-name">Photography Package</span>
+                                    <span class="svc-name">Photography Package<span class="sqft-marker" aria-label="Square footage surcharge applies">*</span></span>
                                     <span class="svc-price">$175</span>
                                 </label>
+                                <details class="service-package-details">
+                                    <summary>Included details</summary>
+                                    <ul>
+                                        <li>Interior and exterior listing photos</li>
+                                        <li>Drone photos</li>
+                                        <li>Sky replacement when needed</li>
+                                        <li>TV image replacement when needed</li>
+                                        <li>Fast 24-48 hour turnaround</li>
+                                    </ul>
+                                </details>
                                 <label class="service-pick-item">
                                     <input type="checkbox" class="svc-check" data-price="175" data-label="Videography Package ($175)">
                                     <span class="svc-name">Videography Package</span>
                                     <span class="svc-price">$175</span>
                                 </label>
+                                <details class="service-package-details">
+                                    <summary>Included details</summary>
+                                    <ul>
+                                        <li>Interior, exterior, and aerial video coverage</li>
+                                        <li>30 second to 2 minute edited video</li>
+                                        <li>Custom name, brokerage, and logo branding</li>
+                                        <li>Horizontal or vertical format</li>
+                                    </ul>
+                                </details>
                                 <label class="service-pick-item">
-                                    <input type="checkbox" class="svc-check" data-price="475" data-label="Ultimate Showcase ($475)" data-sqft="true">
-                                    <span class="svc-name">Ultimate Showcase</span>
+                                    <input type="checkbox" class="svc-check" data-price="350" data-label="AI Cinematic Property Walkthrough ($350)">
+                                    <span class="svc-name">AI Cinematic Property Walkthrough</span>
+                                    <span class="svc-price">$350</span>
+                                </label>
+                                <details class="service-package-details">
+                                    <summary>Included details</summary>
+                                    <ul>
+                                        <li>Cinematic property walkthrough edit</li>
+                                        <li>Music, smooth motion, and visual pacing</li>
+                                        <li>Select AI-powered property transformation moments</li>
+                                        <li>Built for social media and listing promotion</li>
+                                    </ul>
+                                </details>
+                                <label class="service-pick-item">
+                                    <input type="checkbox" class="svc-check" data-price="475" data-label="Ultimate Showcase ($475)" data-sqft="true" data-sqft-count="3">
+                                    <span class="svc-name">Ultimate Showcase<span class="sqft-marker" aria-label="Square footage surcharge applies">*</span></span>
                                     <span class="svc-price">$475</span>
                                 </label>
-                            </div>
+                                <details class="service-package-details">
+                                    <summary>Included details</summary>
+                                    <ul>
+                                        <li>Full photography package</li>
+                                        <li>Full video package</li>
+                                        <li>Zillow 3D interactive walkthrough</li>
+                                        <li>Interactive floor plan</li>
+                                        <li>Floor plan with accurate measurements</li>
+                                    </ul>
+                                </details>
+                                <label class="service-pick-item">
+                                    <input type="checkbox" class="svc-check" data-price="625" data-label="AI Cinematic Showcase ($625)" data-sqft="true" data-sqft-count="3">
+                                    <span class="svc-name">AI Cinematic Showcase<span class="sqft-marker" aria-label="Square footage surcharge applies">*</span></span>
+                                    <span class="svc-price">$625</span>
+                                </label>
+                                <details class="service-package-details">
+                                    <summary>Included details</summary>
+                                    <ul>
+                                        <li>Full photography package</li>
+                                        <li>Full video package</li>
+                                        <li>Zillow 3D interactive walkthrough</li>
+                                        <li>Interactive floor plan</li>
+                                        <li>Floor plan with accurate measurements</li>
+                                        <li>AI Cinematic Property Walkthrough</li>
+                                    </ul>
+                                </details>
+                            </details>
 
                             <!-- ADD-ONS -->
-                            <div class="service-picker-section">
-                                <p class="service-picker-heading">Add-Ons</p>
+                            <details class="service-picker-section">
+                                <summary class="service-picker-heading">Add-Ons</summary>
                                 <label class="service-pick-item">
                                     <input type="checkbox" class="svc-check" data-price="125" data-label="Zillow 3D Walkthrough + Interactive Floor Plan ($125)" data-sqft="true">
-                                    <span class="svc-name">Zillow 3D Walkthrough + Interactive Floor Plan</span>
+                                    <span class="svc-name">Zillow 3D Walkthrough + Interactive Floor Plan<span class="sqft-marker" aria-label="Square footage surcharge applies">*</span></span>
                                     <span class="svc-price">$125</span>
                                 </label>
                                 <label class="service-pick-item">
                                     <input type="checkbox" class="svc-check" data-price="50" data-label="Floor Plan With Measurements ($50)" data-sqft="true">
-                                    <span class="svc-name">Floor Plan With Measurements</span>
+                                    <span class="svc-name">Floor Plan With Measurements<span class="sqft-marker" aria-label="Square footage surcharge applies">*</span></span>
                                     <span class="svc-price">$50</span>
+                                </label>
+                                <label class="service-pick-item">
+                                    <input type="checkbox" class="svc-check" data-price="100" data-label="Listing Launch Kit ($100)">
+                                    <span class="svc-name">Listing Launch Kit</span>
+                                    <span class="svc-price">$100</span>
                                 </label>
                                 <label class="service-pick-item">
                                     <input type="checkbox" class="svc-check" data-price="89" data-label="Drone Vacant Land (from $89)">
@@ -424,7 +666,7 @@
                                     </label>
                                     <div class="svc-right">
                                         <div class="svc-qty-controls" id="qty-twilight-wrap">
-                                            <button type="button" class="qty-btn" data-dir="-1" data-target="qty-twilight">−</button>
+                                            <button type="button" class="qty-btn" data-dir="-1" data-target="qty-twilight">-</button>
                                             <span class="qty-val" id="qty-twilight">1</span>
                                             <button type="button" class="qty-btn" data-dir="1" data-target="qty-twilight">+</button>
                                         </div>
@@ -438,7 +680,7 @@
                                     </label>
                                     <div class="svc-right">
                                         <div class="svc-qty-controls" id="qty-lawn-wrap">
-                                            <button type="button" class="qty-btn" data-dir="-1" data-target="qty-lawn">−</button>
+                                            <button type="button" class="qty-btn" data-dir="-1" data-target="qty-lawn">-</button>
                                             <span class="qty-val" id="qty-lawn">1</span>
                                             <button type="button" class="qty-btn" data-dir="1" data-target="qty-lawn">+</button>
                                         </div>
@@ -447,23 +689,18 @@
                                 </div>
                                 <div class="service-pick-item" id="row-pool">
                                     <label class="svc-pick-inner">
-                                        <input type="checkbox" class="svc-check" id="chk-pool" data-price="10" data-unitprice="10" data-label="Pool Water Enhancement" data-qty-target="qty-pool">
+                                        <input type="checkbox" class="svc-check" id="chk-pool" data-price="10" data-label="Pool Water Enhancement ($10)">
                                         <span class="svc-name">Pool Water Enhancement</span>
                                     </label>
                                     <div class="svc-right">
-                                        <div class="svc-qty-controls" id="qty-pool-wrap">
-                                            <button type="button" class="qty-btn" data-dir="-1" data-target="qty-pool">−</button>
-                                            <span class="qty-val" id="qty-pool">1</span>
-                                            <button type="button" class="qty-btn" data-dir="1" data-target="qty-pool">+</button>
-                                        </div>
-                                        <span class="svc-price" id="price-pool">$10 ea</span>
+                                        <span class="svc-price" id="price-pool">$10</span>
                                     </div>
                                 </div>
-                            </div>
+                            </details>
 
                             <!-- SPECIALTY SERVICES -->
-                            <div class="service-picker-section">
-                                <p class="service-picker-heading">Specialty Services</p>
+                            <details class="service-picker-section">
+                                <summary class="service-picker-heading">Specialty Services</summary>
                                 <label class="service-pick-item">
                                     <input type="checkbox" class="svc-check" data-price="0" data-label="Marketing / Promo Video (from $250)">
                                     <span class="svc-name">Marketing / Promo Video</span>
@@ -484,7 +721,7 @@
                                     <span class="svc-name">Drone Photogrammetry / Mapping</span>
                                     <span class="svc-price" style="color:rgba(255,255,255,0.45);">Call for Pricing</span>
                                 </label>
-                            </div>
+                            </details>
 
                         </div>
                         <div class="service-total-box" id="serviceTotalBox" style="display:none;">
@@ -495,6 +732,8 @@
                             <p class="service-total-note" id="serviceTotalNote"></p>
                         </div>
                         <input type="hidden" name="service" id="servicesSelected">
+                        <input type="hidden" name="estimated_total" id="estimatedTotal">
+                        <input type="hidden" name="estimated_total_note" id="estimatedTotalNote">
                     </div>
                     <div class="form-group">
                         <label for="address">Property Address</label>
@@ -508,15 +747,16 @@
                         <label for="message">Additional Details</label>
                         <textarea id="message" name="message" rows="4" placeholder="Preferred date/time, special requests, notes..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-gold btn-full">Send Request</button>
-                    <p class="form-note">We'll respond within 24 hours. No spam, ever.</p>
+                    <p class="sqft-fee-note"><strong>* Square footage:</strong> Services marked with * add $25 per 1,000 sq ft over 3,000 sq ft, per selected starred service. Ultimate Showcase and AI Cinematic Showcase each count as 3 services because they include photos, Zillow 3D/floor plan, and measured floor plan. The estimate updates when square footage is entered.</p>
+                    <button type="submit" class="btn btn-gold btn-full">Book Now</button>
+                    <p class="form-note">We'll respond within 24 hours (normally much less). Want a faster response? <a href="tel:3862924315">Call or text.</a></p>
                 </form>
 
             </div>
 
             <!-- Referral blurb -->
             <div class="book-referral-blurb" id="referral">
-                <span class="referral-icon-sm">🤝</span>
+                <span class="referral-icon-sm">&#128279;</span>
                 <div>
                     <h4>Refer a Friend — Get $25 Off Your Next Service</h4>
                     <p>Know an agent or homeowner who could use great listing photos? Send them our way and we'll take $25 off your next booking. No limit on referrals.</p>
@@ -529,7 +769,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
-                <p>&copy; 2026 Flying Ace's Photography &amp; Drone Services. All rights reserved. &nbsp;&middot;&nbsp; <a href="index.html" style="color:var(--gold)">Back to Home</a></p>
+                <p>&copy; 2026 Flying Ace's Photography &amp; Drone Services. All rights reserved. &nbsp;&middot;&nbsp; <a href="index.html" style="color:var(--gold)">Home</a></p>
             </div>
         </div>
     </footer>
@@ -538,9 +778,12 @@
     <div class="success-overlay" id="successOverlay" aria-hidden="true">
         <div class="success-modal" role="dialog" aria-modal="true">
             <div class="success-icon">&#10003;</div>
-            <h3>Request Sent!</h3>
-            <p>Thanks for reaching out. We'll get back to you within 24 hours to confirm your booking.</p>
-            <button class="btn btn-gold" id="successClose">Sounds Good</button>
+            <h3>Booking Request Sent!</h3>
+            <p>Thanks for booking with Flying Ace's. We'll confirm the date, services, and next steps within 24 hours, normally much less.</p>
+            <div class="success-actions">
+                <button class="btn btn-gold" id="successClose">Sounds Good</button>
+                <a href="listing-launch-kit.html#launch-kit-form" class="btn btn-outline-gold">Request Listing Launch Kit</a>
+            </div>
         </div>
     </div>
 
@@ -552,6 +795,8 @@
         var totalAmt  = document.getElementById('serviceTotalAmount');
         var totalNote = document.getElementById('serviceTotalNote');
         var hidden    = document.getElementById('servicesSelected');
+        var hiddenTotal = document.getElementById('estimatedTotal');
+        var hiddenTotalNote = document.getElementById('estimatedTotalNote');
         var sqftInput = document.getElementById('sqft');
 
         /* Parse sqft surcharge: $25 per 1,000 sqft over 3,000 */
@@ -576,6 +821,8 @@
             var sqftAmt  = sqftSurcharge();
             var sqftHits = 0;
             var selected = [];
+            var estimateText = '';
+            var note = '';
 
             checks.forEach(function (cb) {
                 var row      = cb.closest('.service-pick-item');
@@ -591,8 +838,14 @@
                     if (unitPrice > 0) {
                         var line = unitPrice * qty;
                         total += line;
-                        if (cb.dataset.sqft === 'true') sqftHits++;
-                        if (priceEl) priceEl.textContent = qty > 1 ? '$' + line + ' ($' + unitPrice + ' ea)' : '$' + unitPrice + ' ea';
+                        if (cb.dataset.sqft === 'true') {
+                            sqftHits += parseInt(cb.dataset.sqftCount || '1', 10);
+                        }
+                        if (priceEl) {
+                            priceEl.textContent = cb.dataset.qtyTarget
+                                ? (qty > 1 ? '$' + line + ' ($' + unitPrice + ' ea)' : '$' + unitPrice + ' ea')
+                                : '$' + unitPrice;
+                        }
                     } else {
                         callOnly = true;
                         if (priceEl) priceEl.textContent = 'Call for Pricing';
@@ -603,7 +856,9 @@
                 } else {
                     row.classList.remove('checked');
                     if (qtyWrap) qtyWrap.style.display = 'none';
-                    if (priceEl && unitPrice > 0) priceEl.textContent = '$' + unitPrice + ' ea';
+                    if (priceEl && unitPrice > 0) {
+                        priceEl.textContent = cb.dataset.qtyTarget ? '$' + unitPrice + ' ea' : '$' + unitPrice;
+                    }
                 }
             });
 
@@ -614,11 +869,15 @@
             hidden.value = selected.join(', ') +
                 (surcharge > 0 ? ' | Sq ft surcharge: +$' + surcharge : '');
 
-            if (selected.length === 0) { totalBox.style.display = 'none'; return; }
+            if (selected.length === 0) {
+                totalBox.style.display = 'none';
+                if (hiddenTotal) hiddenTotal.value = '';
+                if (hiddenTotalNote) hiddenTotalNote.value = '';
+                return;
+            }
 
             totalBox.style.display = 'block';
 
-            var note = '';
             if (surcharge > 0) {
                 note = 'Includes +$' + surcharge + ' sq ft surcharge (' +
                     sqftHits + ' service' + (sqftHits > 1 ? 's' : '') +
@@ -626,16 +885,21 @@
             }
 
             if (callOnly && total > surcharge) {
-                totalAmt.textContent = '$' + total.toLocaleString() + '+';
+                estimateText = '$' + total.toLocaleString() + '+';
+                totalAmt.textContent = estimateText;
                 note += 'Some services require a custom quote — we\'ll confirm the final total.';
             } else if (callOnly) {
-                totalAmt.textContent = 'Quote Needed';
+                estimateText = 'Quote Needed';
+                totalAmt.textContent = estimateText;
                 note += 'We\'ll reach out with a custom quote based on your project details.';
             } else {
-                totalAmt.textContent = '$' + total.toLocaleString();
+                estimateText = '$' + total.toLocaleString();
+                totalAmt.textContent = estimateText;
                 if (!note) note = 'Starting estimate — final total confirmed when we follow up.';
             }
             totalNote.textContent = note;
+            if (hiddenTotal) hiddenTotal.value = estimateText;
+            if (hiddenTotalNote) hiddenTotalNote.value = note;
         }
 
         /* Qty buttons — stop propagation so they don't toggle the checkbox */
@@ -652,6 +916,10 @@
 
         checks.forEach(function (cb) { cb.addEventListener('change', recalc); });
         if (sqftInput) sqftInput.addEventListener('input', recalc);
+        var contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', recalc, true);
+        }
     })();
     </script>
 </body>

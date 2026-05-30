@@ -3,12 +3,17 @@
    Main JavaScript
    ============================================================ */
 
+const prefersReducedMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 /* ---- Navbar: add "scrolled" class after user scrolls 60px ---- */
 const navbar = document.getElementById('navbar');
 if (navbar) {
-    window.addEventListener('scroll', () => {
+    function updateNavbarState() {
         navbar.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
+    }
+    updateNavbarState();
+    window.addEventListener('scroll', updateNavbarState, { passive: true });
 }
 
 /* ---- Mobile nav toggle ---- */
@@ -16,24 +21,31 @@ const navToggle = document.getElementById('navToggle');
 const navMenu   = document.getElementById('navMenu');
 
 if (navToggle && navMenu) {
+    function closeMobileNav() {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+    }
+
     navToggle.addEventListener('click', (e) => {
         e.stopPropagation();
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('open');
+        const open = navMenu.classList.toggle('open');
+        navToggle.classList.toggle('active', open);
+        navToggle.setAttribute('aria-expanded', String(open));
     });
 
     navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('open');
-        });
+        link.addEventListener('click', closeMobileNav);
     });
 
     document.addEventListener('click', (e) => {
         if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('open');
+            closeMobileNav();
         }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMobileNav();
     });
 }
 
@@ -80,13 +92,132 @@ document.querySelectorAll('.services-grid, .addons-grid').forEach(grid => {
     });
 });
 
+/* ---- Homepage listing launch animation ---- */
+(function () {
+    const launchKit = document.querySelector('.launch-kit');
+    if (!launchKit) return;
+
+    launchKit.classList.add('launch-ready');
+
+    if (prefersReducedMotion) {
+        launchKit.classList.add('is-visible');
+        return;
+    }
+
+    const launchObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            launchKit.classList.toggle('is-visible', entry.isIntersecting);
+        });
+    }, { threshold: 0.28 });
+
+    launchObserver.observe(launchKit);
+})();
+
+/* ---- Homepage portfolio preview image rotators ---- */
+(function () {
+    const cards = document.querySelectorAll('[data-preview-rotator]');
+    if (!cards.length) return;
+
+    cards.forEach((card, cardIndex) => {
+        const images = Array.from(card.querySelectorAll('.portfolio-preview-media img'));
+        if (images.length < 2) return;
+
+        let activeIndex = images.findIndex(img => img.classList.contains('is-active'));
+        if (activeIndex < 0) activeIndex = 0;
+
+        images.forEach((img, index) => {
+            img.classList.toggle('is-active', index === activeIndex);
+        });
+
+        if (prefersReducedMotion) return;
+
+        let timer = null;
+        let hasQuickAdvanced = false;
+        let inView = !('IntersectionObserver' in window);
+        const firstDelay = 700 + (cardIndex * 120);
+        const interval = 3400 + (cardIndex * 180);
+
+        function advance() {
+            images[activeIndex].classList.remove('is-active');
+            activeIndex = (activeIndex + 1) % images.length;
+            images[activeIndex].classList.add('is-active');
+        }
+
+        function start() {
+            if (!inView || timer || document.hidden) return;
+            timer = window.setTimeout(function cycle() {
+                advance();
+                hasQuickAdvanced = true;
+                timer = window.setTimeout(cycle, interval);
+            }, hasQuickAdvanced ? interval : firstDelay);
+        }
+
+        function stop() {
+            if (!timer) return;
+            window.clearTimeout(timer);
+            timer = null;
+        }
+
+        if ('IntersectionObserver' in window) {
+            const previewObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    inView = entry.isIntersecting;
+                    if (inView) start();
+                    else stop();
+                });
+            }, { threshold: 0.22 });
+
+            previewObserver.observe(card);
+        } else {
+            window.setTimeout(start, cardIndex * 450);
+        }
+
+        card.addEventListener('mouseenter', stop);
+        card.addEventListener('mouseleave', start);
+        card.addEventListener('focusin', stop);
+        card.addEventListener('focusout', start);
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) stop();
+            else start();
+        });
+    });
+})();
+
+/* ---- Mobile sticky home/book/call actions ---- */
+(function () {
+    const path = window.location.pathname.toLowerCase();
+    if (path.indexOf('/agents/') !== -1 || path.indexOf('/listings/') !== -1 || path.endsWith('/prep-guide-print.html')) {
+        return;
+    }
+
+    const bar = document.createElement('nav');
+    bar.className = 'mobile-action-bar';
+    bar.setAttribute('aria-label', 'Quick actions');
+    bar.innerHTML = `
+        <a href="index.html"><span aria-hidden="true">&#8962;</span>Home</a>
+        <a href="book.html" class="mobile-action-book"><span aria-hidden="true">&#10003;</span>Book</a>
+        <a href="tel:3862924315"><span aria-hidden="true">&#9742;</span>Call/Text</a>
+    `;
+    document.body.appendChild(bar);
+    document.body.classList.add('has-mobile-actions');
+
+    function updateMobileActions() {
+        const shouldShow = window.innerWidth <= 768 && window.scrollY > 220;
+        bar.classList.toggle('is-visible', shouldShow);
+    }
+
+    window.addEventListener('scroll', updateMobileActions, { passive: true });
+    window.addEventListener('resize', updateMobileActions);
+    updateMobileActions();
+})();
+
 /* ============================================================
    BEFORE / AFTER IMAGE SLIDERS
    Each .ba-slider contains:
-     .ba-before  — bottom layer (full width)
-     .ba-after   — top layer (clip-path controlled)
-     .ba-handle  — the visual divider with circle
-     .ba-range   — invisible range input driving everything
+     .ba-before  - bottom layer (full width)
+     .ba-after   - top layer (clip-path controlled)
+     .ba-handle  - the visual divider with circle
+     .ba-range   - invisible range input driving everything
 ============================================================ */
 document.querySelectorAll('[data-slider]').forEach(slider => {
     const range   = slider.querySelector('.ba-range');
@@ -110,7 +241,9 @@ document.querySelectorAll('[data-slider]').forEach(slider => {
     range.addEventListener('pointerup',   () => slider.classList.remove('ba-active'));
     range.addEventListener('touchstart',  () => {}, { passive: true });
 
-    /* Intro sweep: 50 → 25 → 75 → 50 when slider scrolls into view */
+    if (prefersReducedMotion) return;
+
+    /* Intro sweep: 50 -> 25 -> 75 -> 50 when slider scrolls into view */
     let swept = false;
     const sweepObserver = new IntersectionObserver((entries) => {
         if (!entries[0].isIntersecting || swept) return;
@@ -155,8 +288,8 @@ const modalBackdrop = document.getElementById('videoModalBackdrop');
 function openVideoModal(videoId) {
     if (!videoModal || !videoFrame) return;
 
-    if (!videoId || videoId === 'YOUR_VIDEO_ID') {
-        /* No video ID set yet — scroll to contact instead */
+    if (!videoId) {
+        /* No video ID set yet - scroll to contact instead */
         document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
         return;
     }
@@ -228,7 +361,7 @@ if (areaBtn && areaPopup) {
 }
 
 /* ============================================================
-   CONTACT FORM — AJAX submit + success popup
+   CONTACT FORM - AJAX submit + success popup
    Submits to Netlify without a page redirect, then shows popup.
 ============================================================ */
 const contactForm    = document.getElementById('contactForm');
@@ -258,44 +391,51 @@ if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = contactForm.querySelector('button[type="submit"]');
-        btn.disabled = true;
-        btn.textContent = 'Sending...';
+        const originalText = btn ? btn.textContent : '';
+        if (btn) {
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+        }
 
         try {
             const formData = new FormData(contactForm);
-            await fetch('/', {
+            const response = await fetch(contactForm.getAttribute('action') || window.location.pathname || '/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams(formData).toString()
             });
+            if (!response.ok) {
+                throw new Error('Form submission failed: ' + response.status);
+            }
             contactForm.reset();
             showSuccess();
         } catch (err) {
-            alert('Something went wrong. Please try again or call us directly.');
+            console.error('Form submission failed. Falling back to native submit.', err);
+            contactForm.dataset.nativeFallback = 'true';
+            contactForm.submit();
+            return;
         } finally {
-            btn.disabled = false;
-            btn.textContent = 'Send Request';
+            if (btn) {
+                btn.disabled = false;
+                btn.textContent = originalText || 'Send Request';
+            }
         }
     });
 }
 
 /* ============================================================
-   PAGE TRANSITIONS — PAGE SPECIFIC
-   iris : portfolio pages + homepage
+   PAGE TRANSITIONS - PAGE SPECIFIC
+   iris : portfolio pages
    warm : about page (gold both ways)
    none : everything else (instant nav, no overlay)
 ============================================================ */
 (function () {
+    if (prefersReducedMotion) return;
+
     function ptType(url) {
         var u = (url || window.location.href).toLowerCase();
         if (u.indexOf('portfolio')  !== -1) return 'iris';
         if (u.indexOf('about.html') !== -1) return 'warm';
-        if (u.indexOf('index.html') !== -1) return 'iris';
-        // Root URL — ends with / or domain only
-        try {
-            var path = new URL(u, window.location.href).pathname;
-            if (path === '/' || path === '') return 'iris';
-        } catch(e) {}
         return 'none';
     }
 
@@ -305,6 +445,9 @@ if (contactForm) {
         var enterOverlay = document.createElement('div');
         enterOverlay.className = 'pt-overlay ' + enterType;
         document.body.appendChild(enterOverlay);
+        enterOverlay.addEventListener('animationend', function() {
+            enterOverlay.remove();
+        }, { once: true });
         requestAnimationFrame(function() {
             requestAnimationFrame(function() {
                 enterOverlay.classList.add('pt-open');
@@ -313,6 +456,21 @@ if (contactForm) {
     }
 
     var navigating = false;
+
+    window.addEventListener('pagehide', function() {
+        document.querySelectorAll('.pt-overlay.pt-close').forEach(function(overlay) {
+            overlay.remove();
+        });
+        navigating = false;
+    });
+
+    window.addEventListener('pageshow', function(e) {
+        if (!e.persisted) return;
+        document.querySelectorAll('.pt-overlay').forEach(function(overlay) {
+            overlay.remove();
+        });
+        navigating = false;
+    });
 
     document.addEventListener('click', function(e) {
         var link = e.target.closest('a[href]');
@@ -341,8 +499,7 @@ if (contactForm) {
 })();
 
 /* ============================================================
-   SCROLL REVEAL — CLASS SETUP
-   Classes applied here; GSAP ScrollTrigger handles animation.
+   SCROLL REVEAL: CLASS SETUP
 ============================================================ */
 (function () {
     document.querySelectorAll('.section-title, .about-section-heading, .section-eyebrow').forEach(el => {
@@ -374,8 +531,7 @@ if (contactForm) {
 })();
 
 /* ============================================================
-   SERVICES FAN — CLASS SETUP
-   Direction classes applied here; GSAP handles triggering.
+   SERVICES FAN: CLASS SETUP
 ============================================================ */
 (function () {
     document.querySelectorAll('.services-full-grid').forEach(grid => {
@@ -395,98 +551,138 @@ if (contactForm) {
 })();
 
 /* ============================================================
-   GSAP — SCROLL-REVERSIBLE REVEALS + HOMEPAGE HERO PIN
+   LOCAL SCROLL REVEALS
+   Avoids loading third-party animation libraries on every page.
 ============================================================ */
 (function () {
-    const GSAP_URL = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
-    const ST_URL   = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+    const revealEls = document.querySelectorAll('.reveal-left,.reveal-right,.reveal-up,.reveal-scale');
+    const fanEls = document.querySelectorAll('.services-full-grid .service-card');
 
-    function loadScript(src, cb) {
-        const s = document.createElement('script');
-        s.src = src;
-        s.onload = cb;
-        s.onerror = function () {
-            // CDN failed — fall back to simple one-way reveal
-            document.querySelectorAll('.reveal-left,.reveal-right,.reveal-up,.reveal-scale,.fan-left,.fan-center,.fan-right').forEach(el => {
-                el.classList.add('revealed');
-                el.classList.add('fan-visible');
-            });
-        };
-        document.head.appendChild(s);
+    function showAll() {
+        revealEls.forEach(el => el.classList.add('revealed'));
+        fanEls.forEach(el => el.classList.add('fan-visible'));
     }
 
-    loadScript(GSAP_URL, function () {
-        loadScript(ST_URL, initGSAP);
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        showAll();
+        return;
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    const fanObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('fan-visible');
+            fanObserver.unobserve(entry.target);
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+
+    fanEls.forEach(el => fanObserver.observe(el));
+})();
+
+/* ============================================================
+   CLOUDFLARE STREAM PREVIEWS
+============================================================ */
+(function () {
+    const previews = document.querySelectorAll('[data-ai-stream]');
+    if (!previews.length) return;
+
+    function hideSoundHint(preview) {
+        if (preview) preview.classList.add('is-sound-hint-hidden');
+    }
+
+    function loadPreview(preview) {
+        if (preview.dataset.loaded === 'true') return;
+        const frame = preview.querySelector('.ai-stream-frame');
+        const src = preview.getAttribute('data-stream-src');
+        if (!frame || !src) return;
+
+        const iframe = document.createElement('iframe');
+        iframe.src = src;
+        iframe.title = 'AI Cinematic Property Walkthrough video';
+        iframe.loading = 'lazy';
+        iframe.allow = 'accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;';
+        iframe.addEventListener('focus', () => hideSoundHint(preview));
+        frame.appendChild(iframe);
+        preview.dataset.loaded = 'true';
+        preview.classList.add('is-loaded');
+        frame.setAttribute('aria-hidden', 'false');
+    }
+
+    function unloadPreview(preview) {
+        const iframe = preview.querySelector('iframe');
+        const frame = preview.querySelector('.ai-stream-frame');
+        if (iframe) iframe.remove();
+        preview.dataset.loaded = 'false';
+        preview.classList.remove('is-loaded');
+        if (frame) frame.setAttribute('aria-hidden', 'true');
+    }
+
+    window.addEventListener('blur', () => {
+        window.setTimeout(() => {
+            const active = document.activeElement;
+            if (!active || active.tagName !== 'IFRAME') return;
+            hideSoundHint(active.closest('[data-ai-stream]'));
+        }, 0);
     });
 
-    function initGSAP() {
-        gsap.registerPlugin(ScrollTrigger);
+    if ('IntersectionObserver' in window) {
+        const loadRatio = 0.45;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting && entry.intersectionRatio >= loadRatio) {
+                    loadPreview(entry.target);
+                } else if (!entry.isIntersecting || entry.intersectionRatio <= 0.05) {
+                    unloadPreview(entry.target);
+                }
+            });
+        }, { threshold: [0, 0.05, loadRatio], rootMargin: '0px 0px -8% 0px' });
 
-        var isMobile = window.innerWidth <= 768;
-
-        // Scroll-reversible reveals (class-based CSS transitions)
-        document.querySelectorAll('.reveal-left,.reveal-right,.reveal-up,.reveal-scale').forEach(el => {
-            if (isMobile) {
-                el.classList.add('revealed');
-            } else {
-                ScrollTrigger.create({
-                    trigger: el,
-                    start: 'top 90%',
-                    onEnter:     () => el.classList.add('revealed'),
-                    onLeaveBack: () => el.classList.remove('revealed'),
-                    onEnterBack: () => el.classList.add('revealed'),
-                });
-            }
-        });
-
-        // Services fan — class toggling so cards are never permanently invisible
-        document.querySelectorAll('.services-full-grid .service-card').forEach(function(card, i) {
-            var delay = i * 0.07;
-            if (isMobile) {
-                card.classList.add('fan-visible');
-            } else {
-                ScrollTrigger.create({
-                    trigger: card,
-                    start: 'top 95%',
-                    onEnter: function() {
-                        card.style.transitionDelay = delay + 's';
-                        card.classList.add('fan-visible');
-                    },
-                    onLeaveBack: function() {
-                        card.style.transitionDelay = '0s';
-                        card.classList.remove('fan-visible');
-                    },
-                    onEnterBack: function() {
-                        card.style.transitionDelay = delay + 's';
-                        card.classList.add('fan-visible');
-                    },
-                });
-            }
-        });
-
-        // Homepage hero scroll effect — desktop only (pin breaks on mobile browsers)
-        var isHome = window.location.href.toLowerCase().indexOf('index.html') !== -1
-                  || window.location.pathname === '/'
-                  || window.location.pathname === '';
-        if (isHome && !isMobile) {
-            var hero = document.querySelector('.hero');
-            var heroContent = hero && hero.querySelector('.hero-content');
-            if (hero && heroContent) {
-                gsap.timeline({
-                    scrollTrigger: {
-                        trigger: hero,
-                        start: 'top top',
-                        end: '+=600',
-                        scrub: 1,
-                        pin: true,
-                        anticipatePin: 1,
-                    }
-                })
-                .to(heroContent, { y: -120, opacity: 0, ease: 'none' }, 0)
-                .to('.hero-scroll-hint', { opacity: 0, ease: 'none' }, 0)
-                .to('.hero-overlay', { opacity: 0, ease: 'none' }, 0);
-            }
-        }
+        previews.forEach(preview => observer.observe(preview));
+    } else {
+        const loadVisiblePreviews = () => {
+            previews.forEach((preview) => {
+                const rect = preview.getBoundingClientRect();
+                const shouldLoad = rect.top < window.innerHeight * 0.75 && rect.bottom > window.innerHeight * 0.25;
+                if (shouldLoad) loadPreview(preview);
+                else unloadPreview(preview);
+            });
+        };
+        window.addEventListener('scroll', loadVisiblePreviews, { passive: true });
+        window.addEventListener('resize', loadVisiblePreviews);
+        loadVisiblePreviews();
     }
 })();
 
+/* ============================================================
+   SERVICE DETAIL BACK BUTTONS
+============================================================ */
+(function () {
+    document.querySelectorAll('[data-service-back]').forEach((button) => {
+        button.addEventListener('click', () => {
+            const fallback = button.getAttribute('data-fallback') || 'packages.html#services-overview';
+
+            try {
+                const current = new URL(window.location.href);
+                const referrer = document.referrer ? new URL(document.referrer) : null;
+                if (referrer && referrer.origin === current.origin && window.history.length > 1) {
+                    window.history.back();
+                    return;
+                }
+            } catch (error) {
+                // Fall through to the default service overview destination.
+            }
+
+            window.location.href = fallback;
+        });
+    });
+})();

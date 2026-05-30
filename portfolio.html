@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Real Estate & Drone Photography | Flying Ace's</title>
-    <meta name="description" content="Browse Flying Ace's Photography & Drone Services portfolio — interior and exterior real estate photos, aerial drone imagery, and listing videos serving Lake City, Gainesville, Jacksonville & North Florida.">
+    <meta name="description" content="View Flying Ace's real estate photography, drone images and listing videos for homes, land and agents across Lake City, Gainesville and North Florida.">
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="real estate photography portfolio Lake City FL, drone photography portfolio North Florida, listing photos examples Gainesville FL, aerial photography portfolio Jacksonville FL">
     <meta name="geo.region" content="US-FL">
@@ -38,7 +38,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
-            margin-top: 48px;
+            margin-top: 8px;
         }
         .portfolio-hub-card {
             position: relative;
@@ -92,42 +92,54 @@
         }
         @media (max-width: 600px) {
             .portfolio-hub-grid {
-                grid-template-columns: 1fr;
-                gap: 18px;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
             }
-            .portfolio-hub-overlay h3 { font-size: 1.1rem; }
+            .portfolio-hub-card { border-radius: 8px; }
+            .portfolio-hub-overlay { padding: 12px 10px; }
+            .portfolio-hub-overlay h3 {
+                font-size: clamp(0.76rem, 3.2vw, 0.98rem);
+                line-height: 1.15;
+            }
+            .portfolio-hub-overlay p { display: none; }
+            .portfolio-hub-arrow {
+                font-size: 0.62rem;
+                letter-spacing: 0.02em;
+            }
+        }
+        @media (hover: none), (pointer: coarse) {
+            .portfolio-hub-card:hover img {
+                transform: none;
+            }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar scrolled" id="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-credentials">
-            <span>🎖️ FAA Certified Commercial Drone Pilot</span>
+            <span>&#127895;&#65039; FAA Certified Commercial Drone Pilot</span>
             <span class="nav-cred-divider">·</span>
-            <span>⭐ Military Veteran</span>
+            <span>&#11088; Military Veteran</span>
         </div>
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img">
+                <img src="images/logo.png" alt="Flying Ace's Logo" class="logo-img" decoding="async" width="350" height="350">
                 <div>
                     <span class="logo-text">Flying <span class="gold">Ace's</span></span>
                     <span class="logo-sub">Photography &amp; Drone Services</span>
                 </div>
             </a>
             <div class="nav-right">
-                <a href="tel:3862924315" class="nav-mobile-phone">📞 (386) 292-4315</a>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <a href="tel:3862924315" class="nav-mobile-phone">&#9742; (386) 292-4315</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navMenu" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="portfolio.html" class="active">Portfolio</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="packages.html">Packages/Pricing</a></li>
-                
-                
+                <li><a href="portfolio.html" class="active" aria-current="page">Portfolio</a></li>
+                <li><a href="packages.html">Services &amp; Pricing</a></li>
                 <li><a href="for-agents.html">Realtor Toolkit</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="book.html" class="nav-cta">Book Now</a></li>
@@ -135,7 +147,7 @@
         </div>
     </nav>
 
-    <section class="portfolio-page-hero">
+    <section class="portfolio-page-hero page-hero-compact portfolio-hub-hero">
         <div class="container">
             <p class="eyebrow">Our Work</p>
             <h1>Portfolio</h1>
@@ -149,7 +161,7 @@
             <div class="portfolio-hub-grid">
 
                 <a href="portfolio-interior.html" class="portfolio-hub-card">
-                    <img src="images/portfolio-interior.jpg" alt="Interior real estate photography portfolio" loading="lazy">
+                    <img src="images/portfolio-interior.jpg" alt="Interior real estate photography portfolio" loading="lazy" decoding="async" width="1600" height="1067">
                     <div class="portfolio-hub-overlay">
                         <h3>Interior Photography</h3>
                         <p>Living rooms, kitchens, master suites &amp; more</p>
@@ -158,7 +170,7 @@
                 </a>
 
                 <a href="portfolio-exterior.html" class="portfolio-hub-card">
-                    <img src="images/portfolio-exterior.jpg" alt="Exterior real estate photography portfolio" loading="lazy">
+                    <img src="images/portfolio-exterior.jpg" alt="Exterior real estate photography portfolio" loading="lazy" decoding="async" width="1600" height="1067">
                     <div class="portfolio-hub-overlay">
                         <h3>Exterior Photography</h3>
                         <p>Curb appeal, grounds, and property surroundings</p>
@@ -167,7 +179,7 @@
                 </a>
 
                 <a href="portfolio-drone.html" class="portfolio-hub-card">
-                    <img src="images/portfolio-drone.jpg" alt="Drone and aerial photography portfolio" loading="lazy">
+                    <img src="images/portfolio-drone.jpg" alt="Drone and aerial photography portfolio" loading="lazy" decoding="async" width="1600" height="1200">
                     <div class="portfolio-hub-overlay">
                         <h3>Drone &amp; Aerial</h3>
                         <p>FAA-certified aerial photography</p>
@@ -176,7 +188,7 @@
                 </a>
 
                 <a href="portfolio-video.html" class="portfolio-hub-card">
-                    <img src="images/portfolio-video.jpg" alt="Listing video and marketing video portfolio" loading="lazy">
+                    <img src="https://customer-gqs9gtvr5467iloa.cloudflarestream.com/3ececd4657fbef5552c1779b83129ea7/thumbnails/thumbnail.jpg?time=&amp;height=600" alt="AI enhanced property walkthrough video portfolio" loading="lazy" decoding="async" width="338" height="600">
                     <div class="portfolio-hub-overlay">
                         <h3>Videos</h3>
                         <p>Professionally edited listing &amp; marketing videos</p>
@@ -185,8 +197,8 @@
                 </a>
 
             </div>
-            <div style="text-align:center; margin-top:36px;">
-                <a href="packages.html" class="btn btn-outline-gold">View Packages &amp; Pricing &rarr;</a>
+            <div style="text-align:center; margin-top:18px;">
+                <a href="packages.html" class="btn btn-outline-gold">View Pricing &rarr;</a>
             </div>
         </div>
     </section>

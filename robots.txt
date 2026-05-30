@@ -1,4 +1,6 @@
 User-agent: *
+Disallow: /portal/
+Disallow: /deliveries/
 Allow: /
 
 Sitemap: https://flyingacesmedia.com/sitemap.xml

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>123 Showcase Lane | Property Showcase</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="123 Showcase Lane property media showcase with photos, drone views, listing links, and agent contact.">
+    <link rel="canonical" href="https://flyingacesmedia.com/listings/123-showcase-lane.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="123 Showcase Lane | Property Showcase">
+    <meta property="og:description" content="Sample property media showcase with photos, drone views, listing links, and agent contact.">
+    <meta property="og:url" content="https://flyingacesmedia.com/listings/123-showcase-lane.html">
+    <meta property="og:image" content="https://flyingacesmedia.com/images/portfolio-exterior/exterior-01.webp">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        :root { --listing-ink:#111827; --listing-muted:#667085; --listing-line:#e7ebf2; --listing-paper:#f6f7fa; }
+        html, body { max-width:100%; overflow-x:hidden; }
+        body { background:var(--white); color:var(--listing-ink); }
+        .listing-topbar { position:fixed; top:0; left:0; right:0; z-index:20; background:rgba(5,7,12,.86); border-bottom:1px solid rgba(255,255,255,.08); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
+        .listing-topbar-inner { max-width:1240px; margin:0 auto; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; gap:18px; }
+        .listing-brand { display:flex; align-items:center; gap:12px; color:var(--white); min-width:0; }
+        .listing-brand img { width:42px; height:42px; object-fit:contain; flex:0 0 auto; }
+        .listing-brand strong { display:block; font-family:'Montserrat',sans-serif; font-size:.92rem; line-height:1.15; white-space:nowrap; }
+        .listing-brand-sub { display:block; color:rgba(255,255,255,.54); font-family:'Montserrat',sans-serif; font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-top:2px; }
+        .listing-top-actions { display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+        .listing-top-actions .btn { padding:10px 18px; font-size:.72rem; }
+        .property-hero { min-height:calc(88vh - 67px); margin-top:67px; position:relative; display:flex; align-items:flex-end; background:linear-gradient(180deg,rgba(5,7,12,.12) 0%,rgba(5,7,12,.26) 42%,rgba(5,7,12,.88) 100%),url("../images/portfolio-exterior/exterior-01.webp") center top/cover no-repeat; color:var(--white); padding:92px 24px 34px; overflow:hidden; }
+        .property-hero-inner { max-width:1240px; width:100%; margin:0 auto; display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:28px; align-items:end; }
+        .sample-ribbon { position:absolute; top:92px; right:-24px; z-index:25; width:190px; transform:rotate(35deg); background:var(--gold); color:#fff; font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:900; letter-spacing:.14em; text-align:center; text-transform:uppercase; padding:8px 0; }
+        .property-kicker { display:inline-flex; align-items:center; gap:10px; color:var(--gold); font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; margin-bottom:14px; }
+        .property-kicker::before { content:""; width:34px; height:1px; background:var(--gold); }
+        .property-hero h1 { font-family:'Montserrat',sans-serif; font-size:clamp(2.1rem,5vw,4.4rem); font-weight:900; line-height:.98; max-width:760px; margin-bottom:16px; color:var(--white); }
+        .property-location { color:rgba(255,255,255,.76); font-size:clamp(1rem,2vw,1.3rem); margin-bottom:24px; }
+        .property-quick-stats { display:flex; flex-wrap:wrap; gap:10px; }
+        .property-stat-pill { border:1px solid rgba(255,255,255,.22); background:rgba(255,255,255,.1); border-radius:8px; padding:10px 14px; color:rgba(255,255,255,.86); font-family:'Montserrat',sans-serif; font-size:.78rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+        .agent-panel { background:rgba(5,7,12,.76); border:1px solid rgba(255,255,255,.14); border-radius:8px; padding:16px; backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
+        .agent-card-top { display:flex; align-items:center; gap:13px; margin-bottom:14px; }
+        .agent-photo { width:72px; height:72px; border-radius:8px; object-fit:cover; object-position:center 18%; border:1px solid rgba(196,145,28,.55); flex:0 0 auto; }
+        .agent-eyebrow { color:var(--gold); font-family:'Montserrat',sans-serif; font-size:.62rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; margin-bottom:4px; }
+        .agent-panel h2 { font-family:'Montserrat',sans-serif; font-size:1.18rem; font-weight:900; color:var(--white); margin-bottom:2px; }
+        .agent-panel p { color:rgba(255,255,255,.62); font-size:.78rem; line-height:1.45; margin:0; }
+        .agent-contact-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:0; }
+        .agent-contact-row .btn { text-align:center; padding-left:14px; padding-right:14px; }
+        .media-strip { background:var(--white); border-bottom:1px solid var(--listing-line); }
+        .media-strip-inner { max-width:960px; margin:0 auto; padding:28px 24px; }
+        .media-gallery-cover { position:relative; width:100%; border:0; border-radius:8px; overflow:hidden; cursor:pointer; background:#0f172a; aspect-ratio:16/7; display:block; }
+        .media-gallery-cover img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transform:scale(1.03); transition:opacity .6s ease, transform 2.8s ease; }
+        .media-gallery-cover img.is-active { opacity:1; transform:scale(1); }
+        .media-gallery-cover:hover img.is-active { transform:scale(1.04); }
+        .gallery-cover-label { position:absolute; left:18px; bottom:16px; display:flex; flex-direction:column; gap:2px; color:var(--white); background:rgba(5,7,12,.72); border:1px solid rgba(255,255,255,.22); border-radius:8px; padding:10px 12px; text-shadow:0 2px 14px rgba(0,0,0,.85); }
+        .gallery-cover-label strong { font-family:'Montserrat',sans-serif; font-size:.95rem; font-weight:900; letter-spacing:.1em; text-transform:uppercase; }
+        .gallery-cover-label small { font-family:'Montserrat',sans-serif; color:#ffe19a; font-size:.74rem; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+        .property-section { padding:72px 24px; }
+        .property-section.light { background:var(--listing-paper); }
+        .property-inner { max-width:1120px; margin:0 auto; }
+        .property-split { display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:54px; align-items:start; }
+        .property-label { color:var(--gold); font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:900; letter-spacing:.16em; text-transform:uppercase; margin-bottom:12px; }
+        .property-section h2 { color:var(--listing-ink); font-family:'Montserrat',sans-serif; font-size:clamp(1.75rem,4vw,3rem); font-weight:900; line-height:1.08; margin-bottom:18px; }
+        .property-copy { color:#465064; font-size:1.02rem; line-height:1.85; max-width:720px; }
+        .detail-list { border:1px solid var(--listing-line); border-radius:8px; background:var(--white); }
+        .detail-item { display:flex; justify-content:space-between; gap:18px; padding:16px 18px; border-bottom:1px solid var(--listing-line); }
+        .detail-item:last-child { border-bottom:0; }
+        .detail-item span { color:var(--listing-muted); font-size:.85rem; }
+        .detail-item strong { font-family:'Montserrat',sans-serif; color:var(--listing-ink); font-size:.9rem; text-align:right; }
+        .tour-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+        .tour-card { border:1px solid var(--listing-line); border-radius:8px; overflow:hidden; background:var(--white); }
+        .tour-card.wide { grid-column:span 2; }
+        .tour-card img { width:100%; aspect-ratio:16/10; object-fit:cover; }
+        .tour-embed-card { grid-column:span 2; }
+        .zillow-tour-embed { position:relative; width:100%; aspect-ratio:16/10; background:#05070c; overflow:hidden; }
+        .zillow-tour-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; background:#05070c; }
+        .tour-card-body { padding:18px; }
+        .tour-card h3 { font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:900; margin-bottom:6px; color:var(--listing-ink); }
+        .tour-card p { color:var(--listing-muted); font-size:.88rem; line-height:1.65; }
+        .tour-card-body .btn { margin-top:12px; }
+        .marketing-row { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+        .marketing-card { border:1px solid var(--listing-line); border-radius:8px; background:var(--white); padding:24px; }
+        .marketing-card strong { display:block; color:var(--listing-ink); font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:900; margin-bottom:8px; }
+        .marketing-card p { color:var(--listing-muted); font-size:.9rem; line-height:1.65; margin-bottom:16px; }
+        .compact-next-step { padding:32px 24px; }
+        .compact-next-step h2 { font-size:clamp(1.25rem,2.4vw,1.8rem); margin-bottom:14px; }
+        .compact-next-step .marketing-row { grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+        .compact-next-step .marketing-card { padding:12px; }
+        .compact-next-step .marketing-card strong { font-size:.78rem; line-height:1.3; margin-bottom:9px; }
+        .compact-next-step .marketing-card p { display:none; }
+        .compact-next-step .marketing-card .btn { width:100%; min-height:34px; padding:8px 8px; font-size:.56rem; letter-spacing:.045em; text-align:center; }
+        .property-cta-band { background:linear-gradient(90deg,rgba(5,7,12,.92),rgba(5,7,12,.72)),url("../images/portfolio-drone/aerial-01.webp") center/cover no-repeat; color:var(--white); }
+        .property-cta-inner { max-width:1120px; margin:0 auto; padding:72px 24px; display:flex; align-items:center; justify-content:space-between; gap:32px; }
+        .property-cta-inner h2 { color:var(--white); font-family:'Montserrat',sans-serif; font-size:clamp(1.8rem,4vw,3.2rem); font-weight:900; line-height:1.08; margin-bottom:10px; }
+        .property-cta-inner p { color:rgba(255,255,255,.72); max-width:620px; line-height:1.7; }
+        .property-footer { background:#05070c; color:rgba(255,255,255,.56); padding:26px 24px; text-align:center; font-size:.82rem; }
+        .property-footer a { color:var(--gold); font-weight:700; }
+        .mobile-action-bar { display:none; }
+        .lightbox { position:fixed; inset:0; z-index:100; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.88); padding:24px; }
+        .lightbox.is-open { display:flex; }
+        .lightbox img { max-width:min(100%,1120px); max-height:82vh; border-radius:8px; object-fit:contain; }
+        .lightbox button { position:absolute; width:42px; height:42px; border:1px solid rgba(255,255,255,.28); border-radius:50%; background:rgba(255,255,255,.08); color:var(--white); font-size:24px; cursor:pointer; }
+        .lightbox-close { top:18px; right:18px; }
+        .lightbox-prev { left:18px; top:50%; transform:translateY(-50%); }
+        .lightbox-next { right:18px; top:50%; transform:translateY(-50%); }
+        @media (max-width:900px) { .property-hero { min-height:calc(82vh - 67px); } .property-hero-inner,.property-split { grid-template-columns:1fr; } .agent-panel { max-width:430px; } .tour-grid,.marketing-row { grid-template-columns:1fr; } .compact-next-step .marketing-row { grid-template-columns:repeat(2,minmax(0,1fr)); } .tour-card.wide,.tour-embed-card { grid-column:auto; } .property-cta-inner { align-items:flex-start; flex-direction:column; } }
+        @media (max-width:640px) { .sample-ribbon { display:none; } .listing-topbar-inner { padding:10px 16px; } .listing-brand img { width:36px; height:36px; } .listing-brand strong { font-size:.82rem; } .listing-brand-sub { font-size:.5rem; letter-spacing:.1em; } .listing-top-actions { display:none; } .property-hero { display:block; min-height:0; padding:calc(62vw + 72px) 18px 26px; background:linear-gradient(180deg,rgba(5,7,12,0) 0,rgba(5,7,12,0) 62vw,rgba(5,7,12,.96) calc(62vw + 1px),rgba(5,7,12,1) 100%),url("../images/portfolio-exterior/exterior-01.webp") center top/100% auto no-repeat,#05070c; } .property-hero-inner { width:100%; max-width:none; min-width:0; gap:16px; } .property-kicker { margin-bottom:9px; } .property-hero h1 { font-size:clamp(2rem,11vw,3rem); line-height:1.02; margin-bottom:10px; } .property-location { margin-bottom:16px; color:rgba(255,255,255,.72); } .property-quick-stats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-top:4px; } .property-stat-pill { text-align:center; font-size:.68rem; padding:9px 8px; background:rgba(255,255,255,.96); border-color:rgba(17,24,39,.08); color:var(--listing-ink); box-shadow:0 8px 22px rgba(0,0,0,.22); } .agent-panel { width:100%; max-width:none; min-width:0; justify-self:start; padding:13px; } .agent-card-top { gap:10px; margin-bottom:10px; } .agent-photo { width:54px; height:54px; } .agent-eyebrow { font-size:.54rem; margin-bottom:2px; } .agent-panel h2 { font-size:1rem; } .agent-panel p { font-size:.72rem; line-height:1.35; overflow-wrap:break-word; } .agent-contact-row { grid-template-columns:1fr 1fr; gap:8px; } .agent-contact-row .btn { padding:10px 8px; font-size:.66rem; } .media-strip-inner { padding:16px 18px; } .media-gallery-cover { aspect-ratio:4/3; } .gallery-cover-label { left:13px; bottom:12px; } .gallery-cover-label strong { font-size:.78rem; } .gallery-cover-label small { font-size:.58rem; } .property-section { padding:48px 18px; } .detail-list { display:none; } .zillow-tour-embed { aspect-ratio:4/5; } .property-cta-inner { padding:52px 18px 84px; } .mobile-action-bar { position:fixed; left:0; right:0; bottom:0; z-index:30; display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:10px; background:rgba(5,7,12,.92); border-top:1px solid rgba(255,255,255,.12); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); } .mobile-action-bar .btn { padding:12px 8px; text-align:center; font-size:.68rem; } .lightbox { padding:18px; } .lightbox-prev { left:10px; } .lightbox-next { right:10px; } }
+    </style>
+    <style>
+        @media (max-width:640px) {
+            .property-hero {
+                margin-top: 57px;
+                min-height: 0;
+                padding: calc(54vw + 24px) 18px 18px;
+                background: linear-gradient(180deg,rgba(5,7,12,0) 0,rgba(5,7,12,0) 54vw,rgba(5,7,12,.94) calc(54vw + 1px),rgba(5,7,12,1) 100%),url("../images/portfolio-exterior/exterior-01.webp") center top/100% auto no-repeat,#05070c;
+            }
+            .property-hero h1 {
+                font-size: clamp(1.55rem,8.6vw,2.1rem);
+                margin-bottom: 8px;
+            }
+            .property-location {
+                margin-bottom: 12px;
+            }
+            .property-quick-stats {
+                grid-template-columns: repeat(3,minmax(0,1fr));
+                gap: 6px;
+            }
+            .property-stat-pill {
+                font-size: .58rem;
+                letter-spacing: .02em;
+                padding: 7px 4px;
+            }
+            .agent-panel {
+                padding: 10px;
+            }
+            .agent-card-top {
+                gap: 9px;
+                margin-bottom: 8px;
+            }
+            .agent-photo {
+                width: 46px;
+                height: 46px;
+            }
+            .agent-panel p {
+                font-size: .68rem;
+            }
+            .agent-contact-row .btn {
+                padding: 9px 8px;
+            }
+            .gallery-cover-label {
+                top: 12px;
+                bottom: auto;
+                left: 12px;
+                right: 12px;
+                align-items: flex-start;
+            }
+            .gallery-cover-label strong {
+                font-size: .82rem;
+            }
+            .gallery-cover-label small {
+                font-size: .7rem;
+            }
+            .compact-next-step {
+                padding: 28px 18px;
+            }
+            .compact-next-step .marketing-row {
+                grid-template-columns: repeat(2,minmax(0,1fr));
+                gap: 8px;
+            }
+            .compact-next-step .marketing-card {
+                padding: 10px;
+            }
+            .compact-next-step .marketing-card:last-child {
+                grid-column: 1 / -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sample-ribbon">Sample</div>
+    <header class="listing-topbar">
+        <div class="listing-topbar-inner">
+            <a class="listing-brand" href="../index.html" aria-label="Flying Ace's homepage">
+                <img src="../images/logo.png" alt="Flying Ace's logo">
+                <span>
+                    <strong>Flying <span class="gold">Ace's</span></strong>
+                    <span class="listing-brand-sub">Property Showcase</span>
+                </span>
+            </a>
+            <div class="listing-top-actions">
+                <a class="btn btn-outline" href="#gallery">View Gallery</a>
+                <a class="btn btn-gold" href="tel:3865550147">Call Agent</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="property-hero">
+            <div class="property-hero-inner">
+                <div>
+                    <p class="property-kicker">Just Listed</p>
+                    <h1>123 Showcase Lane</h1>
+                    <p class="property-location">Gainesville, Florida 32605</p>
+                    <div class="property-quick-stats" aria-label="Property summary">
+                        <span class="property-stat-pill">$649K Price</span>
+                        <span class="property-stat-pill">4 Beds</span>
+                        <span class="property-stat-pill">3 Baths</span>
+                        <span class="property-stat-pill">2,840 Sq Ft</span>
+                        <span class="property-stat-pill">0.42 acres Lot</span>
+                    </div>
+                </div>
+
+                <aside class="agent-panel" aria-label="Listing agent contact">
+                    <div class="agent-card-top">
+                        <img class="agent-photo" src="../portal/rs-4n34n5j/assets/rosy-sparks-headshot.jpg" alt="Rosy realtor portrait" width="1638" height="2048">
+                        <div>
+                            <p class="agent-eyebrow">Presented By</p>
+                            <h2>Rosy</h2>
+                            <p>RE/MAX. Schedule a showing or request the property packet.</p>
+                        </div>
+                    </div>
+                    <div class="agent-contact-row">
+                        <a class="btn btn-gold" href="tel:3865550147">Call</a>
+                        <a class="btn btn-outline-gold" href="sms:3865550147">Text</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="media-strip" id="gallery" aria-label="Photo gallery preview">
+            <div class="media-strip-inner">
+                <button class="media-gallery-cover" type="button" data-gallery-cover aria-label="Open all listing photos">
+                    <img class="is-active" src="../images/portfolio-drone/aerial-06.webp" alt="123 Showcase Lane aerial property view">
+                    <img src="../images/portfolio-interior/interior-05.webp" alt="123 Showcase Lane kitchen and main living space">
+                    <img src="../images/portfolio-exterior/exterior-01.webp" alt="123 Showcase Lane exterior front view">
+                    <img src="../images/portfolio-interior/interior-14.webp" alt="123 Showcase Lane bedroom suite">
+                    <span class="gallery-cover-label">
+                        <strong>Full Photo Gallery</strong>
+                        <small>Click here for all photos</small>
+                    </span>
+                </button>
+            </div>
+        </section>
+
+        <section class="property-section">
+            <div class="property-inner">
+                <p class="property-label">Property Overview</p>
+                <h2>A bright Gainesville home with space to settle in.</h2>
+                <p class="property-copy">Welcome to 123 Showcase Lane, a well-kept Gainesville home with open living spaces, a spacious kitchen, comfortable bedroom layout, and outdoor areas designed for easy entertaining. Review the photos, aerial views, 3D walkthrough, floor plan, and listing links, then contact the agent to schedule a private showing.</p>
+            </div>
+        </section>
+
+        <section class="property-section light" id="tour">
+            <div class="property-inner">
+                <p class="property-label">Listing Highlights</p>
+                <h2>Explore the home before you schedule.</h2>
+                <div class="tour-grid">
+                    <article class="tour-card tour-embed-card">
+                        <div class="zillow-tour-embed">
+                            <iframe src="https://www.zillow.com/view-imx/2002e32c-fe62-477a-83e0-1f2c3ceacbf9/?setAttribution=mls&amp;wl=true&amp;initialViewType=pano&amp;utm_source=dashboard" title="Interactive Zillow 3D walkthrough for 123 Showcase Lane" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; gyroscope; accelerometer" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="tour-card-body">
+                            <h3>Interactive Zillow 3D Walkthrough</h3>
+                            <p>Move through the home room by room to understand the layout, traffic flow, and sightlines before scheduling a showing.</p>
+                        </div>
+                    </article>
+                    <article class="tour-card">
+                        <img src="../images/portfolio-exterior/exterior-01.webp" alt="123 Showcase Lane exterior front view">
+                        <div class="tour-card-body">
+                            <h3>Move-in ready curb appeal</h3>
+                            <p>Built in 2019 with clean exterior lines, a welcoming entry, and a driveway layout that keeps daily arrivals simple.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="property-section compact-next-step">
+            <div class="property-inner">
+                <p class="property-label">Quick Links</p>
+                <h2>Ready for the next step?</h2>
+                <div class="marketing-row">
+                    <div class="marketing-card">
+                        <strong>View On Zillow / MLS</strong>
+                        <p>Review public listing details, status, and additional property information.</p>
+                        <a class="btn btn-outline-gold" href="https://www.zillow.com/view-imx/2002e32c-fe62-477a-83e0-1f2c3ceacbf9/?utm_source=captureapp">Open Listing</a>
+                    </div>
+                    <div class="marketing-card">
+                        <strong>Request Showing</strong>
+                        <p>Text the listing agent for available showing times and next steps.</p>
+                        <a class="btn btn-gold" href="sms:3865550147">Text Agent</a>
+                    </div>
+                    <div class="marketing-card">
+                        <strong>Floor Plan</strong>
+                        <p>Review room layout, circulation, and how the spaces connect.</p>
+                        <a class="btn btn-outline-gold" href="../images/service.interactivefloor.jpg">View Plan</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="property-cta-band">
+            <div class="property-cta-inner">
+                <div>
+                    <h2>Want to see it in person?</h2>
+                    <p>Contact Rosy at RE/MAX for availability, disclosures, showing times, and offer instructions.</p>
+                </div>
+                <a class="btn btn-gold" href="tel:3865550147">Call Agent</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="property-footer">
+        <p>Listing media by <a href="../index.html">Flying Ace's Photography &amp; Drone Services</a> &middot; <a href="mailto:pilot@acesdroneservice.com">pilot@acesdroneservice.com</a></p>
+    </footer>
+
+    <div class="mobile-action-bar" aria-label="Quick contact actions">
+        <a class="btn btn-outline" href="#gallery">Gallery</a>
+        <a class="btn btn-gold" href="tel:3865550147">Call Agent</a>
+    </div>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox-close" type="button" aria-label="Close gallery">&times;</button>
+        <button class="lightbox-prev" type="button" aria-label="Previous photo">&#10094;</button>
+        <img src="../images/portfolio-drone/aerial-06.webp" alt="">
+        <button class="lightbox-next" type="button" aria-label="Next photo">&#10095;</button>
+    </div>
+
+    <script>
+        var galleryItems = [
+            { src: "../images/portfolio-drone/aerial-06.webp", alt: "123 Showcase Lane aerial property view" },
+            { src: "../images/portfolio-interior/interior-05.webp", alt: "123 Showcase Lane kitchen and main living space" },
+            { src: "../images/portfolio-exterior/exterior-01.webp", alt: "123 Showcase Lane exterior front view" },
+            { src: "../images/portfolio-interior/interior-14.webp", alt: "123 Showcase Lane bedroom suite" }
+        ];
+        var galleryCover = document.querySelector("[data-gallery-cover]");
+        var coverImages = galleryCover ? Array.from(galleryCover.querySelectorAll("img")) : [];
+        var activeGalleryIndex = 0;
+        var lightbox = document.getElementById("lightbox");
+        var lightboxImage = lightbox.querySelector("img");
+        var closeButton = lightbox.querySelector(".lightbox-close");
+        var prevButton = lightbox.querySelector(".lightbox-prev");
+        var nextButton = lightbox.querySelector(".lightbox-next");
+
+        function showCoverImage(index) {
+            coverImages.forEach(function(image, imageIndex) {
+                image.classList.toggle("is-active", imageIndex === index);
+            });
+        }
+        function openLightbox(index) {
+            activeGalleryIndex = index;
+            lightboxImage.src = galleryItems[activeGalleryIndex].src;
+            lightboxImage.alt = galleryItems[activeGalleryIndex].alt;
+            lightbox.classList.add("is-open");
+            lightbox.setAttribute("aria-hidden", "false");
+        }
+        function moveLightbox(step) {
+            activeGalleryIndex = (activeGalleryIndex + step + galleryItems.length) % galleryItems.length;
+            openLightbox(activeGalleryIndex);
+        }
+        function closeLightbox() {
+            lightbox.classList.remove("is-open");
+            lightbox.setAttribute("aria-hidden", "true");
+        }
+        if (galleryCover) {
+            galleryCover.addEventListener("click", function() {
+                openLightbox(activeGalleryIndex);
+            });
+            window.setInterval(function() {
+                activeGalleryIndex = (activeGalleryIndex + 1) % galleryItems.length;
+                showCoverImage(activeGalleryIndex);
+            }, 3200);
+        }
+        closeButton.addEventListener("click", closeLightbox);
+        prevButton.addEventListener("click", function(event) {
+            event.stopPropagation();
+            moveLightbox(-1);
+        });
+        nextButton.addEventListener("click", function(event) {
+            event.stopPropagation();
+            moveLightbox(1);
+        });
+        lightbox.addEventListener("click", function(event) {
+            if (event.target === lightbox) closeLightbox();
+        });
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") closeLightbox();
+            if (lightbox.classList.contains("is-open") && event.key === "ArrowLeft") moveLightbox(-1);
+            if (lightbox.classList.contains("is-open") && event.key === "ArrowRight") moveLightbox(1);
+        });
+    </script>
+</body>
+</html>
