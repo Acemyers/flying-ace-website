@@ -3320,7 +3320,7 @@ a.service-card:focus-visible {
 ============================================================ */
 .portfolio-page-hero {
     background: var(--dark);
-    padding: 112px 0 24px;
+    padding: 152px 0 24px;
     text-align: center;
     border-bottom: 1px solid rgba(196,145,28,0.15);
     position: relative;
@@ -3390,7 +3390,7 @@ a.service-card:focus-visible {
     padding: 28px 0 18px;
 }
 .portfolio-page-hero.page-hero-compact {
-    padding: 104px 0 24px;
+    padding: 152px 0 24px;
 }
 .portfolio-page-hero.page-hero-compact p {
     margin-bottom: 14px;
@@ -3719,10 +3719,10 @@ a.service-card:focus-visible {
         font-size: 0.62rem;
     }
     .portfolio-page-hero.page-hero-compact {
-        padding: 86px 0 18px;
+        padding: 136px 0 18px;
     }
     .portfolio-page-hero {
-        padding: 92px 0 18px;
+        padding: 136px 0 18px;
     }
     .portfolio-page-hero h1 {
         margin-bottom: 8px;

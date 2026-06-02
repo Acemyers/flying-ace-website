@@ -86,9 +86,10 @@
         .service-picker-heading::-webkit-details-marker { display: none; }
         .service-picker-heading::after {
             content: '+';
-            font-size: 1rem;
+            font-size: 2.1rem;
             line-height: 1;
-            color: rgba(255,255,255,0.55);
+            font-weight: 700;
+            color: var(--gold);
         }
         .service-picker-section[open] .service-picker-heading {
             border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -194,6 +195,9 @@
         .service-package-details summary::after {
             content: '+';
             float: right;
+            font-size: 1.5rem;
+            line-height: 0.9;
+            font-weight: 700;
             color: var(--gold);
         }
         .service-package-details[open] summary {
@@ -749,6 +753,7 @@
                     </div>
                     <p class="sqft-fee-note"><strong>* Square footage:</strong> Services marked with * add $25 per 1,000 sq ft over 3,000 sq ft, per selected starred service. Ultimate Showcase and AI Cinematic Showcase each count as 3 services because they include photos, Zillow 3D/floor plan, and measured floor plan. The estimate updates when square footage is entered.</p>
                     <button type="submit" class="btn btn-gold btn-full">Book Now</button>
+                    <p class="form-note" style="font-style:italic;"><span style="color:var(--gold); font-weight:700;">&#10003;</span> Not happy with your photos? You don't pay. Simple.</p>
                     <p class="form-note">Call, text, or submit the form to schedule your shoot. Most inquiries receive a same day response.</p>
                 </form>
 
@@ -758,8 +763,8 @@
             <div class="book-referral-blurb" id="referral">
                 <span class="referral-icon-sm">&#128279;</span>
                 <div>
-                    <h4>Refer a Friend — Get $25 Off Your Next Service</h4>
-                    <p>Know an agent or homeowner who could use great listing photos? Send them our way and we'll take $25 off your next booking. No limit on referrals.</p>
+                    <h4>Refer a Friend — You Both Get $50 Off</h4>
+                    <p>Know an agent or homeowner who could use great listing photos? Send them our way. They get $50 off their first shoot, and you get $50 off your next booking. No limit on referrals.</p>
                 </div>
             </div>
 
