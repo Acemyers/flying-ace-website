@@ -351,6 +351,9 @@
             gap:18px;
             align-items:start;
         }
+        .portal-grid.is-single {
+            grid-template-columns:1fr;
+        }
         .job-card {
             overflow:hidden;
             border-color:rgba(196,145,28,.22);
@@ -726,10 +729,10 @@
 
             <aside class="summary-panel" aria-label="Agent summary">
                 <div class="summary-heading">Agent Summary</div>
-                <p class="summary-intro">Your private Flying Ace's portal keeps current deliveries, order details, and past shoot links in one place.</p>
+                <p class="summary-intro">Your private Flying Ace's portal keeps current deliveries and past shoot links in one place.</p>
                 <div class="summary-stat">
-                    <strong>1</strong>
-                    <span>Shoot Completed</span>
+                    <strong>3</strong>
+                    <span>Shoots Completed</span>
                 </div>
                 <div class="referral-card">
                     <strong>$0</strong>
@@ -741,34 +744,22 @@
         </section>
 
         <div class="section-label">Current Job</div>
-        <section class="portal-grid">
+        <section class="portal-grid is-single">
             <article class="job-card">
                 <div class="job-head">
                     <div>
-                        <h2>188 SE Lindale Gln</h2>
-                        <p>Your latest listing media is ready. The Dropbox folder and order details are saved here whenever you need them again.</p>
+                        <h2>Sparr Lane</h2>
+                        <p>Your latest listing media is ready. The Dropbox folder is saved here whenever you need it again.</p>
                     </div>
-                    <div class="job-date">May 30, 2026</div>
+                    <div class="job-date">June 29, 2026</div>
                 </div>
                 <div class="job-actions" aria-label="Job actions">
                     <div class="job-action">
                         <strong>Finished Media Folder</strong>
-                        <a class="btn btn-gold" href="https://www.dropbox.com/scl/fo/x835xqy39rm9bxdgjg5g6/ADtCGe4HB5Z2-FpD9QI65tQ?rlkey=zgjhl2x6k6scbkfwi3y0kdfy1&amp;st=q80g79hf&amp;dl=0" target="_blank" rel="noopener noreferrer">Open Dropbox Delivery</a>
+                        <a class="btn btn-gold" href="https://www.dropbox.com/scl/fo/hyfkvt7a6h1t5vjcwu1nr/ADzMZz6KXRw2QvhFoMwN934?rlkey=yzy10i85zngyrwf06k2qkp6eg&amp;st=8iqc0kbt&amp;dl=0" target="_blank" rel="noopener noreferrer">Open Dropbox Delivery</a>
                     </div>
                 </div>
             </article>
-
-            <div class="side-stack">
-                <aside class="invoice-panel">
-                    <h2>Order Total</h2>
-                    <p>This photography package delivery is marked at $175 for quick recordkeeping.</p>
-                    <div class="summary-stat">
-                        <strong>$175</strong>
-                        <span>Total</span>
-                    </div>
-                </aside>
-
-            </div>
         </section>
 
         <div class="section-label">Agent Tools</div>
@@ -798,6 +789,26 @@
 
         <div class="section-label">Shoot History &amp; Delivery Links</div>
         <section class="history-panel" aria-label="Shoot history and delivery links">
+            <div class="shoot-row">
+                <div class="shoot-date">June 29, 2026</div>
+                <div class="shoot-property">
+                    <strong>Sparr Lane</strong>
+                    <span>Photography Package + Twilight &middot; Delivered</span>
+                </div>
+                <div class="shoot-links">
+                    <a href="https://www.dropbox.com/scl/fo/hyfkvt7a6h1t5vjcwu1nr/ADzMZz6KXRw2QvhFoMwN934?rlkey=yzy10i85zngyrwf06k2qkp6eg&amp;st=8iqc0kbt&amp;dl=0" target="_blank" rel="noopener noreferrer">Open Dropbox</a>
+                </div>
+            </div>
+            <div class="shoot-row">
+                <div class="shoot-date">June 8, 2026</div>
+                <div class="shoot-property">
+                    <strong>3338 256th St O'Brien, FL</strong>
+                    <span>Photography Package &middot; Delivered</span>
+                </div>
+                <div class="shoot-links">
+                    <a href="https://www.dropbox.com/scl/fo/rq7hyh25o1uyndiiecuf0/AC-Ww33vU87toWW_ZSDWciA?rlkey=a6uaj7adrhh2bj5b55mhp9dlo&amp;st=01ikz25g&amp;dl=0" target="_blank" rel="noopener noreferrer">Open Dropbox</a>
+                </div>
+            </div>
             <div class="shoot-row">
                 <div class="shoot-date">May 30, 2026</div>
                 <div class="shoot-property">

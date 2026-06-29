@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rosy Sparks Portal | Flying Ace's</title>
+    <title>Becky Summers Portal | Flying Ace's</title>
     <meta name="robots" content="noindex, nofollow, noarchive">
-    <meta name="description" content="Private Flying Ace's client portal for Rosy Sparks.">
+    <meta name="description" content="Private Flying Ace's client portal for Becky Summers.">
     <link rel="icon" type="image/png" href="../../images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -162,6 +162,26 @@
             box-shadow:0 12px 32px rgba(0,0,0,.25);
             flex:0 0 auto;
         }
+        .client-initials {
+            width:54px;
+            height:54px;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            border:2px solid rgba(196,145,28,.58);
+            border-radius:50%;
+            color:var(--navy);
+            background:var(--gold);
+            font-family:'Montserrat',sans-serif;
+            font-size:1rem;
+            font-weight:900;
+            letter-spacing:.04em;
+            box-shadow:0 12px 32px rgba(0,0,0,.25);
+            flex:0 0 auto;
+        }
+        .client-initials[hidden] {
+            display:none;
+        }
         .client-hero {
             display:grid;
             grid-template-columns:minmax(0,1fr) 330px;
@@ -191,8 +211,9 @@
             text-align:left;
             background:
                 linear-gradient(180deg, rgba(4,7,14,.05) 0%, rgba(4,7,14,.12) 48%, rgba(4,7,14,.74) 100%),
-                linear-gradient(90deg, rgba(4,7,14,.64) 0%, rgba(4,7,14,.14) 42%, rgba(4,7,14,0) 72%),
-                url("assets/rosy-sparks-headshot.jpg") right 38% / cover no-repeat;
+                linear-gradient(90deg, rgba(4,7,14,.74) 0%, rgba(4,7,14,.34) 48%, rgba(4,7,14,.08) 100%),
+                radial-gradient(circle at 82% 54%, rgba(196,145,28,.18), rgba(196,145,28,0) 42%),
+                url("assets/becky-summers-headshot.jpg") right 34px bottom / auto 88% no-repeat;
         }
         .welcome-panel::before {
             content:"";
@@ -329,6 +350,9 @@
             grid-template-columns:1.4fr .9fr;
             gap:18px;
             align-items:start;
+        }
+        .portal-grid.is-single {
+            grid-template-columns:1fr;
         }
         .job-card {
             overflow:hidden;
@@ -585,8 +609,9 @@
                 padding:30px 22px;
                 background:
                     linear-gradient(180deg, rgba(4,7,14,.04) 0%, rgba(4,7,14,.12) 46%, rgba(4,7,14,.78) 100%),
-                    linear-gradient(90deg, rgba(4,7,14,.62) 0%, rgba(4,7,14,.16) 46%, rgba(4,7,14,0) 74%),
-                    url("assets/rosy-sparks-headshot.jpg") center 18% / cover no-repeat;
+                    linear-gradient(90deg, rgba(4,7,14,.62) 0%, rgba(4,7,14,.24) 46%, rgba(4,7,14,.06) 100%),
+                    radial-gradient(circle at 50% 36%, rgba(196,145,28,.16), rgba(196,145,28,0) 46%),
+                    url("assets/becky-summers-headshot.jpg") center 32% / auto 62% no-repeat;
             }
             .client-top,
             .job-head {
@@ -687,10 +712,11 @@
                 </details>
                 <div class="client-profile" aria-label="Client profile">
                     <span>
-                        <strong>Rosy Sparks</strong>
-                        <span>RE/MAX</span>
+                        <strong>Becky Summers</strong>
+                        <span>EXP Realty</span>
                     </span>
-                    <img src="assets/rosy-sparks-headshot.jpg" alt="Rosy Sparks headshot" width="1638" height="2048" decoding="async">
+                    <img src="assets/becky-summers-headshot.jpg" alt="Becky Summers headshot" width="1024" height="1536" decoding="async" onerror="this.hidden=true;this.nextElementSibling.hidden=false;">
+                    <span class="client-initials" hidden>BS</span>
                 </div>
             </div>
         </header>
@@ -698,15 +724,15 @@
         <section class="client-hero">
             <div class="welcome-panel">
                 <p class="client-kicker">Private Delivery Hub</p>
-                <h1>Welcome back, Rosy.</h1>
+                <h1>Welcome back, Becky.</h1>
             </div>
 
             <aside class="summary-panel" aria-label="Agent summary">
                 <div class="summary-heading">Agent Summary</div>
-                <p class="summary-intro">Your private Flying Ace's portal keeps current deliveries, invoices, and past shoot links in one place.</p>
+                <p class="summary-intro">Your private Flying Ace's portal keeps current deliveries and past shoot links in one place.</p>
                 <div class="summary-stat">
-                    <strong>2</strong>
-                    <span>Shoots Completed</span>
+                    <strong>1</strong>
+                    <span>Shoot Completed</span>
                 </div>
                 <div class="referral-card">
                     <strong>$0</strong>
@@ -718,34 +744,23 @@
         </section>
 
         <div class="section-label">Current Job</div>
-        <section class="portal-grid">
+        <section class="portal-grid is-single">
             <article class="job-card">
                 <div class="job-head">
                     <div>
-                        <h2>2928 SE Ebenezer Rd</h2>
-                        <p>Your latest listing media is ready. The Dropbox folder and invoice are saved here whenever you need them again.</p>
+                        <h2>1005 11th Ave Wellborn, FL</h2>
+                        <p>Your latest listing media is ready. The Dropbox folder is saved here whenever you need it again.</p>
                     </div>
-                    <div class="job-date">June 6, 2026</div>
+                    <div class="job-date">June 7, 2026</div>
                 </div>
                 <div class="job-actions" aria-label="Job actions">
                     <div class="job-action">
                         <strong>Finished Media Folder</strong>
-                        <a class="btn btn-gold" href="https://www.dropbox.com/scl/fo/0gk2ga30mumeou9nj9897/ANuNS0MR26ZXTH6O1nXGtlI?rlkey=noah5hc8k98ii50hz1mjy3buv&amp;st=6ofe47x7&amp;dl=0" target="_blank" rel="noopener noreferrer">Open Dropbox Delivery</a>
+                        <a class="btn btn-gold" href="https://www.dropbox.com/scl/fo/0ainp53s2rd08l95zs3f7/AAq6VGb-0nE6QUfKzjU-5is?rlkey=7o4y86eymvpu2p7bq0pmokyoi&amp;st=9pb5g9gb&amp;dl=0" target="_blank" rel="noopener noreferrer">Open Dropbox Delivery</a>
                     </div>
                 </div>
             </article>
 
-            <div class="side-stack">
-                <aside class="invoice-panel">
-                    <h2>Invoice</h2>
-                    <p>Invoice 1063 is attached to this shoot for quick viewing, download, and recordkeeping.</p>
-                    <div class="mini-actions">
-                        <a class="btn btn-outline-gold" href="assets/invoice-1063.png" target="_blank" rel="noopener">View Invoice</a>
-                        <a class="btn btn-outline" href="assets/invoice-1063-download.png" download="Flying-Aces-Invoice-1063-Rosy-Sparks.png">Download Invoice</a>
-                    </div>
-                </aside>
-
-            </div>
         </section>
 
         <div class="section-label">Agent Tools</div>
@@ -766,8 +781,8 @@
             </article>
             <article class="tool-card">
                 <div>
-                    <h2>Referral Credit</h2>
-                    <p>No referral credit is available yet. Start the next listing order when another property is ready.</p>
+                    <h2>Book Another Shoot</h2>
+                    <p>Start the next listing order when another property is ready for media.</p>
                 </div>
                 <a class="btn btn-gold" href="../../book.html">Book Another Shoot</a>
             </article>
@@ -776,25 +791,13 @@
         <div class="section-label">Shoot History &amp; Delivery Links</div>
         <section class="history-panel" aria-label="Shoot history and delivery links">
             <div class="shoot-row">
-                <div class="shoot-date">June 6, 2026</div>
+                <div class="shoot-date">June 7, 2026</div>
                 <div class="shoot-property">
-                    <strong>2928 SE Ebenezer Rd</strong>
-                    <span>Photography Package + Twilight &middot; Delivered</span>
+                    <strong>1005 11th Ave Wellborn, FL</strong>
+                    <span>Photography + Videography + Twilight &middot; Delivered</span>
                 </div>
                 <div class="shoot-links">
-                    <a href="https://www.dropbox.com/scl/fo/0gk2ga30mumeou9nj9897/ANuNS0MR26ZXTH6O1nXGtlI?rlkey=noah5hc8k98ii50hz1mjy3buv&amp;st=6ofe47x7&amp;dl=0" target="_blank" rel="noopener noreferrer">Open Dropbox</a>
-                    <a href="assets/invoice-1063.png" target="_blank" rel="noopener">View Invoice</a>
-                </div>
-            </div>
-            <div class="shoot-row">
-                <div class="shoot-date">May 19, 2026</div>
-                <div class="shoot-property">
-                    <strong>4857 SW 82nd Dr., Lake Butler, FL</strong>
-                    <span>Photography Package + Twilight &middot; Delivered</span>
-                </div>
-                <div class="shoot-links">
-                    <a href="https://www.dropbox.com/scl/fo/ighocp4tdo0wgpgn7nhib/AOOWogIrN_3udnNNUgCLBbo?rlkey=tv203rwad0tpt1v0m0gdk7bmy&amp;st=hkafb3ri&amp;dl=0" target="_blank" rel="noopener noreferrer">Open Dropbox</a>
-                    <a href="assets/invoice-1060.png" target="_blank" rel="noopener">View Invoice</a>
+                    <a href="https://www.dropbox.com/scl/fo/0ainp53s2rd08l95zs3f7/AAq6VGb-0nE6QUfKzjU-5is?rlkey=7o4y86eymvpu2p7bq0pmokyoi&amp;st=9pb5g9gb&amp;dl=0" target="_blank" rel="noopener noreferrer">Open Dropbox</a>
                 </div>
             </div>
         </section>

@@ -1678,7 +1678,10 @@ a.service-card:focus-visible {
 .package-details summary::after {
     content: '+';
     float: right;
-    color: rgba(255,255,255,0.62);
+    font-size: 1.5rem;
+    line-height: 0.9;
+    font-weight: 700;
+    color: var(--gold);
 }
 .package-details[open] summary::after {
     content: '-';
