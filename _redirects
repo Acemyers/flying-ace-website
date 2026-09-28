@@ -13,3 +13,7 @@ https://www.flyingacesmedia.com/* https://flyingacesmedia.com/:splat 301!
 /agents/demo.html /agent-portal-sample.html 301!
 /agents/template.html /agent-portal-sample.html 301!
 /deliveries/sample-private-delivery.html /agent-portal-sample.html 301!
+
+# Old Google Ads landing URLs that never existed as pages.
+/real-estate/media /packages.html 301!
+/real-estate /packages.html 301!
